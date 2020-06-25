@@ -25,7 +25,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: run Lighthouse CI
+        continue-on-error: true
         run: |
           npm install -g @lhci/cli@0.4.x
           lhci autorun --rc-overrides.upload.target=temporary-public-storage
-          lhci upload
