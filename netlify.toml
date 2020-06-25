@@ -1,0 +1,7 @@
+[build]
+    publish = "public"
+    command = '''
+    npx gatsby build --prefix-paths
+    '''
+[build.environment]
+  NODE_VERSION = "14"
