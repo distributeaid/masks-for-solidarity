@@ -25,6 +25,10 @@ jobs:
         run: npm run build
       - name: Lint
         run: npm run lint
+      - name: run Lighthouse CI
+        run: |
+          npm install -g @lhci/cli@0.4.x
+          lhci autorun
       - name: Semantic release
         continue-on-error: true
         run: |
