@@ -2,10 +2,14 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { renderHtmlAstToReact } from '../renderHtmlToReact'
-import Header from './header'
+import { Head } from './head'
+import { Header } from './header'
+import { Main } from './main'
+import { Footer } from './footer'
 
-const Main = styled.main``
-
+const Wrapper = styled.div`
+	height: 100%;
+`
 export const query = graphql`
 	query PageTemplateQuery {
 		site {
@@ -38,16 +42,18 @@ const PageTemplate = (data: {
 	}
 }) => {
 	return (
-		<>
-			<Header
+		<Wrapper>
+			<Head
 				title={data.data.site.siteMetadata.title}
 				description={data.data.site.siteMetadata.description}
 			/>
+			<Header />
 			<Main>
 				{data.pageContext.page.remark?.htmlAst !== undefined &&
 					renderHtmlAstToReact(data.pageContext.page.remark.htmlAst)}
 			</Main>
-		</>
+			<Footer />
+		</Wrapper>
 	)
 }
 
