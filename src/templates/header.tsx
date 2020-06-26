@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { wideBreakpoint } from './settings'
-import imageUrlBuilder from '@sanity/image-url'
 
 const windowGlobal = (typeof window !== 'undefined' && window) || undefined
 
@@ -45,11 +44,6 @@ const GalleryHeader = styled.header`
 	}
 `
 
-const builder = imageUrlBuilder({
-	projectId: '1z6tpjf0',
-	dataset: 'production',
-})
-
 const photos = [
 	'https://cdn.sanity.io/images/1z6tpjf0/production/27fee9d809ff6017fafdf3cbc5514eebd1acff9a-1600x843.jpg',
 	'https://cdn.sanity.io/images/1z6tpjf0/production/231bac93a65504138921fb8938ab58fb8f73c8c4-1186x720.jpg',
@@ -68,6 +62,11 @@ function* rotate<T>(items: T[]): Generator<T> {
 
 const galleryPhotos = rotate(photos)
 
+const toQueryString = (params: Record<string, any>) =>
+	Object.entries(params)
+		.map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
+		.join('&')
+
 const responsiveUrl = ({
 	url,
 	w,
@@ -77,13 +76,12 @@ const responsiveUrl = ({
 	w?: number
 	h?: number
 }) =>
-	builder
-		.image(url)
-		.width(Math.floor((w ?? 1000) / 100) * 100)
-		.height(Math.floor((h ?? 500) / 100) * 100)
-		.fit('min')
-		.auto('format')
-		.url()
+	`${url}?${toQueryString({
+		w: Math.floor((w ?? 1000) / 100) * 100,
+		h: Math.floor((h ?? 500) / 100) * 100,
+		fit: 'crop',
+		auto: 'format',
+	})}`
 
 export const Header = () => {
 	const [currentPhoto, setCurrentPhoto] = useState(
@@ -105,7 +103,7 @@ export const Header = () => {
 						h: (windowGlobal?.innerHeight ?? 500) / 2,
 					}),
 				)
-		}, 5000)
+		}, 1000)
 		return () => {
 			isCancelled = true
 			clearInterval(i)
