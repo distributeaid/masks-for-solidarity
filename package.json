@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/distributeaid/masks-for-solidarity#readme",
   "dependencies": {
+    "@sanity/image-url": "^0.140.19",
     "feather-icons": "^4.28.0",
     "gatsby-remark-autolink-headers": "^2.3.7",
     "snyk": "^1.349.0"

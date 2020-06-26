@@ -1,11 +1,15 @@
-import React, { useEffect, useState, createRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-
-import HeartIcon from 'feather-icons/dist/icons/heart.svg'
 import { wideBreakpoint } from './settings'
+import imageUrlBuilder from '@sanity/image-url'
+
+const windowGlobal = (typeof window !== 'undefined' && window) || undefined
 
 const Title = styled.div`
 	width: 100%;
+	@media (min-width: ${wideBreakpoint}) {
+		width: auto;
+	}
 	h1 {
 		margin: 0;
 		color: #fff;
@@ -41,6 +45,11 @@ const GalleryHeader = styled.header`
 	}
 `
 
+const builder = imageUrlBuilder({
+	projectId: '1z6tpjf0',
+	dataset: 'production',
+})
+
 const photos = [
 	'https://cdn.sanity.io/images/1z6tpjf0/production/27fee9d809ff6017fafdf3cbc5514eebd1acff9a-1600x843.jpg',
 	'https://cdn.sanity.io/images/1z6tpjf0/production/231bac93a65504138921fb8938ab58fb8f73c8c4-1186x720.jpg',
@@ -59,29 +68,52 @@ function* rotate<T>(items: T[]): Generator<T> {
 
 const galleryPhotos = rotate(photos)
 
+const responsiveUrl = ({
+	url,
+	w,
+	h,
+}: {
+	url: string
+	w?: number
+	h?: number
+}) =>
+	builder
+		.image(url)
+		.width(Math.floor((w ?? 1000) / 100) * 100)
+		.height(Math.floor((h ?? 500) / 100) * 100)
+		.fit('min')
+		.auto('format')
+		.url()
+
 export const Header = () => {
-	const [currentPhoto, setCurrentPhoto] = useState(galleryPhotos.next().value)
-	const ref = createRef<HTMLDivElement>()
+	const [currentPhoto, setCurrentPhoto] = useState(
+		responsiveUrl({
+			url: galleryPhotos.next().value,
+			w: windowGlobal?.innerWidth,
+			h: (windowGlobal?.innerHeight ?? 500) / 2,
+		}),
+	)
+
 	useEffect(() => {
 		let isCancelled = false
 		const i = setInterval(() => {
-			setCurrentPhoto(
-				`${galleryPhotos.next().value}?w=${
-					ref.current?.clientWidth ?? 1024
-				}&h=${ref.current?.clientHeight ?? 512}&fit=crop`,
-			)
+			if (!isCancelled)
+				setCurrentPhoto(
+					responsiveUrl({
+						url: galleryPhotos.next().value,
+						w: windowGlobal?.innerWidth,
+						h: (windowGlobal?.innerHeight ?? 500) / 2,
+					}),
+				)
 		}, 5000)
 		return () => {
 			isCancelled = true
 			clearInterval(i)
 		}
-	}, [galleryPhotos, ref])
+	}, [galleryPhotos])
 
 	return (
-		<GalleryHeader
-			style={{ backgroundImage: `url(${currentPhoto})` }}
-			ref={ref}
-		>
+		<GalleryHeader style={{ backgroundImage: `url(${currentPhoto})` }}>
 			<Title>
 				<h1>Masks for Solidarity</h1>
 			</Title>
