@@ -19,6 +19,26 @@ export const query = graphql`
 				description
 			}
 		}
+		allSanityGallery {
+			nodes {
+				title
+				photo {
+					hotspot {
+						x
+						y
+					}
+					asset {
+						url
+						metadata {
+							dimensions {
+								width
+								height
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 `
 
@@ -26,6 +46,9 @@ const PageTemplate = (data: {
 	data: {
 		site: {
 			siteMetadata: { title: string; shortTitle: string; description: string }
+		}
+		allSanityGallery: {
+			nodes: Record<string, any>[]
 		}
 	}
 	pageContext: {
@@ -40,21 +63,19 @@ const PageTemplate = (data: {
 			}
 		}
 	}
-}) => {
-	return (
-		<Wrapper>
-			<Head
-				title={data.data.site.siteMetadata.title}
-				description={data.data.site.siteMetadata.description}
-			/>
-			<Header />
-			<Main>
-				{data.pageContext.page.remark?.htmlAst !== undefined &&
-					renderHtmlAstToReact(data.pageContext.page.remark.htmlAst)}
-			</Main>
-			<Footer />
-		</Wrapper>
-	)
-}
+}) => (
+	<Wrapper>
+		<Head
+			title={data.data.site.siteMetadata.title}
+			description={data.data.site.siteMetadata.description}
+		/>
+		<Header gallery={data.data.allSanityGallery.nodes} />
+		<Main>
+			{data.pageContext.page.remark?.htmlAst !== undefined &&
+				renderHtmlAstToReact(data.pageContext.page.remark.htmlAst)}
+		</Main>
+		<Footer />
+	</Wrapper>
+)
 
 export default PageTemplate
