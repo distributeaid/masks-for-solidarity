@@ -83,7 +83,9 @@ const responsiveUrl = ({
 		auto: 'format',
 	})}`
 
-export const Header = () => {
+export const Header = ({ gallery }: { gallery: Record<string, any>[] }) => {
+	console.log({ gallery })
+
 	const [currentPhoto, setCurrentPhoto] = useState(
 		responsiveUrl({
 			url: galleryPhotos.next().value,

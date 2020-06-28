@@ -34,6 +34,13 @@ const cfg = {
 		`gatsby-plugin-styled-components`,
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-react-svg`,
+		{
+			resolve: `gatsby-source-sanity`,
+			options: {
+				projectId: process.env.SANITY_PROJECT_ID ?? '1z6tpjf0',
+				dataset: process.env.SANITY_DATASET ?? 'production',
+			},
+		},
 	],
 }
 
