@@ -5,7 +5,7 @@ import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import { Head } from './head'
 import { Header } from './header'
 import { Main } from './main'
-import { Footer } from './footer'
+import { Footer } from '../components/Footer'
 
 const Wrapper = styled.div`
 	height: 100%;
@@ -17,6 +17,7 @@ export const query = graphql`
 				title
 				shortTitle
 				description
+				gitHubUrl
 			}
 		}
 		allSanityGallery {
@@ -42,10 +43,17 @@ export const query = graphql`
 	}
 `
 
+export type SiteMetaData = {
+	title: string
+	shortTitle: string
+	description: string
+	gitHubUrl: string
+}
+
 const PageTemplate = (data: {
 	data: {
 		site: {
-			siteMetadata: { title: string; shortTitle: string; description: string }
+			siteMetadata: SiteMetaData
 		}
 		allSanityGallery: {
 			nodes: Record<string, any>[]
@@ -65,16 +73,13 @@ const PageTemplate = (data: {
 	}
 }) => (
 	<Wrapper>
-		<Head
-			title={data.data.site.siteMetadata.title}
-			description={data.data.site.siteMetadata.description}
-		/>
+		<Head siteMetaData={data.data.site.siteMetadata} />
 		<Header gallery={data.data.allSanityGallery.nodes} />
 		<Main>
 			{data.pageContext.page.remark?.htmlAst !== undefined &&
 				renderHtmlAstToReact(data.pageContext.page.remark.htmlAst)}
 		</Main>
-		<Footer />
+		<Footer siteMetaData={data.data.site.siteMetadata} />
 	</Wrapper>
 )
 

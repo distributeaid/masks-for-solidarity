@@ -7,6 +7,7 @@ const pJSON = JSON.parse(
 )
 
 const siteUrl = (process.env.SITE_URL || pJSON.homepage).replace(/\//g, '')
+const gitHubUrl = pJSON.repository.url
 
 const cfg = {
 	pathPrefix: process.env.SITE_DIR,
@@ -15,6 +16,7 @@ const cfg = {
 		shortTitle: `Masks for Solidarity`,
 		siteUrl,
 		description: `Masks for Solidarity`,
+		gitHubUrl,
 	},
 	plugins: [
 		`gatsby-plugin-typescript`,

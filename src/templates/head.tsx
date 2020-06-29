@@ -2,6 +2,7 @@ import React from 'react'
 import { createGlobalStyle } from 'styled-components'
 import { Helmet } from 'react-helmet'
 import { withPrefix } from 'gatsby'
+import { SiteMetaData } from './page'
 
 const GlobalStyle = createGlobalStyle`
       html,
@@ -20,11 +21,9 @@ const GlobalStyle = createGlobalStyle`
 `
 
 export const Head = ({
-	title,
-	description,
+	siteMetaData: { title, description },
 }: {
-	title: string
-	description: string
+	siteMetaData: SiteMetaData
 }) => (
 	<>
 		<Helmet>

@@ -25,6 +25,10 @@
   "bugs": {
     "url": "https://github.com/distributeaid/masks-for-solidarity/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/distributeaid/masks-for-solidarity.git"
+  },
   "homepage": "https://github.com/distributeaid/masks-for-solidarity#readme",
   "dependencies": {
     "feather-icons": "^4.28.0",
