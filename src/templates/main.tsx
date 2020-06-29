@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { wideBreakpoint } from './settings'
+import { wideBreakpoint } from '../settings'
 
 export const Main = styled.main`
 	margin: 0 auto;
