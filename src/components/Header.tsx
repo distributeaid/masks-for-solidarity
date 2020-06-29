@@ -1,6 +1,6 @@
 import React from 'react'
 import { GalleryImage, responsiveUrl } from '../sanity'
-import { Gallery } from '../components/Gallery'
+import { Gallery } from './Gallery'
 import { rotate } from '../rotate'
 import { shuffle } from '../shuffle'
 

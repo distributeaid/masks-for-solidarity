@@ -2,9 +2,9 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { renderHtmlAstToReact } from '../renderHtmlToReact'
-import { Head } from './head'
-import { Header } from './header'
-import { Main } from './main'
+import { Head } from './Head'
+import { Header } from '../components/Header'
+import { Main } from '../components/Main'
 import { Footer } from '../components/Footer'
 
 const Wrapper = styled.div`
