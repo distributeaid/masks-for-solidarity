@@ -1,12 +1,12 @@
-# Masks for Solidarity
+# Masks for Humanity
 
-![Build and Release](https://github.com/distributeaid/masks-for-solidarity/workflows/Build%20and%20Release/badge.svg)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/d1f5dcf2-39b9-42f6-aa4b-79ba4e40f781/deploy-status)](https://app.netlify.com/sites/masks-for-solidarity/deploys)
-[![Known Vulnerabilities](https://snyk.io/test/github/distributeaid/masks-for-solidarity/badge.svg)](https://snyk.io/test/github/distributeaid/masks-for-solidarity)
+![Build and Release](https://github.com/distributeaid/masks-for-humanity/workflows/Build%20and%20Release/badge.svg)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d1f5dcf2-39b9-42f6-aa4b-79ba4e40f781/deploy-status)](https://app.netlify.com/sites/masks-for-humanity/deploys)
+[![Known Vulnerabilities](https://snyk.io/test/github/distributeaid/masks-for-humanity/badge.svg)](https://snyk.io/test/github/distributeaid/masks-for-humanity)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-Website for the Masks for Solidarity project.
+Website for the Masks for Humanity project.
 
 ## Start Gatsby
 

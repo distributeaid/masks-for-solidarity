@@ -65,7 +65,7 @@ export const Gallery = ({
 	return (
 		<GalleryHeader style={{ backgroundImage: `url(${currentPhoto})` }}>
 			<Title>
-				<h1>Masks for Solidarity</h1>
+				<h1>Masks for Humanity</h1>
 			</Title>
 		</GalleryHeader>
 	)

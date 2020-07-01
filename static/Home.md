@@ -1,5 +1,5 @@
 ---
-title: Masks for Solidarity
+title: Masks for Humanity
 ---
 
 # Hello World!

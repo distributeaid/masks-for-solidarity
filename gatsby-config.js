@@ -12,10 +12,10 @@ const gitHubUrl = pJSON.repository.url
 const cfg = {
 	pathPrefix: process.env.SITE_DIR,
 	siteMetadata: {
-		title: `Masks for Solidarity`,
-		shortTitle: `Masks for Solidarity`,
+		title: `Masks for Humanity`,
+		shortTitle: `Masks for Humanity`,
 		siteUrl,
-		description: `Masks for Solidarity`,
+		description: `Masks for Humanity`,
 		gitHubUrl,
 	},
 	plugins: [

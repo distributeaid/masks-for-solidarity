@@ -1,7 +1,7 @@
 {
-  "name": "@distributeaid/masks-for-solidarity",
+  "name": "@distributeaid/masks-for-humanity",
   "version": "0.0.0-development",
-  "description": "Website for the Masks for Solidarity project",
+  "description": "Website for the Masks for Humanity project",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "snyk-protect": "snyk protect",
@@ -13,7 +13,7 @@
   },
   "keywords": [
     "Distribute Aid",
-    "Masks for Solidarity",
+    "Masks for Humanity",
     "GatsbyJS",
     "React",
     "TypeScript",
@@ -23,13 +23,13 @@
   "author": "Distribute Aid | https://distributeaid.org/",
   "license": "AGPL-3.0-only",
   "bugs": {
-    "url": "https://github.com/distributeaid/masks-for-solidarity/issues"
+    "url": "https://github.com/distributeaid/masks-for-humanity/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/distributeaid/masks-for-solidarity.git"
+    "url": "https://github.com/distributeaid/masks-for-humanity.git"
   },
-  "homepage": "https://github.com/distributeaid/masks-for-solidarity#readme",
+  "homepage": "https://github.com/distributeaid/masks-for-humanity#readme",
   "dependencies": {
     "feather-icons": "^4.28.0",
     "gatsby-remark-autolink-headers": "^2.3.7",
