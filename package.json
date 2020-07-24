@@ -32,7 +32,7 @@
   "homepage": "https://github.com/distributeaid/masks-for-humanity#readme",
   "dependencies": {
     "feather-icons": "^4.28.0",
-    "gatsby-remark-autolink-headers": "^2.3.9",
+    "gatsby-remark-autolink-headers": "^2.3.10",
     "snyk": "^1.359.1"
   },
   "snyk": true,
