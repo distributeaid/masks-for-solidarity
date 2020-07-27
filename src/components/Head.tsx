@@ -21,7 +21,7 @@ export const Head = ({
 					var x = d.createElement("link");
 					var y = d.getElementsByTagName("script")[0];
 					x.rel = "stylesheet";
-					x.href = "https://fonts.googleapis.com/css2?family=Bitter&family=Catamaran:wght@300&amp;display=swap";
+					x.href = "https://fonts.googleapis.com/css2?family=Bitter&family=Catamaran:wght@300&display=swap";
 					y.parentNode.insertBefore(x, y);
 				})(document);`}
 			</script>
