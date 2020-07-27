@@ -27,7 +27,12 @@ export const Footer = ({
 			. All rights reserved.
 		</p>
 		<p className="dim">
-			<a href={gitHubUrl} target="_blank" rel="nofollow noreferrer">
+			<a
+				href={gitHubUrl}
+				target="_blank"
+				rel="nofollow noreferrer"
+				title="GitHub project for this site"
+			>
 				<GitHubIcon />
 			</a>
 		</p>
