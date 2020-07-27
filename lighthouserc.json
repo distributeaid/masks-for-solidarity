@@ -11,7 +11,9 @@
         "service-worker": "off",
         "themed-omnibox": "off",
         "splash-screen": "off",
-        "works-offline": "off"
+        "works-offline": "off",
+        "unused-javascript": ["error", { "maxLength": "<=3" }],
+        "uses-rel-preconnect": "off"
       }
     },
     "upload": {
