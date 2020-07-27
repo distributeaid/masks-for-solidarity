@@ -4,7 +4,13 @@
       "preset": "lighthouse:recommended",
       "assertions": {
         "uses-http2": "off",
-        "uses-long-cache-ttl": "off"
+        "uses-long-cache-ttl": "off",
+        "installable-manifest": "off",
+        "maskable-icon": "off",
+        "offline-start-url": "off",
+        "service-worker": "off",
+        "themed-omnibox": "off",
+        "works-offline": "off"
       }
     },
     "upload": {
