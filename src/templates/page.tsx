@@ -1,15 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import styled from 'styled-components'
 import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import { Head } from '../components/Head'
 import { Header } from '../components/Header'
-import { Main } from '../components/Main'
 import { Footer } from '../components/Footer'
 
-const Wrapper = styled.div`
-	height: 100%;
-`
+import './page.scss'
+import { GalleryImage } from '../sanity'
+
 export const query = graphql`
 	query PageTemplateQuery {
 		site {
@@ -72,15 +70,15 @@ const PageTemplate = (data: {
 		}
 	}
 }) => (
-	<Wrapper>
+	<>
 		<Head siteMetaData={data.data.site.siteMetadata} />
-		<Header gallery={data.data.allSanityGallery.nodes} />
-		<Main>
+		<Header gallery={data.data.allSanityGallery.nodes as GalleryImage[]} />
+		<main>
 			{data.pageContext.page.remark?.htmlAst !== undefined &&
 				renderHtmlAstToReact(data.pageContext.page.remark.htmlAst)}
-		</Main>
+		</main>
 		<Footer siteMetaData={data.data.site.siteMetadata} />
-	</Wrapper>
+	</>
 )
 
 export default PageTemplate
