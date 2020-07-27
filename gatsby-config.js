@@ -33,7 +33,6 @@ const cfg = {
 				plugins: [`gatsby-remark-autolink-headers`],
 			},
 		},
-		`gatsby-plugin-styled-components`,
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-react-svg`,
 		{
@@ -43,6 +42,7 @@ const cfg = {
 				dataset: process.env.SANITY_DATASET ?? 'production',
 			},
 		},
+		`gatsby-plugin-sass`,
 	],
 }
 
