@@ -13,7 +13,8 @@
         "splash-screen": "off",
         "works-offline": "off",
         "unused-javascript": ["error", { "maxLength": 3 }],
-        "uses-rel-preconnect": "off"
+        "uses-rel-preconnect": "off",
+        "largest-contentful-paint": ["warning", { "minScore": 0.8 }]
       }
     },
     "upload": {
