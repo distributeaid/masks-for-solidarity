@@ -16,10 +16,15 @@ export const Head = ({
 			<link rel="icon" type="image/svg+xml" href={withPrefix('/favicon.svg')} />
 			<link rel="apple-touch-icon" href={withPrefix('/favicon-ios.png')}></link>
 			<link rel="preconnect" href="https://fonts.googleapis.com" />
-			<link
-				href="https://fonts.googleapis.com/css2?family=Bitter&family=Catamaran:wght@300&amp;display=swap"
-				rel="stylesheet"
-			></link>
+			<script type="text/javascript">
+				{`(function(d){
+					var x = d.createElement("link");
+					var y = d.getElementsByTagName("script")[0];
+					x.rel = "stylesheet";
+					x.href = "https://fonts.googleapis.com/css2?family=Bitter&family=Catamaran:wght@300&amp;display=swap";
+					y.parentNode.insertBefore(x, y);
+				})(document);`}
+			</script>
 		</Helmet>
 	</>
 )
