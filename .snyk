@@ -1,6 +1,88 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
 version: v1.14.1
-ignore: {}
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-JS-AJV-584908:
+    - node-sass > request > har-validator > ajv:
+        reason: Build time dependency
+        expires: '2020-08-26T12:22:10.257Z'
+    - node-sass > node-gyp > request > har-validator > ajv:
+        reason: Build time dependency
+        expires: '2020-08-26T12:22:10.257Z'
+  SNYK-JS-LODASH-567746:
+    - node-sass > lodash:
+        reason: Build time dependency
+        expires: '2020-08-26T12:22:10.257Z'
+    - node-sass > sass-graph > lodash:
+        reason: Build time dependency
+        expires: '2020-08-26T12:22:10.258Z'
+    - node-sass > gaze > globule > lodash:
+        reason: Build time dependency
+        expires: '2020-08-26T12:22:10.258Z'
+  SNYK-JS-NODESASS-535497:
+    - node-sass:
+        reason: Build time dependency
+        expires: '2020-08-26T12:22:10.258Z'
+  SNYK-JS-NODESASS-535498:
+    - node-sass:
+        reason: Build time dependency
+        expires: '2020-08-26T12:22:10.258Z'
+  SNYK-JS-NODESASS-535502:
+    - node-sass:
+        reason: Build time dependency
+        expires: '2020-08-26T12:22:10.258Z'
+  SNYK-JS-NODESASS-540956:
+    - node-sass:
+        reason: Build time dependency
+        expires: '2020-08-26T12:22:10.258Z'
+  SNYK-JS-NODESASS-540958:
+    - node-sass:
+        reason: Build time dependency
+        expires: '2020-08-26T12:22:10.258Z'
+  SNYK-JS-NODESASS-540964:
+    - node-sass:
+        reason: Build time dependency
+        expires: '2020-08-26T12:22:10.259Z'
+  SNYK-JS-NODESASS-540974:
+    - node-sass:
+        reason: Build time dependency
+        expires: '2020-08-26T12:22:10.259Z'
+  SNYK-JS-NODESASS-540978:
+    - node-sass:
+        reason: Build time dependency
+        expires: '2020-08-26T12:22:10.259Z'
+  SNYK-JS-NODESASS-540980:
+    - node-sass:
+        reason: Build time dependency
+        expires: '2020-08-26T12:22:10.259Z'
+  SNYK-JS-NODESASS-540990:
+    - node-sass:
+        reason: Build time dependency
+        expires: '2020-08-26T12:22:10.259Z'
+  SNYK-JS-NODESASS-540992:
+    - node-sass:
+        reason: Build time dependency
+        expires: '2020-08-26T12:22:10.259Z'
+  SNYK-JS-NODESASS-540994:
+    - node-sass:
+        reason: Build time dependency
+        expires: '2020-08-26T12:22:10.259Z'
+  SNYK-JS-NODESASS-540996:
+    - node-sass:
+        reason: Build time dependency
+        expires: '2020-08-26T12:22:10.259Z'
+  SNYK-JS-NODESASS-540998:
+    - node-sass:
+        reason: Build time dependency
+        expires: '2020-08-26T12:22:10.259Z'
+  SNYK-JS-NODESASS-541000:
+    - node-sass:
+        reason: Build time dependency
+        expires: '2020-08-26T12:22:10.259Z'
+  SNYK-JS-NODESASS-541002:
+    - node-sass:
+        reason: Build time dependency
+        expires: '2020-08-26T12:22:10.259Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   SNYK-JS-LODASH-567746:
