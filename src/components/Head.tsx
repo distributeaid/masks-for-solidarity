@@ -18,6 +18,7 @@ export const Head = ({
 			<meta name="description" content={description} />
 			<html lang="en" />
 			<link rel="icon" type="image/svg+xml" href={withPrefix('/favicon.svg')} />
+			<link rel="apple-touch-icon" href={withPrefix('/favicon-ios.png')}></link>
 		</Helmet>
 	</>
 )
