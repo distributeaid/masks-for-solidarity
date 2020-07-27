@@ -16,9 +16,6 @@ export const Head = ({
 			<link rel="icon" type="image/svg+xml" href={withPrefix('/favicon.svg')} />
 			<link rel="apple-touch-icon" href={withPrefix('/favicon-ios.png')}></link>
 			<link rel="preconnect" href="https://fonts.googleapis.com" />
-			{process.env.LHCI !== undefined && (
-				<link rel="preconnect" href="http://localhost:44305/" />
-			)}
 			<script type="text/javascript">
 				{`(function(d){
 					var x = d.createElement("link");
