@@ -12,7 +12,7 @@
         "themed-omnibox": "off",
         "splash-screen": "off",
         "works-offline": "off",
-        "unused-javascript": ["error", { "maxLength": "<=3" }],
+        "unused-javascript": ["error", { "maxLength": 3 }],
         "uses-rel-preconnect": "off"
       }
     },
