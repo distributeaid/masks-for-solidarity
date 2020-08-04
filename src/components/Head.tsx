@@ -20,6 +20,14 @@ const GlobalStyle = createGlobalStyle`
 	  }
 `
 
+const loadAsync = (src: string): string => `(function(d){
+	var x = d.createElement("link");
+	var y = d.getElementsByTagName("script")[0];
+	x.rel = "stylesheet";
+	x.href = "${src}";
+	y.parentNode.insertBefore(x, y);
+})(document);`
+
 export const Head = ({
 	siteMetaData: { title, description },
 }: {
@@ -34,18 +42,15 @@ export const Head = ({
 			<link rel="apple-touch-icon" href={withPrefix('/favicon-ios.png')}></link>
 			<link rel="preconnect" href="https://fonts.googleapis.com" />
 			<script type="text/javascript">
-				{`(function(d){
-					var x = d.createElement("link");
-					var y = d.getElementsByTagName("script")[0];
-					x.rel = "stylesheet";
-					x.href = "https://fonts.googleapis.com/css2?family=Bitter&family=Catamaran:wght@300&display=swap";
-					y.parentNode.insertBefore(x, y);
-				})(document);`}
+				{loadAsync(
+					'https://fonts.googleapis.com/css2?family=Bitter&family=Catamaran:wght@300&display=swap',
+				)}
 			</script>
-			<link
-				href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
-				rel="stylesheet"
-			/>
+			<script type="text/javascript">
+				{loadAsync(
+					'https://necolas.github.io/normalize.css/8.0.1/normalize.css',
+				)}
+			</script>
 		</Helmet>
 		<GlobalStyle />
 	</>
