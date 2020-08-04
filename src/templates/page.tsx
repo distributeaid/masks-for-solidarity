@@ -6,6 +6,7 @@ import { Head } from '../components/Head'
 import { Header } from '../components/Header'
 import { Main } from '../components/Main'
 import { Footer } from '../components/Footer'
+import { Navbar } from '../components/Navbar'
 
 const Wrapper = styled.div`
 	height: 100%;
@@ -72,15 +73,18 @@ const PageTemplate = (data: {
 		}
 	}
 }) => (
-	<Wrapper>
+	<>
 		<Head siteMetaData={data.data.site.siteMetadata} />
-		<Header gallery={data.data.allSanityGallery.nodes} />
-		<Main>
-			{data.pageContext.page.remark?.htmlAst !== undefined &&
-				renderHtmlAstToReact(data.pageContext.page.remark.htmlAst)}
-		</Main>
-		<Footer siteMetaData={data.data.site.siteMetadata} />
-	</Wrapper>
+		<Wrapper>
+			<Navbar />
+			<Header gallery={data.data.allSanityGallery.nodes} />
+			<Main>
+				{data.pageContext.page.remark?.htmlAst !== undefined &&
+					renderHtmlAstToReact(data.pageContext.page.remark.htmlAst)}
+			</Main>
+			<Footer siteMetaData={data.data.site.siteMetadata} />
+		</Wrapper>
+	</>
 )
 
 export default PageTemplate

@@ -7,7 +7,8 @@ import { SiteMetaData } from '../templates/page'
 const GlobalStyle = createGlobalStyle`
       html,
       body {
-		font-family: 'Catamaran', sans-serif;
+		font-family: 'Poppins', sans-serif;
+		font-weight: 400;
 		height: 100%;
 		background-color: #2d2d2d;
 		color: #c7c7c7;
@@ -16,7 +17,8 @@ const GlobalStyle = createGlobalStyle`
 		height: 100%;
 	  }
 	  h1, h2, h3, h4, h5, h6 {
-		font-family: 'Bitter', serif;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 700;
 	  }
 `
 
@@ -43,7 +45,7 @@ export const Head = ({
 			<link rel="preconnect" href="https://fonts.googleapis.com" />
 			<script type="text/javascript">
 				{loadAsync(
-					'https://fonts.googleapis.com/css2?family=Bitter&family=Catamaran:wght@300&display=swap',
+					'https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins&display=swap',
 				)}
 			</script>
 			<script type="text/javascript">
