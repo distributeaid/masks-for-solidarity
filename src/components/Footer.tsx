@@ -20,7 +20,7 @@ const StyledFooter = styled.footer`
 		margin-bottom: 2rem;
 		&.dim {
 			margin-bottom: 0;
-			opacity: 0.5;
+			opacity: 0.75;
 		}
 	}
 	a {
