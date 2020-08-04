@@ -1,17 +1,39 @@
 import React from 'react'
+import styled from 'styled-components'
 
 import HeartIcon from 'feather-icons/dist/icons/heart.svg'
 import GitHubIcon from 'feather-icons/dist/icons/github.svg'
 import { SiteMetaData } from '../templates/page'
 
-import './Footer.scss'
+const StyledFooter = styled.footer`
+	padding: 4rem;
+	svg {
+		&.heart {
+			color: #f11748;
+		}
+		display: inline-block;
+		margin-bottom: -8px;
+		padding: 0 0.25rem;
+	}
+	p {
+		text-align: center;
+		margin-bottom: 2rem;
+		&.dim {
+			margin-bottom: 0;
+			opacity: 0.75;
+		}
+	}
+	a {
+		color: inherit;
+	}
+`
 
 export const Footer = ({
 	siteMetaData: { gitHubUrl },
 }: {
 	siteMetaData: SiteMetaData
 }) => (
-	<footer id="footer">
+	<StyledFooter>
 		<p>
 			Made with <HeartIcon className="heart" /> by Refugees in Moria.
 		</p>
@@ -36,5 +58,5 @@ export const Footer = ({
 				<GitHubIcon />
 			</a>
 		</p>
-	</footer>
+	</StyledFooter>
 )
