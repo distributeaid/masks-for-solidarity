@@ -107,7 +107,7 @@ export const Navbar = () => {
 				<a href="/" title={'Home'}>
 					<StyledLogoIcon title={'Masks for Humanity'} />
 				</a>
-				<MenuToggle onClick={toggleMenu}>
+				<MenuToggle onClick={toggleMenu} title={'Toggle Menu'}>
 					<MenuToggleIcon />
 				</MenuToggle>
 				<LinksContainer>

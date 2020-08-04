@@ -41,6 +41,6 @@ export const Main = styled.main`
 	}
 
 	a {
-		color: ${colors.maskLightGreen};
+		color: ${colors.bossOrange};
 	}
 `
