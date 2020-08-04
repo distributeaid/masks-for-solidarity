@@ -51,10 +51,6 @@ export const Head = ({
 					'https://necolas.github.io/normalize.css/8.0.1/normalize.css',
 				)}
 			</script>
-			<link
-				href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
-				rel="stylesheet"
-			/>
 		</Helmet>
 		<GlobalStyle />
 	</>
