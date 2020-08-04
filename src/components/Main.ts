@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import { wideBreakpoint } from '../settings'
+import { mediumBreakpoint, colors } from '../settings'
 
 export const Main = styled.main`
 	margin: 0 auto;
-	max-width: ${wideBreakpoint};
+	max-width: ${mediumBreakpoint};
 	line-height: 1.5rem;
 	padding: 1rem;
-	@media (min-width: ${wideBreakpoint}) {
+	@media (min-width: ${mediumBreakpoint}) {
 		padding: 4rem 0;
 	}
 
@@ -41,6 +41,6 @@ export const Main = styled.main`
 	}
 
 	a {
-		color: #3f797a;
+		color: ${colors.maskLightGreen};
 	}
 `
