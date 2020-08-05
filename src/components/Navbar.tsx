@@ -31,9 +31,16 @@ const Link = styled.a`
 
 const DonateButton = styled(Link)`
 	font-weight: 700;
+	color: ${colors.bossOrange};
+	&:hover {
+		color: white;
+	}
 	@media (min-width: ${mediumBreakpoint}) {
-		border: 1.5px solid #ffffffcc;
+		border: 1.5px solid ${colors.bossOrange}cc;
 		padding: 0.75rem;
+		&:hover {
+			border-color: white;
+		}
 	}
 `
 
