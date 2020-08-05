@@ -103,14 +103,15 @@ const Wrapper = styled.div`
 const MenuToggle = styled.button`
 	background-color: transparent;
 	border: 0;
-	margin-right: 1rem;
 	color: #ffffffcc;
+	width: 48px;
+	height: 48px;
 	&:hover {
 		color: white;
 	}
 	position: absolute;
-	top: 1rem;
-	right: 1rem;
+	top: 10px;
+	right: 10px;
 	@media (min-width: ${mediumBreakpoint}) {
 		display: none;
 	}
