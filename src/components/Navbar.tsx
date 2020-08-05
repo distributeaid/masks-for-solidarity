@@ -3,19 +3,30 @@ import styled from 'styled-components'
 import { colors, wideBreakpoint, mediumBreakpoint } from '../settings'
 
 import LogoIcon from './logo-colored.svg'
+import LogoIconWide from './logo-colored-wide.svg'
 import MenuToggleIcon from 'feather-icons/dist/icons/menu.svg'
 
 const StyledLogoIcon = styled(LogoIcon)`
-	height: 25px;
-	width: auto;
-	margin: 1rem;
+	display: none;
 	@media (min-width: ${mediumBreakpoint}) {
+		display: block;
+		width: auto;
 		height: 50px;
-		margin: 1rem 2rem;
+		padding: 1rem 2rem;
 	}
 	@media (min-width: ${wideBreakpoint}) {
 		height: 60px;
-		margin: 2rem;
+		padding: 2rem;
+	}
+`
+
+const StyledLogoIconWide = styled(LogoIconWide)`
+	display: block;
+	height: 35px;
+	padding: 1rem;
+	width: auto;
+	@media (min-width: ${mediumBreakpoint}) {
+		display: none;
 	}
 `
 
@@ -113,6 +124,7 @@ export const Navbar = () => {
 			<Wrapper>
 				<a href="/" title={'Home'}>
 					<StyledLogoIcon title={'Masks for Humanity'} />
+					<StyledLogoIconWide title={'Masks for Humanity'} />
 				</a>
 				<MenuToggle onClick={toggleMenu} title={'Toggle Menu'}>
 					<MenuToggleIcon />
