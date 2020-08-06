@@ -8,7 +8,7 @@
     "prepare": "npm run snyk-protect",
     "postinstall": "check-node-version --package",
     "lint": "eslint --ext .js,.ts,.tsx src",
-    "build": "gatsby build --prefix-paths",
+    "build": "gatsby build --prefix-paths && node critical-css.js",
     "start": "gatsby develop"
   },
   "keywords": [
@@ -64,6 +64,7 @@
     "hast-to-hyperscript": "^9.0.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
+    "minimalcss": "^0.10.0",
     "prettier": "^2.0.5",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
