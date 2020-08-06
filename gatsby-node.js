@@ -16,6 +16,9 @@ const renderStaticPage = async (name, pagePath, createPage, graphql) => {
 							depth
 							value
 						}
+						frontmatter {
+							title
+						}
 					}
 				}
 			}
@@ -44,4 +47,5 @@ const renderStaticPage = async (name, pagePath, createPage, graphql) => {
 
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
 	await renderStaticPage('Home', '/', createPage, graphql)
+	await renderStaticPage('Privacy', '/Privacy', createPage, graphql)
 }

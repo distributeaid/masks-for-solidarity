@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import { withPrefix } from 'gatsby'
+import { SiteMetaData } from '../templates/page'
 
 import HeartIcon from 'feather-icons/dist/icons/heart.svg'
 import GitHubIcon from 'feather-icons/dist/icons/github.svg'
 import VictoryIcon from './noun_victory_394398.svg'
-import { SiteMetaData } from '../templates/page'
 
 const StyledFooter = styled.footer`
 	padding: 4rem;
@@ -45,6 +46,19 @@ const Attributions = styled.aside`
 	margin-bottom: 2rem;
 `
 
+const Nav = styled.nav`
+	text-transform: uppercase;
+	text-align: center;
+	a {
+		text-decoration: none;
+	}
+	a + a {
+		&:before {
+			content: ' · ';
+		}
+	}
+`
+
 export const Footer = ({
 	siteMetaData: { gitHubUrl },
 }: {
@@ -63,6 +77,17 @@ export const Footer = ({
 				</small>
 			</Dimmed>
 		</Attributions>
+		<Nav>
+			<a href={withPrefix('/Privacy')}>Privacy</a>
+			<a
+				href={gitHubUrl}
+				target="_blank"
+				rel="nofollow noreferrer"
+				title="GitHub project for this site"
+			>
+				<GitHubIcon />
+			</a>
+		</Nav>
 		<Dimmed>
 			&copy;2020{' '}
 			<a
@@ -73,16 +98,6 @@ export const Footer = ({
 				Distribute Aid
 			</a>
 			. All rights reserved.
-		</Dimmed>
-		<Dimmed>
-			<a
-				href={gitHubUrl}
-				target="_blank"
-				rel="nofollow noreferrer"
-				title="GitHub project for this site"
-			>
-				<GitHubIcon />
-			</a>
 		</Dimmed>
 	</StyledFooter>
 )

@@ -1,5 +1,5 @@
 ---
-title: Masks for Humanity
+title: Home
 ---
 
 # Hello World!

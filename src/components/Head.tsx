@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 import { Helmet } from 'react-helmet'
 import { withPrefix } from 'gatsby'
 import { SiteMetaData } from '../templates/page'
+import { colors } from '../settings'
 
 const GlobalStyle = createGlobalStyle`
       html,
@@ -10,8 +11,8 @@ const GlobalStyle = createGlobalStyle`
 		font-family: 'Poppins', sans-serif;
 		font-weight: 400;
 		height: 100%;
-		background-color: #2d2d2d;
-		color: #c7c7c7;
+		background-color: ${colors.gunpowder};
+		color: ${colors.recycledToiletPaper};
       }
 	  #___gatsby, #gatsby-focus-wrapper {
 		height: 100%;
@@ -31,13 +32,18 @@ const loadAsync = (src: string): string => `(function(d){
 })(document);`
 
 export const Head = ({
-	siteMetaData: { title, description },
+	siteMetaData: { title: siteTitle, description },
+	pageTitle,
 }: {
 	siteMetaData: SiteMetaData
+	pageTitle?: string
 }) => (
 	<>
 		<Helmet>
-			<title>{title}</title>
+			<title>
+				{siteTitle}
+				{pageTitle !== undefined ? ` · ${pageTitle}` : ''}
+			</title>
 			<meta name="description" content={description} />
 			<html lang="en" />
 			<link rel="icon" type="image/svg+xml" href={withPrefix('/favicon.svg')} />

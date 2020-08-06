@@ -30,7 +30,16 @@ const cfg = {
 		{
 			resolve: `gatsby-transformer-remark`,
 			options: {
-				plugins: [`gatsby-remark-autolink-headers`],
+				plugins: [
+					`gatsby-remark-autolink-headers`,
+					{
+						resolve: 'gatsby-remark-external-links',
+						options: {
+							target: '_blank',
+							rel: 'nofollow noreferrer',
+						},
+					},
+				],
 			},
 		},
 		`gatsby-plugin-styled-components`,
