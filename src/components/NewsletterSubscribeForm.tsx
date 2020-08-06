@@ -83,7 +83,7 @@ export const NewsletterSubscribeForm = () => {
 			</P>
 			<InputWithButton>
 				<Input
-					type="text"
+					type="email"
 					name="email"
 					id="tlemail"
 					value={email}
