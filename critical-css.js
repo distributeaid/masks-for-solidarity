@@ -66,6 +66,7 @@ minimalcss
 		// Add extracted using JS calls so they load asynchronously
 		const script = window.document.createElement('script')
 		script.type = 'text/javascript'
+		script.defer = true
 		script.innerHTML =
 			`const loadAsync = (src) =>
 				((d) => {
