@@ -63,6 +63,7 @@
     "gatsby-transformer-remark": "^2.8.20",
     "hast-to-hyperscript": "^9.0.0",
     "husky": "^4.2.5",
+    "jsdom": "^16.3.0",
     "lint-staged": "^10.2.11",
     "minimalcss": "^0.10.0",
     "prettier": "^2.0.5",
