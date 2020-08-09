@@ -2,7 +2,7 @@ import React from 'react'
 import { createGlobalStyle } from 'styled-components'
 import { Helmet } from 'react-helmet'
 import { withPrefix } from 'gatsby'
-import { SiteMetaData } from '../templates/page'
+import { SiteMetaData } from '../templates/types'
 import { colors } from '../settings'
 
 const GlobalStyle = createGlobalStyle`
@@ -51,7 +51,7 @@ export const Head = ({
 			<link rel="preconnect" href="https://fonts.googleapis.com" />
 			<script type="text/javascript">
 				{loadAsync(
-					'https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins&display=swap',
+					'https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500;700&family=Poppins&display=swap',
 				)}
 			</script>
 			<script type="text/javascript">
