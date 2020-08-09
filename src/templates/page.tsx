@@ -3,11 +3,11 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import { Head } from '../components/Head'
-import { Header } from '../components/Header'
 import { Main } from '../components/Main'
 import { Footer } from '../components/Footer'
 import { Navbar } from '../components/Navbar'
 import { NewsletterSubscribeForm } from '../components/NewsletterSubscribeForm'
+import { SiteMetaData, Page } from './types'
 
 const Wrapper = styled.div`
 	height: 100%;
@@ -22,59 +22,18 @@ export const query = graphql`
 				gitHubUrl
 			}
 		}
-		allSanityGallery {
-			nodes {
-				title
-				photo {
-					hotspot {
-						x
-						y
-					}
-					asset {
-						url
-						metadata {
-							dimensions {
-								width
-								height
-							}
-						}
-					}
-				}
-			}
-		}
 	}
 `
-
-export type SiteMetaData = {
-	title: string
-	shortTitle: string
-	description: string
-	gitHubUrl: string
-}
 
 const PageTemplate = (data: {
 	data: {
 		site: {
 			siteMetadata: SiteMetaData
 		}
-		allSanityGallery: {
-			nodes: Record<string, any>[]
-		}
 	}
 	pageContext: {
-		page: {
-			remark: {
-				htmlAst: any
-				headings: {
-					id: string
-					depth: number
-					value: string
-				}[]
-				frontmatter: {
-					title: string
-				}
-			}
-		}
+		page: Page
+		pages: Page[]
 	}
 }) => (
 	<>
@@ -84,7 +43,6 @@ const PageTemplate = (data: {
 		/>
 		<Wrapper>
 			<Navbar />
-			<Header gallery={data.data.allSanityGallery.nodes} />
 			<Main>
 				{data.pageContext.page.remark?.htmlAst !== undefined &&
 					renderHtmlAstToReact(data.pageContext.page.remark.htmlAst)}

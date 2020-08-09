@@ -1,51 +1,75 @@
 require('ts-node').register({ files: true })
 const path = require('path')
 
-const renderStaticPage = async (name, pagePath, createPage, graphql) => {
-	const page = await graphql(`
-	query PageQuery {
-		allFile(
-			filter: { sourceInstanceName: { eq: "pages" }, name: { eq: "${name}" } }
-		) {
-			edges {
-				node {
-					childMarkdownRemark {
-						htmlAst
-						headings {
-							id
-							depth
-							value
-						}
-						frontmatter {
-							title
+const renderStaticPage = async (
+	name,
+	pagePath,
+	template,
+	createPage,
+	graphql,
+) => {
+	const pages = await graphql(`
+		query PagesQuery {
+			allFile(
+				filter: { sourceInstanceName: { eq: "pages" }, extension: { eq: "md" } }
+			) {
+				edges {
+					node {
+						id
+						name
+						relativeDirectory
+						childMarkdownRemark {
+							htmlAst
+							frontmatter {
+								title
+								website
+								twitter
+								role
+								logo
+								instagram
+								facebook
+							}
+							headings {
+								id
+								depth
+								value
+							}
 						}
 					}
 				}
 			}
 		}
-	}
-`)
+	`)
 
-	if (page.errors) {
-		throw page.errors
+	if (pages.errors) {
+		throw pages.errors
 	}
-	// Render index page
-	await Promise.all(
-		page.data.allFile.edges.map(({ node: { childMarkdownRemark } }) =>
-			createPage({
-				path: pagePath,
-				component: path.join(process.cwd(), 'src', 'templates', 'page.tsx'),
-				context: {
-					page: {
-						remark: childMarkdownRemark,
-					},
-				},
-			}),
-		),
+
+	// Find requested page
+	const page = pages.data.allFile.edges.find(
+		({ node: { name: nodeName, relativeDirectory } }) =>
+			name === nodeName && relativeDirectory === '',
 	)
+
+	// Render requested page
+	await createPage({
+		path: pagePath,
+		component: path.join(process.cwd(), 'src', 'templates', `${template}.tsx`),
+		context: {
+			page: {
+				remark: page.node.childMarkdownRemark,
+			},
+			pages: pages.data.allFile.edges.map(
+				({ node: { childMarkdownRemark, ...rest } }) => ({
+					remark: childMarkdownRemark,
+					...rest,
+				}),
+			),
+		},
+	})
 }
 
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
-	await renderStaticPage('Home', '/', createPage, graphql)
-	await renderStaticPage('Privacy', '/Privacy', createPage, graphql)
+	await renderStaticPage('Home', '/', 'home', createPage, graphql)
+	await renderStaticPage('Privacy', '/Privacy', 'page', createPage, graphql)
 }
