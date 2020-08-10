@@ -33,7 +33,7 @@
   "dependencies": {
     "feather-icons": "^4.28.0",
     "gatsby-remark-autolink-headers": "^2.3.11",
-    "snyk": "^1.362.1"
+    "snyk": "^1.363.0"
   },
   "snyk": true,
   "engines": {
