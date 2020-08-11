@@ -59,6 +59,11 @@ export const Head = ({
 					'https://necolas.github.io/normalize.css/8.0.1/normalize.css',
 				)}
 			</script>
+			<script
+				async
+				src="https://afarkas.github.io/lazysizes/lazysizes.min.js"
+				crossOrigin="anonymous"
+			></script>
 		</Helmet>
 		<GlobalStyle />
 	</>
