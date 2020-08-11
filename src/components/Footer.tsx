@@ -115,18 +115,19 @@ export const Footer = ({
 			<Attributions>
 				<p>
 					{/* The ✌️ graphic used in the logo is from The Noun Project and requires attribution: https://thenounproject.com/term/victory/394398/ */}
-					<StyledVictoryIcon /> icon created by Sergey Demushkin from the Noun
-					Project.
+					<StyledVictoryIcon /> icon used in logo created by Sergey Demushkin
+					from the Noun Project.
 				</p>
 				<p>
 					{/* We need to credit Netlify to be eligible for the open-source plan: https://www.netlify.com/legal/open-source-policy/ */}
 
 					<a href="https://www.netlify.com">
 						<img
-							src="https://www.netlify.com/img/global/badges/netlify-dark.svg"
 							alt="Deploys by Netlify"
 							target="_blank"
 							rel="nofollow noreferrer"
+							data-src="https://www.netlify.com/img/global/badges/netlify-dark.svg"
+							className="lazyload"
 						/>
 					</a>
 				</p>
