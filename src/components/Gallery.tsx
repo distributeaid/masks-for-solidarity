@@ -16,9 +16,10 @@ const GalleryHeader = styled.header`
  */
 export const Gallery = ({
 	galleryPhotos,
-}: {
+	children,
+}: React.PropsWithChildren<{
 	galleryPhotos: Generator<string>
-}) => {
+}>) => {
 	const [currentPhoto, setCurrentPhoto] = useState(galleryPhotos.next().value)
 	useEffect(() => {
 		let isCancelled = false
@@ -31,5 +32,9 @@ export const Gallery = ({
 		}
 	}, [galleryPhotos])
 
-	return <GalleryHeader style={{ backgroundImage: `url(${currentPhoto})` }} />
+	return (
+		<GalleryHeader style={{ backgroundImage: `url(${currentPhoto})` }}>
+			{children}
+		</GalleryHeader>
+	)
 }

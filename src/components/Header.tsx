@@ -3,6 +3,11 @@ import { GalleryImage, responsiveUrl } from '../sanity'
 import { Gallery } from './Gallery'
 import { rotate } from '../rotate'
 import { shuffle } from '../shuffle'
+import { Page } from '../templates/types'
+import { renderHtmlAstToReact } from '../renderHtmlToReact'
+import { PrimaryButton } from './Buttons'
+import { mediumBreakpoint } from '../settings'
+import styled from 'styled-components'
 
 const windowGlobal = (typeof window !== 'undefined' && window) || undefined
 
@@ -18,11 +23,61 @@ const toResponsiveUrl = ({
 }) => (image: GalleryImage): string =>
 	responsiveUrl({ image, w: width, h: height })
 
-export const Header = ({ gallery }: { gallery: GalleryImage[] }) => {
+const Wrapper = styled.div`
+	margin: 0 auto;
+	width: 100%;
+	max-width: ${mediumBreakpoint};
+	height: 100%;
+	position: relative;
+	display: flex;
+	flex-direction: column-reverse;
+`
+
+const Content = styled.div`
+	padding: 1rem;
+	@media (min-width: ${mediumBreakpoint}) {
+		padding: 0;
+		width: 50%;
+	}
+	margin-bottom: 2rem;
+	${PrimaryButton} {
+		margin-top: 2rem;
+		text-shadow: inherit;
+		box-shadow: 1px 1px 4px #00000099, -1px 1px 4px #00000099,
+			-1px -1px 4px #00000099, 1px -1px 4px #00000099;
+	}
+	h2 {
+		margin: 0 0 2rem 0;
+	}
+	text-shadow: 1px 1px 4px #00000099, -1px 1px 4px #00000099,
+		-1px -1px 4px #00000099, 1px -1px 4px #00000099;
+`
+
+export const Header = ({
+	gallery,
+	content,
+}: {
+	gallery: GalleryImage[]
+	content: Page
+}) => {
 	const imageToUrl = toResponsiveUrl({
 		width: windowGlobal?.innerWidth ?? 1000,
 		height: (windowGlobal?.innerHeight ?? 500) / 2,
 	})
 	const galleryPhotos = rotate(shuffle(gallery.map(imageToUrl)))
-	return <Gallery galleryPhotos={galleryPhotos} />
+	return (
+		<Gallery galleryPhotos={galleryPhotos}>
+			<Wrapper>
+				<Content>
+					<h2>
+						<small>{content.remark.frontmatter.subtitle}:</small>
+						<br />
+						{content.remark.frontmatter.title}
+					</h2>
+					<div>{renderHtmlAstToReact(content.remark.htmlAst)}</div>
+					<PrimaryButton>Donate</PrimaryButton>
+				</Content>
+			</Wrapper>
+		</Gallery>
+	)
 }

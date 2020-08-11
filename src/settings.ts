@@ -6,4 +6,5 @@ export const colors = {
 	bossOrange: '#ff6600',
 	recycledToiletPaper: '#c7c7c7',
 	gunpowder: '#2d2d2d',
+	wetGunpowder: '#222',
 }

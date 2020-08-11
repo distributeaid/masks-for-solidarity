@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { withPrefix } from 'gatsby'
-import { mediumBreakpoint } from '../settings'
+import { mediumBreakpoint, colors } from '../settings'
 import { SiteMetaData } from '../templates/page'
 
 import HeartIcon from 'feather-icons/dist/icons/heart.svg'
@@ -67,7 +67,7 @@ const StyledLogo = styled(Logo)`
 `
 
 const Wrapper = styled.div`
-	background-color: #222;
+	background-color: ${colors.wetGunpowder};
 `
 
 const TwoCols = styled.section`

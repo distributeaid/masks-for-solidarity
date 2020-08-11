@@ -1,15 +1,8 @@
+import React from 'react'
 import styled from 'styled-components'
 import { mediumBreakpoint, colors } from '../settings'
 
 export const Main = styled.main`
-	margin: 0 auto;
-	max-width: ${mediumBreakpoint};
-	line-height: 1.5rem;
-	padding: 1rem;
-	@media (min-width: ${mediumBreakpoint}) {
-		padding: 4rem 0;
-	}
-
 	h1 {
 		font-size: 250%;
 		margin-bottom: 2rem;
@@ -43,4 +36,18 @@ export const Main = styled.main`
 	a {
 		color: ${colors.bossOrange};
 	}
+`
+
+export const Section = styled.section`
+	margin: 0 auto;
+	max-width: ${mediumBreakpoint};
+	line-height: 1.5rem;
+	padding: 1rem;
+	@media (min-width: ${mediumBreakpoint}) {
+		padding: 4rem 0;
+	}
+`
+
+export const Offset = styled.div`
+	background-color: ${colors.wetGunpowder};
 `

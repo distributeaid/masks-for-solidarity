@@ -24,7 +24,7 @@ const cfg = {
 			resolve: `gatsby-source-filesystem`,
 			options: {
 				name: `pages`,
-				path: path.join(process.cwd(), 'static'),
+				path: path.join(process.cwd(), 'content'),
 			},
 		},
 		{
