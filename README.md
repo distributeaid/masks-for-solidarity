@@ -18,7 +18,7 @@ Website for the Masks for Humanity project.
 ## How this project works
 
 Gatsby is configured in [`gatsby-node.js`](./gatsby-node.js) to collect the
-markdown files in the `static` folder and turn them into pages.
+markdown files in the `content` folder and turn them into pages.
 
 All pages are rendered using the template
 [`src/templates/page.tsx`](./src/templates/pages.tsx).

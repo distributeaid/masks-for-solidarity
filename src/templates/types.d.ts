@@ -7,8 +7,18 @@ export type SiteMetaData = {
 
 export type Page = {
 	id: string
+	/**
+	 * @example "DA"
+	 */
 	name: string
+	/**
+	 * @example "organizations/DA.md"
+	 */
 	relativeDirectory: string
+	/**
+	 * @example "organizations"
+	 */
+	relativePath: string
 	remark: {
 		htmlAst: any
 		headings: {
@@ -17,6 +27,7 @@ export type Page = {
 			value: string
 		}[]
 		frontmatter: {
+			subtitle: string | null
 			title: string | null
 			website: string | null
 			twitter: string | null

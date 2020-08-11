@@ -5,7 +5,6 @@ import { colors, mediumBreakpoint } from '../settings'
 const Form = styled.form`
 	border: 1px dotted ${colors.recycledToiletPaper};
 	padding: 1rem;
-	margin-top: 4rem;
 `
 const Input = styled.input`
 	height: 42px;

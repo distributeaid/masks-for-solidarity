@@ -1,7 +1,7 @@
 require('ts-node').register({ files: true })
 const path = require('path')
 
-const renderStaticPage = async (
+const renderContentPage = async (
 	name,
 	pagePath,
 	template,
@@ -18,10 +18,12 @@ const renderStaticPage = async (
 						id
 						name
 						relativeDirectory
+						relativePath
 						childMarkdownRemark {
 							htmlAst
 							frontmatter {
 								title
+								subtitle
 								website
 								twitter
 								role
@@ -47,8 +49,7 @@ const renderStaticPage = async (
 
 	// Find requested page
 	const page = pages.data.allFile.edges.find(
-		({ node: { name: nodeName, relativeDirectory } }) =>
-			name === nodeName && relativeDirectory === '',
+		({ node: { relativePath } }) => name === relativePath,
 	)
 
 	// Render requested page
@@ -70,6 +71,6 @@ const renderStaticPage = async (
 }
 
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
-	await renderStaticPage('Home', '/', 'home', createPage, graphql)
-	await renderStaticPage('Privacy', '/Privacy', 'page', createPage, graphql)
+	await renderContentPage('Home.md', '/', 'home', createPage, graphql)
+	await renderContentPage('Privacy.md', '/Privacy', 'page', createPage, graphql)
 }
