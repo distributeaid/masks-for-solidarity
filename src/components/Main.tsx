@@ -42,6 +42,7 @@ export const Section = styled.section`
 	margin: 0 auto;
 	max-width: ${mediumBreakpoint};
 	line-height: 1.5rem;
+	padding: 1rem;
 	@media (min-width: ${mediumBreakpoint}) {
 		padding: 4rem 0;
 	}
