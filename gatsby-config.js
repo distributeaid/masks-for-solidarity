@@ -27,21 +27,7 @@ const cfg = {
 				path: path.join(process.cwd(), 'content'),
 			},
 		},
-		{
-			resolve: `gatsby-transformer-remark`,
-			options: {
-				plugins: [
-					`gatsby-remark-autolink-headers`,
-					{
-						resolve: 'gatsby-remark-external-links',
-						options: {
-							target: '_blank',
-							rel: 'nofollow noreferrer',
-						},
-					},
-				],
-			},
-		},
+		`gatsby-transformer-remark`,
 		`gatsby-plugin-styled-components`,
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-react-svg`,

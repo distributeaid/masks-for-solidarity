@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { colors, wideBreakpoint, mediumBreakpoint } from '../settings'
+import { withPrefix } from 'gatsby'
 
 import LogoIcon from './logo-colored.svg'
 import LogoIconWide from './logo-colored-wide.svg'
@@ -37,21 +38,6 @@ const Link = styled.a`
 	font-weight: 500;
 	&:hover {
 		color: white;
-	}
-`
-
-const DonateButton = styled(Link)`
-	font-weight: 700;
-	color: ${colors.bossOrange};
-	&:hover {
-		color: white;
-	}
-	@media (min-width: ${mediumBreakpoint}) {
-		border: 1.5px solid ${colors.bossOrange}cc;
-		padding: 0.75rem;
-		&:hover {
-			border-color: white;
-		}
 	}
 `
 
@@ -131,21 +117,21 @@ export const Navbar = () => {
 					<MenuToggleIcon />
 				</MenuToggle>
 				<LinksContainer>
-					<Link href="#" onClick={toggleMenu}>
-						Makers
+					<Link href={withPrefix('/#our-story')} onClick={toggleMenu}>
+						Our Story
 					</Link>
-					<Link href="#" onClick={toggleMenu}>
+					<Link href={withPrefix('/#about-the-masks')} onClick={toggleMenu}>
 						Masks
 					</Link>
-					<Link href="#" onClick={toggleMenu}>
-						FAQ
+					<Link href={withPrefix('/#support-us')} onClick={toggleMenu}>
+						Donate
 					</Link>
-					<Link href="#" onClick={toggleMenu}>
+					<Link href={withPrefix('/#team')} onClick={toggleMenu}>
 						About
 					</Link>
-					<DonateButton href="#" onClick={toggleMenu}>
-						Buy &amp; Donate
-					</DonateButton>
+					<Link href={withPrefix('/#faq')} onClick={toggleMenu}>
+						FAQ
+					</Link>
 				</LinksContainer>
 			</Wrapper>
 		</Nav>

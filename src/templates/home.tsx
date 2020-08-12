@@ -110,66 +110,65 @@ const HomeTemplate = (data: {
 				/>
 				<Main>
 					{storyIntro && (
-						<Offset>
-							<StyledContentSection>
-								<h1>{storyIntro.remark.frontmatter.title}</h1>
-								<div>{renderHtmlAstToReact(storyIntro.remark.htmlAst)}</div>
-								<p>
-									<PrimaryButton>Donate</PrimaryButton>
-									<SecondaryButton href="#get-masks">
-										Request Masks
-									</SecondaryButton>
-								</p>
-							</StyledContentSection>
-						</Offset>
+						<StyledContentSection id="our-story">
+							<h1>{storyIntro.remark.frontmatter.title}</h1>
+							<div>{renderHtmlAstToReact(storyIntro.remark.htmlAst)}</div>
+							<p>
+								<PrimaryButton>Donate</PrimaryButton>
+								<SecondaryButton href="#get-masks">
+									Request Masks
+								</SecondaryButton>
+							</p>
+						</StyledContentSection>
 					)}
 					{aboutTheMasks && (
-						<StyledContentSection>
-							<h1>{aboutTheMasks.remark.frontmatter.title}</h1>
-							<div>{renderHtmlAstToReact(aboutTheMasks.remark.htmlAst)}</div>
-						</StyledContentSection>
+						<Offset>
+							<StyledContentSection id="about-the-masks">
+								<h1>{aboutTheMasks.remark.frontmatter.title}</h1>
+								<div>{renderHtmlAstToReact(aboutTheMasks.remark.htmlAst)}</div>
+								<SecondaryButton href="#get-masks">
+									Request Masks
+								</SecondaryButton>
+							</StyledContentSection>
+						</Offset>
 					)}
 					{supportUs && (
-						<Offset>
-							<StyledContentSection>
-								<h1>{supportUs.remark.frontmatter.title}</h1>
-								<div>{renderHtmlAstToReact(supportUs.remark.htmlAst)}</div>
-								<p>
-									<PrimaryButton>Donate</PrimaryButton>
-								</p>
-							</StyledContentSection>
-						</Offset>
-					)}
-					{share && (
-						<StyledContentSection>
-							<h1>{share.remark.frontmatter.title}</h1>
-							<div>{renderHtmlAstToReact(share.remark.htmlAst)}</div>
+						<StyledContentSection id="support-us">
+							<h1>{supportUs.remark.frontmatter.title}</h1>
+							<div>{renderHtmlAstToReact(supportUs.remark.htmlAst)}</div>
+							<p>
+								<PrimaryButton>Donate</PrimaryButton>
+							</p>
 						</StyledContentSection>
 					)}
-					{getMasks && (
-						<Offset id="get-masks">
-							<StyledContentSection>
-								<h1>{getMasks.remark.frontmatter.title}</h1>
-								<div>{renderHtmlAstToReact(getMasks.remark.htmlAst)}</div>
-							</StyledContentSection>
-						</Offset>
-					)}
-					<Section>
-						{teamIntro !== undefined && teamPages.length > 0 && (
-							<Team intro={teamIntro} entries={teamPages} />
-						)}
-					</Section>
-					{faq && (
+					{share && (
 						<Offset>
-							<StyledContentSection>
-								<h1>{faq.remark.frontmatter.title}</h1>
-								<div>{renderHtmlAstToReact(faq.remark.htmlAst)}</div>
+							<StyledContentSection id="share">
+								<h1>{share.remark.frontmatter.title}</h1>
+								<div>{renderHtmlAstToReact(share.remark.htmlAst)}</div>
+								<NewsletterSubscribeForm />
 							</StyledContentSection>
 						</Offset>
 					)}
-					<Section>
-						<NewsletterSubscribeForm />
-					</Section>
+					{getMasks && (
+						<StyledContentSection id="get-masks">
+							<h1>{getMasks.remark.frontmatter.title}</h1>
+							<div>{renderHtmlAstToReact(getMasks.remark.htmlAst)}</div>
+						</StyledContentSection>
+					)}
+					<Offset>
+						<Section id="team">
+							{teamIntro !== undefined && teamPages.length > 0 && (
+								<Team intro={teamIntro} entries={teamPages} />
+							)}
+						</Section>
+					</Offset>
+					{faq && (
+						<StyledContentSection id="faq">
+							<h1>{faq.remark.frontmatter.title}</h1>
+							<div>{renderHtmlAstToReact(faq.remark.htmlAst)}</div>
+						</StyledContentSection>
+					)}
 				</Main>
 				<Footer siteMetaData={data.data.site.siteMetadata} />
 			</Wrapper>
