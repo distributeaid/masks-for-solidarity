@@ -17,8 +17,7 @@ Masks are available for
 $1.50 each, which includes shipping all the way to you. There is a minimum order of 1,000 masks ($1,500)
 to keep this manageable for our volunteers.
 
-To apply, fill out this
-[form](https://docs.google.com/forms/d/1L0zxV-8WCfeuAGJBrabZAaMtYfXXWuLREkyD-gJTAz8/edit?usp=sharing).
+To apply, fill out this [form](https://forms.gle/kBrSmH4NCrKZV8yW7).
 
 Can't meet the minimum? Get your community involved and go in on an order with
 other local organizations!
@@ -27,7 +26,7 @@ Questions? Email us at [hello@refugees.care](mailto:hello@refugees.care).
 
 ## Get Masks For Free
 
-Please complete [this form](https://forms.gle/AbV6vFf6pPA2gf9b9) to be included
+Please complete [this form](https://forms.gle/BKjTXX7rqRwg6afZ8) to be included
 in our needs assessment! If your group or organization is eligible, our team
 will follow up via email when masks become available. Allocations are made on a
 weekly basis. We hope that you understand why we cannot guarantee if you will
