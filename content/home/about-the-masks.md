@@ -47,5 +47,5 @@ it's safe for human contact. Passing inspection also means that the fabric meets
 or exceeds international standards, including the requirements of Annex XVII of
 REACH in the EU (the use of azo-dyes, nickel, etc), as well as CPSIA regulating
 the total content of lead in children's articles in the USA. You can check the
-fabric used for our masks by entering the label number `11-33771`
-[here](https://www.oeko-tex.com/en/label-check).
+fabric used for our masks by entering the label number `11-33771` in the
+[OEKO-TEX Label Check](https://www.oeko-tex.com/en/label-check).
