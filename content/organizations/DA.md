@@ -1,7 +1,6 @@
 ---
 title: Distribute Aid
 role: International Needs Assessment & Distribution, Project Accountability
-logo: da.jpg
 website: https://distributeaid.org/
 facebook: DistributeAidDotOrg
 twitter: DistributeAid

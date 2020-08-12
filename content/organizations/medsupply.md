@@ -1,7 +1,6 @@
 ---
 title: Med Supply Drive
 role: US Needs Assessment & Distribution
-logo: med-supply-drive.jpg
 website: https://www.medsupplydrive.org/
 facebook: medsupplydrive
 twitter: medsupplydrive

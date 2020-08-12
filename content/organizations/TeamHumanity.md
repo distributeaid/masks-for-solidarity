@@ -1,7 +1,6 @@
 ---
 title: Team Humanity
 role: Production, Maker Support
-logo: team-humanity.jpg
 website: https://teamhumanity.info/
 facebook: teamhumanitydk
 instagram: teamhumanity

@@ -1,7 +1,6 @@
 ---
 title: The Worldwide Supply Chain Federation
 role: Industrial Production Support
-logo: TWSCF.png
 website: https://theworldwidesupplychainfederation.com/
 twitter: tnyscm
 ---

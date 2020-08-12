@@ -1,7 +1,6 @@
 ---
 title: Masks For Docs
 role: US Last-Mile Delivery
-logo: masks-for-docs.jpg
 website: https://masksfordocs.com/
 facebook: MasksForDocs
 twitter: masksfordocs

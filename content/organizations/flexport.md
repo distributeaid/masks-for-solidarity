@@ -1,7 +1,6 @@
 ---
 title: Flexport.org
 role: International Shipping
-logo: flexport.png
 website: https://www.flexport.com/
 twitter: flexport
 facebook: flexportinc

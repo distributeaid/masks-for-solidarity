@@ -53,19 +53,6 @@ export const Team = ({ intro, entries }: { intro: Page; entries: Page[] }) => (
 					<small>{entry.remark.frontmatter.role}:</small>
 					<br />
 					{entry.remark.frontmatter.title}
-					<a
-						href={entry.remark.frontmatter.website}
-						target="_blank"
-						rel="nofollow noreferrer"
-						title={entry.remark.frontmatter.title}
-					>
-						<Logo
-							src={withPrefix(
-								`organizations/logos/${entry.remark.frontmatter.logo}`,
-							)}
-							alt={entry.remark.frontmatter.title}
-						/>
-					</a>
 				</TeamTitle>
 				{renderHtmlAstToReact(entry.remark.htmlAst)}
 				<Nav>

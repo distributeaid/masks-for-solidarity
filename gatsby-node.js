@@ -27,7 +27,6 @@ const renderContentPage = async (
 								website
 								twitter
 								role
-								logo
 								instagram
 								facebook
 							}

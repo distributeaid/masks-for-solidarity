@@ -32,7 +32,6 @@ export type Page = {
 			website: string | null
 			twitter: string | null
 			role: string | null
-			logo: string | null
 			instagram: string | null
 			facebook: string | null
 		}
