@@ -44,9 +44,7 @@ const Attributions = styled.aside`
 	margin-bottom: 2rem;
 	opacity: 0.75;
 	font-size: 85%;
-	@media (min-width: ${mediumBreakpoint}) {
-		text-align: center;
-	}
+	text-align: center;
 `
 
 const Nav = styled.nav`
