@@ -65,7 +65,7 @@ const StyledLogo = styled(Logo)`
 `
 
 const Wrapper = styled.div`
-	background-color: ${colors.wetGunpowder};
+	background-color: ${colors.gunpowderDark};
 `
 
 const TwoCols = styled.section`

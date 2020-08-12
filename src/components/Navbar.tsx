@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { colors, wideBreakpoint, mediumBreakpoint } from '../settings'
 import { withPrefix } from 'gatsby'
+import { rgba } from 'polished'
 
 import LogoIcon from './logo-colored.svg'
 import LogoIconWide from './logo-colored-wide.svg'
@@ -32,7 +33,7 @@ const StyledLogoIconWide = styled(LogoIconWide)`
 `
 
 const Link = styled.a`
-	color: #ffffffcc;
+	color: ${rgba('#ffffff', 0.8)};
 	text-decoration: none;
 	font-family: Montserrat, sans-serif;
 	font-weight: 500;
@@ -89,7 +90,7 @@ const Wrapper = styled.div`
 const MenuToggle = styled.button`
 	background-color: transparent;
 	border: 0;
-	color: #ffffffcc;
+	color: ${rgba('#ffffff', 0.8)};
 	width: 48px;
 	height: 48px;
 	&:hover {

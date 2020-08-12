@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import { Head } from '../components/Head'
-import { Main } from '../components/Main'
 import { Footer } from '../components/Footer'
 import { Navbar } from '../components/Navbar'
 import { NewsletterSubscribeForm } from '../components/NewsletterSubscribeForm'
@@ -43,11 +42,11 @@ const PageTemplate = (data: {
 		/>
 		<Wrapper>
 			<Navbar />
-			<Main>
+			<main>
 				{data.pageContext.page.remark?.htmlAst !== undefined &&
 					renderHtmlAstToReact(data.pageContext.page.remark.htmlAst)}
 				<NewsletterSubscribeForm />
-			</Main>
+			</main>
 			<Footer siteMetaData={data.data.site.siteMetadata} />
 		</Wrapper>
 	</>

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { colors } from '../settings'
+import { rgba } from 'polished'
 
 const Button = styled.a`
 	font-weight: 700;
@@ -16,12 +17,12 @@ const Button = styled.a`
 
 export const PrimaryButton = styled(Button)`
 	color: ${colors.bossOrange};
-	border: 1.5px solid ${colors.bossOrange}cc;
+	border: 1.5px solid ${rgba(colors.bossOrange, 0.8)};
 `
 
 export const SecondaryButton = styled(Button)`
-	color: ${colors.maskLightGreen} !important;
-	border: 1.5px solid ${colors.maskLightGreen}cc;
+	color: ${colors.maskLighterGreen};
+	border: 1.5px solid ${rgba(colors.maskLighterGreen, 0.8)};
 	${PrimaryButton} + & {
 		margin-left: 1rem;
 	}

@@ -2,42 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { mediumBreakpoint, colors } from '../settings'
 
-export const Main = styled.main`
-	h1 {
-		font-size: 250%;
-		margin-bottom: 2rem;
-	}
-
-	h2 {
-		font-size: 200%;
-		margin-bottom: 1rem;
-	}
-
-	h3 {
-		font-size: 175%;
-		margin-bottom: 0.75rem;
-	}
-
-	h4 {
-		font-size: 150%;
-		margin-bottom: 0.5rem;
-	}
-
-	h5 {
-		font-size: 125%;
-		margin-bottom: 0.25rem;
-	}
-
-	h6 {
-		font-size: 100%;
-		margin-bottom: 0;
-	}
-
-	a {
-		color: ${colors.bossOrange};
-	}
-`
-
 export const Section = styled.section`
 	margin: 0 auto;
 	max-width: ${mediumBreakpoint};
@@ -49,5 +13,28 @@ export const Section = styled.section`
 `
 
 export const Offset = styled.div`
-	background-color: ${colors.wetGunpowder};
+	background-color: ${colors.gunpowderDark};
+`
+
+export const Markdown = styled.div`
+	h1,
+	h2 {
+		font-size: 14px;
+		margin-bottom: 1rem;
+	}
+	div,
+	p,
+	li {
+		font-size: 14px;
+	}
+	blockquote {
+		margin: 0;
+		p {
+			font-size: 16px;
+			font-weight: 500;
+		}
+	}
+	a {
+		color: ${colors.bossOrange};
+	}
 `

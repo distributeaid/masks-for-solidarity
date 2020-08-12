@@ -7,7 +7,7 @@ import LinkIcon from 'feather-icons/dist/icons/link.svg'
 import FacebookIcon from 'feather-icons/dist/icons/facebook.svg'
 import TwitterIcon from 'feather-icons/dist/icons/twitter.svg'
 import InstagramIcon from 'feather-icons/dist/icons/instagram.svg'
-import { withPrefix } from 'gatsby'
+import { Markdown } from './Main'
 
 const plainTextLink = (link: string): string =>
 	link.replace(/^https?:\/\//, '').replace(/\/$/, '')
@@ -46,58 +46,60 @@ const Logo = styled.img`
 export const Team = ({ intro, entries }: { intro: Page; entries: Page[] }) => (
 	<section>
 		<h2>{intro.remark.frontmatter.title}</h2>
-		{renderHtmlAstToReact(intro.remark.htmlAst)}
-		{entries.map((entry, id) => (
-			<React.Fragment key={id}>
-				<TeamTitle>
-					<small>{entry.remark.frontmatter.role}:</small>
-					<br />
-					{entry.remark.frontmatter.title}
-				</TeamTitle>
-				{renderHtmlAstToReact(entry.remark.htmlAst)}
-				<Nav>
-					{entry.remark.frontmatter.website !== null && (
-						<a
-							href={entry.remark.frontmatter.website}
-							target="_blank"
-							rel="nofollow noreferrer"
-						>
-							<LinkIcon />
-							{plainTextLink(entry.remark.frontmatter.website)}
-						</a>
-					)}
-					{entry.remark.frontmatter.facebook !== null && (
-						<a
-							href={`https://facebook.com/${entry.remark.frontmatter.facebook}`}
-							target="_blank"
-							rel="nofollow noreferrer"
-						>
-							<FacebookIcon />
-							{entry.remark.frontmatter.facebook}
-						</a>
-					)}
-					{entry.remark.frontmatter.instagram !== null && (
-						<a
-							href={`https://instagram.com/${entry.remark.frontmatter.instagram}`}
-							target="_blank"
-							rel="nofollow noreferrer"
-						>
-							<InstagramIcon />
-							{entry.remark.frontmatter.instagram}
-						</a>
-					)}
-					{entry.remark.frontmatter.twitter !== null && (
-						<a
-							href={`https://twitter.com/${entry.remark.frontmatter.twitter}`}
-							target="_blank"
-							rel="nofollow noreferrer"
-						>
-							<TwitterIcon />
-							{entry.remark.frontmatter.twitter}
-						</a>
-					)}
-				</Nav>
-			</React.Fragment>
-		))}
+		<Markdown>
+			{renderHtmlAstToReact(intro.remark.htmlAst)}
+			{entries.map((entry, id) => (
+				<React.Fragment key={id}>
+					<TeamTitle>
+						<small>{entry.remark.frontmatter.role}:</small>
+						<br />
+						{entry.remark.frontmatter.title}
+					</TeamTitle>
+					{renderHtmlAstToReact(entry.remark.htmlAst)}
+					<Nav>
+						{entry.remark.frontmatter.website !== null && (
+							<a
+								href={entry.remark.frontmatter.website}
+								target="_blank"
+								rel="nofollow noreferrer"
+							>
+								<LinkIcon />
+								{plainTextLink(entry.remark.frontmatter.website)}
+							</a>
+						)}
+						{entry.remark.frontmatter.facebook !== null && (
+							<a
+								href={`https://facebook.com/${entry.remark.frontmatter.facebook}`}
+								target="_blank"
+								rel="nofollow noreferrer"
+							>
+								<FacebookIcon />
+								{entry.remark.frontmatter.facebook}
+							</a>
+						)}
+						{entry.remark.frontmatter.instagram !== null && (
+							<a
+								href={`https://instagram.com/${entry.remark.frontmatter.instagram}`}
+								target="_blank"
+								rel="nofollow noreferrer"
+							>
+								<InstagramIcon />
+								{entry.remark.frontmatter.instagram}
+							</a>
+						)}
+						{entry.remark.frontmatter.twitter !== null && (
+							<a
+								href={`https://twitter.com/${entry.remark.frontmatter.twitter}`}
+								target="_blank"
+								rel="nofollow noreferrer"
+							>
+								<TwitterIcon />
+								{entry.remark.frontmatter.twitter}
+							</a>
+						)}
+					</Nav>
+				</React.Fragment>
+			))}
+		</Markdown>
 	</section>
 )

@@ -4,37 +4,18 @@ import styled from 'styled-components'
 import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import { Head } from '../components/Head'
 import { Header } from '../components/Header'
-import { Main, Section, Offset } from '../components/Main'
+import { Section, Offset, Markdown } from '../components/Main'
 import { Footer } from '../components/Footer'
 import { Navbar } from '../components/Navbar'
 import { NewsletterSubscribeForm } from '../components/NewsletterSubscribeForm'
 import { SiteMetaData, Page } from './types'
 import { Team } from '../components/Team'
 import { PrimaryButton, SecondaryButton } from '../components/Buttons'
+import { colors } from '../settings'
 
 const Wrapper = styled.div`
 	height: 100%;
 `
-const StyledContentSection = styled(Section)`
-	h1,
-	h2 {
-		font-size: 14px;
-		margin-bottom: 1rem;
-	}
-	div,
-	p,
-	li {
-		font-size: 14px;
-	}
-	blockquote {
-		margin: 0;
-		p {
-			font-size: 16px;
-			font-weight: 500;
-		}
-	}
-`
-
 export const query = graphql`
 	query HomeTemplateQuery {
 		site {
@@ -108,53 +89,63 @@ const HomeTemplate = (data: {
 					gallery={data.data.allSanityGallery.nodes}
 					content={headerContent}
 				/>
-				<Main>
+				<main>
 					{storyIntro && (
-						<StyledContentSection id="our-story">
+						<Section id="our-story">
 							<h1>{storyIntro.remark.frontmatter.title}</h1>
-							<div>{renderHtmlAstToReact(storyIntro.remark.htmlAst)}</div>
+							<Markdown>
+								{renderHtmlAstToReact(storyIntro.remark.htmlAst)}
+							</Markdown>
 							<p>
 								<PrimaryButton>Donate</PrimaryButton>
 								<SecondaryButton href="#get-masks">
 									Request Masks
 								</SecondaryButton>
 							</p>
-						</StyledContentSection>
+						</Section>
 					)}
 					{aboutTheMasks && (
 						<Offset>
-							<StyledContentSection id="about-the-masks">
+							<Section id="about-the-masks">
 								<h1>{aboutTheMasks.remark.frontmatter.title}</h1>
-								<div>{renderHtmlAstToReact(aboutTheMasks.remark.htmlAst)}</div>
+								<Markdown>
+									{renderHtmlAstToReact(aboutTheMasks.remark.htmlAst)}
+								</Markdown>
 								<SecondaryButton href="#get-masks">
 									Request Masks
 								</SecondaryButton>
-							</StyledContentSection>
+							</Section>
 						</Offset>
 					)}
 					{supportUs && (
-						<StyledContentSection id="support-us">
+						<Section id="support-us">
 							<h1>{supportUs.remark.frontmatter.title}</h1>
-							<div>{renderHtmlAstToReact(supportUs.remark.htmlAst)}</div>
+							<Markdown>
+								{renderHtmlAstToReact(supportUs.remark.htmlAst)}
+							</Markdown>
 							<p>
 								<PrimaryButton>Donate</PrimaryButton>
 							</p>
-						</StyledContentSection>
+						</Section>
 					)}
 					{share && (
 						<Offset>
-							<StyledContentSection id="share">
+							<Section id="share">
 								<h1>{share.remark.frontmatter.title}</h1>
-								<div>{renderHtmlAstToReact(share.remark.htmlAst)}</div>
+								<Markdown>
+									{renderHtmlAstToReact(share.remark.htmlAst)}
+								</Markdown>
 								<NewsletterSubscribeForm />
-							</StyledContentSection>
+							</Section>
 						</Offset>
 					)}
 					{getMasks && (
-						<StyledContentSection id="get-masks">
+						<Section id="get-masks">
 							<h1>{getMasks.remark.frontmatter.title}</h1>
-							<div>{renderHtmlAstToReact(getMasks.remark.htmlAst)}</div>
-						</StyledContentSection>
+							<Markdown>
+								{renderHtmlAstToReact(getMasks.remark.htmlAst)}
+							</Markdown>
+						</Section>
 					)}
 					<Offset>
 						<Section id="team">
@@ -164,12 +155,12 @@ const HomeTemplate = (data: {
 						</Section>
 					</Offset>
 					{faq && (
-						<StyledContentSection id="faq">
+						<Section id="faq">
 							<h1>{faq.remark.frontmatter.title}</h1>
-							<div>{renderHtmlAstToReact(faq.remark.htmlAst)}</div>
-						</StyledContentSection>
+							<Markdown>{renderHtmlAstToReact(faq.remark.htmlAst)}</Markdown>
+						</Section>
 					)}
-				</Main>
+				</main>
 				<Footer siteMetaData={data.data.site.siteMetadata} />
 			</Wrapper>
 		</>

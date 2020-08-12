@@ -1,10 +1,16 @@
+import { darken, lighten } from 'polished'
 export const mediumBreakpoint = '800px'
 export const wideBreakpoint = '1200px'
+
+const gunpowder = '#2d2d2d'
+const maskDarkGreen = '#003333'
+const maskLightGreen = '#669999'
 export const colors = {
-	maskDarkGreen: '#003333',
-	maskLightGreen: '#669999',
+	maskDarkGreen,
+	maskLightGreen,
+	maskLighterGreen: lighten(0.1, maskLightGreen),
 	bossOrange: '#ff6600',
 	recycledToiletPaper: '#c7c7c7',
-	gunpowder: '#2d2d2d',
-	wetGunpowder: '#222',
-}
+	gunpowder,
+	gunpowderDark: darken(0.1, gunpowder),
+} as const
