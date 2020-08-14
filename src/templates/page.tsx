@@ -5,8 +5,8 @@ import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import { Head } from '../components/Head'
 import { Footer } from '../components/Footer'
 import { Navbar } from '../components/Navbar'
-import { NewsletterSubscribeForm } from '../components/NewsletterSubscribeForm'
 import { SiteMetaData, Page } from './types'
+import { Section, Markdown } from '../components/Main'
 
 const Wrapper = styled.div`
 	height: 100%;
@@ -43,9 +43,12 @@ const PageTemplate = (data: {
 		<Wrapper>
 			<Navbar />
 			<main>
-				{data.pageContext.page.remark?.htmlAst !== undefined &&
-					renderHtmlAstToReact(data.pageContext.page.remark.htmlAst)}
-				<NewsletterSubscribeForm />
+				<Section>
+					<Markdown>
+						{data.pageContext.page.remark?.htmlAst !== undefined &&
+							renderHtmlAstToReact(data.pageContext.page.remark.htmlAst)}
+					</Markdown>
+				</Section>
 			</main>
 			<Footer siteMetaData={data.data.site.siteMetadata} />
 		</Wrapper>

@@ -11,7 +11,6 @@ import { NewsletterSubscribeForm } from '../components/NewsletterSubscribeForm'
 import { SiteMetaData, Page } from './types'
 import { Team } from '../components/Team'
 import { PrimaryButton, SecondaryButton } from '../components/Buttons'
-import { colors } from '../settings'
 
 const Wrapper = styled.div`
 	height: 100%;
