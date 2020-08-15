@@ -1,5 +1,5 @@
 ---
-subtitle: M4H Starting Goal
+subtitle: Our starting goal
 title: Fund, make and distribute 100,000 masks
 ---
 
