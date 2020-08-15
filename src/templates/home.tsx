@@ -96,7 +96,7 @@ const HomeTemplate = (data: {
 								{renderHtmlAstToReact(storyIntro.remark.htmlAst)}
 							</Markdown>
 							<p>
-								<PrimaryButton>Donate</PrimaryButton>
+								<PrimaryButton>Donate now</PrimaryButton>
 								<SecondaryButton href="#get-masks">
 									Request Masks
 								</SecondaryButton>
@@ -123,7 +123,7 @@ const HomeTemplate = (data: {
 								{renderHtmlAstToReact(supportUs.remark.htmlAst)}
 							</Markdown>
 							<p>
-								<PrimaryButton>Donate</PrimaryButton>
+								<PrimaryButton>Donate now</PrimaryButton>
 							</p>
 						</Section>
 					)}
@@ -160,7 +160,15 @@ const HomeTemplate = (data: {
 						</Section>
 					)}
 				</main>
-				<Footer siteMetaData={data.data.site.siteMetadata} />
+				<Footer siteMetaData={data.data.site.siteMetadata}>
+					<Section>
+						<h1>{headerContent?.remark.frontmatter.title}</h1>
+						<p>
+							<PrimaryButton>Donate now</PrimaryButton>
+							<SecondaryButton href="#get-masks">Request Masks</SecondaryButton>
+						</p>
+					</Section>
+				</Footer>
 			</Wrapper>
 		</>
 	)

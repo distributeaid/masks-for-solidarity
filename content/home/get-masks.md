@@ -14,10 +14,10 @@ for free by completing the forms below.
 ## Buy Masks At-Cost
 
 Masks are available for
-$1.50 each, which includes shipping all the way to you. There is a minimum order of 1,000 masks ($1,500)
+US$1.50 each, which includes shipping all the way to you. There is a minimum order of 1,000 masks (US$1,500)
 to keep this manageable for our volunteers.
 
-To apply, fill out this [form](https://forms.gle/kBrSmH4NCrKZV8yW7).
+> [Buy now](https://forms.gle/kBrSmH4NCrKZV8yW7)
 
 Can't meet the minimum? Get your community involved and go in on an order with
 other local organizations!

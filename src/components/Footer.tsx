@@ -86,11 +86,13 @@ const TwoCols = styled.section`
 
 export const Footer = ({
 	siteMetaData: { gitHubUrl },
-}: {
+	children,
+}: React.PropsWithChildren<{
 	siteMetaData: SiteMetaData
-}) => (
+}>) => (
 	<Wrapper>
 		<StyledFooter>
+			{children}
 			<TwoCols>
 				<Nav>
 					<a href={withPrefix('/Privacy')}>Privacy</a>

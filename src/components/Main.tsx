@@ -5,7 +5,6 @@ import { mediumBreakpoint, colors } from '../settings'
 export const Section = styled.section`
 	margin: 0 auto;
 	max-width: ${mediumBreakpoint};
-	line-height: 1.5rem;
 	padding: 1rem;
 	@media (min-width: ${mediumBreakpoint}) {
 		padding: 4rem 0;
@@ -17,6 +16,7 @@ export const Offset = styled.div`
 `
 
 export const Markdown = styled.div`
+	line-height: 1.5rem;
 	h1,
 	h2 {
 		font-size: 14px;
