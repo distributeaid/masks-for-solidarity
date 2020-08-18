@@ -110,9 +110,6 @@ const HomeTemplate = (data: {
 								<Markdown>
 									{renderHtmlAstToReact(aboutTheMasks.remark.htmlAst)}
 								</Markdown>
-								<SecondaryButton href="#get-masks">
-									Request Masks
-								</SecondaryButton>
 							</Section>
 						</Offset>
 					)}
@@ -147,18 +144,18 @@ const HomeTemplate = (data: {
 						</Section>
 					)}
 					<Offset>
-						<Section id="team">
-							{teamIntro !== undefined && teamPages.length > 0 && (
-								<Team intro={teamIntro} entries={teamPages} />
-							)}
-						</Section>
+						{faq && (
+							<Section id="faq">
+								<h1>{faq.remark.frontmatter.title}</h1>
+								<Markdown>{renderHtmlAstToReact(faq.remark.htmlAst)}</Markdown>
+							</Section>
+						)}
 					</Offset>
-					{faq && (
-						<Section id="faq">
-							<h1>{faq.remark.frontmatter.title}</h1>
-							<Markdown>{renderHtmlAstToReact(faq.remark.htmlAst)}</Markdown>
-						</Section>
-					)}
+					<Section id="team">
+						{teamIntro !== undefined && teamPages.length > 0 && (
+							<Team intro={teamIntro} entries={teamPages} />
+						)}
+					</Section>
 				</main>
 				<Footer siteMetaData={data.data.site.siteMetadata}>
 					<Section>

@@ -17,7 +17,7 @@ Masks are available for
 US$1.50 each, which includes shipping all the way to you. There is a minimum order of 1,000 masks (US$1,500)
 to keep this manageable for our volunteers.
 
-> [Buy now](https://forms.gle/kBrSmH4NCrKZV8yW7)
+> [Order now](https://forms.gle/kBrSmH4NCrKZV8yW7)
 
 Can't meet the minimum? Get your community involved and go in on an order with
 other local organizations!
@@ -37,3 +37,5 @@ There is no minimum or maximum request, though we do encourage you to ask for
 1 - 3 months worth of masks. If you have funding, please consider purchasing
 masks at-cost so that we may reserve our free masks for groups with no
 alternatives.
+
+> [Request masks](https://forms.gle/BKjTXX7rqRwg6afZ8)

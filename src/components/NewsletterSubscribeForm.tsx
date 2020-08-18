@@ -3,8 +3,12 @@ import styled from 'styled-components'
 import { colors, mediumBreakpoint } from '../settings'
 
 const Form = styled.form`
-	border: 1px dotted ${colors.recycledToiletPaper};
-	padding: 1rem;
+	margin-top: 2rem;
+	@media (min-width: ${mediumBreakpoint}) {
+		border: 1px dotted ${colors.recycledToiletPaper};
+		padding: 1rem;
+		margin: 0;
+	}
 `
 const Input = styled.input`
 	height: 42px;

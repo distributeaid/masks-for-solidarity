@@ -75,7 +75,7 @@ export const Header = ({
 						{content.remark.frontmatter.title}
 					</h2>
 					<div>{renderHtmlAstToReact(content.remark.htmlAst)}</div>
-					<PrimaryButton>Donate</PrimaryButton>
+					<PrimaryButton>Donate now</PrimaryButton>
 				</Content>
 			</Wrapper>
 		</Gallery>

@@ -69,6 +69,7 @@ const Wrapper = styled.div`
 `
 
 const TwoCols = styled.section`
+	margin-top: 4rem;
 	${Nav} {
 		margin-bottom: 4rem;
 		text-align: center;
