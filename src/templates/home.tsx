@@ -10,6 +10,7 @@ import { Navbar } from '../components/Navbar'
 import { NewsletterSubscribeForm } from '../components/NewsletterSubscribeForm'
 import { SiteMetaData, Page } from './types'
 import { Team } from '../components/Team'
+import { FAQ } from '../components/FAQ'
 import { PrimaryButton, SecondaryButton } from '../components/Buttons'
 
 const Wrapper = styled.div`
@@ -143,14 +144,11 @@ const HomeTemplate = (data: {
 							</Markdown>
 						</Section>
 					)}
-					<Offset>
-						{faq && (
-							<Section id="faq">
-								<h1>{faq.remark.frontmatter.title}</h1>
-								<Markdown>{renderHtmlAstToReact(faq.remark.htmlAst)}</Markdown>
-							</Section>
-						)}
-					</Offset>
+					{faq && (
+						<Offset id="faq">
+							<FAQ content={faq} />
+						</Offset>
+					)}
 					<Section id="team">
 						{teamIntro !== undefined && teamPages.length > 0 && (
 							<Team intro={teamIntro} entries={teamPages} />

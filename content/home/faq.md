@@ -36,7 +36,7 @@ shipments.
 ## I don’t personally need a mask, but I still want to support the project. How can I do that?
 
 You can easily support our work by making a donation through donorbox by
-clicking right here: (link to donorbox).
+clicking right here: **[TODO: Link to Donorbox]**.
 
 If you're tight on funds, you can also support our work by spreading the word
 about the project. You can do so by encouraging friends and family to donate by
@@ -44,7 +44,8 @@ sharing the link to our website on social media.
 
 ## I have some questions/concerns. To whom do I direct my feedback?
 
-For any general inquiries please contact the project lead at hello@refugees.care
+For any general inquiries please contact the project lead at
+[hello@refugees.care](mailto:hello@refugees.care).
 
 ## Why don't you send masks to undeserved communities all over the world?
 
