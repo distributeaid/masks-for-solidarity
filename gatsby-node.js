@@ -29,6 +29,7 @@ const renderContentPage = async (
 								role
 								instagram
 								facebook
+								logo
 							}
 							headings {
 								id

@@ -2,104 +2,90 @@ import React from 'react'
 import { Page } from '../templates/types'
 import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import styled from 'styled-components'
-
-import LinkIcon from 'feather-icons/dist/icons/link.svg'
-import FacebookIcon from 'feather-icons/dist/icons/facebook.svg'
-import TwitterIcon from 'feather-icons/dist/icons/twitter.svg'
-import InstagramIcon from 'feather-icons/dist/icons/instagram.svg'
 import { Markdown } from './Main'
 
-const plainTextLink = (link: string): string =>
-	link.replace(/^https?:\/\//, '').replace(/\/$/, '')
-
 const Nav = styled.nav`
+	display: grid;
+	grid-template-columns: 1fr;
+	@media (min-width: 500px) {
+		grid-template-columns: 1fr 1fr;
+	}
+	align-items: center;
+	justify-items: center;
+	margin-top: 2rem;
+`
+
+const TeamEntry = styled.a`
+	text-align: center;
 	display: flex;
+	width: 100%;
+	min-width: 150px;
+	@media (min-width: 500px) {
+		width: 250px;
+	}
 	flex-direction: column;
-	margin-top: 1rem;
-	a {
-		display: flex;
-		svg {
-			height: 20px;
-			width: 20px;
-			margin-right: 0.5rem;
+	margin: 2rem 0;
+	text-decoration: none;
+	align-items: center;
+	span {
+		color: white;
+		opacity: 0.75;
+		font-weight: 200;
+		font-size: 90%;
+		small {
+			font-size: 90%;
+			opacity: 0.85;
 		}
 	}
-	a + a {
-		margin-top: 0.5rem;
+	img {
+		width: 25%;
+		max-width: 100px;
+		@media (min-width: 500px) {
+			width: 60%;
+		}
+		filter: grayscale(1);
+		margin-bottom: 1rem;
+	}
+	&:hover {
+		img {
+			filter: none;
+		}
+		span {
+			opacity: 1;
+		}
 	}
 `
 
-const TeamTitle = styled.h3`
-	small {
-		font-weight: 200;
-		font-size: 60%;
-	}
-`
-
-const Logo = styled.img`
-	float: right;
-	max-width: 250px;
-	max-height: 150px;
-	margin-left: 1rem;
-`
+const imageUrl = (url: string) => {
+	if (url.endsWith('svg')) return url
+	return `${url}?w=150`
+}
 
 export const Team = ({ intro, entries }: { intro: Page; entries: Page[] }) => (
 	<section>
 		<h2>{intro.remark.frontmatter.title}</h2>
-		<Markdown>
-			{renderHtmlAstToReact(intro.remark.htmlAst)}
+		<Markdown>{renderHtmlAstToReact(intro.remark.htmlAst)}</Markdown>
+		<Nav>
 			{entries.map((entry, id) => (
-				<React.Fragment key={id}>
-					<TeamTitle>
-						<small>{entry.remark.frontmatter.role}:</small>
-						<br />
+				<TeamEntry
+					key={id}
+					href={entry.remark.frontmatter.website}
+					target="_blank"
+					rel="nofollow noreferrer"
+				>
+					<img
+						alt={entry.remark.frontmatter.title}
+						target="_blank"
+						data-src={imageUrl(entry.remark.frontmatter.logo ?? '')}
+						className="lazyload"
+					/>
+					<span>
 						{entry.remark.frontmatter.title}
-					</TeamTitle>
-					{renderHtmlAstToReact(entry.remark.htmlAst)}
-					<Nav>
-						{entry.remark.frontmatter.website !== null && (
-							<a
-								href={entry.remark.frontmatter.website}
-								target="_blank"
-								rel="nofollow noreferrer"
-							>
-								<LinkIcon />
-								{plainTextLink(entry.remark.frontmatter.website)}
-							</a>
-						)}
-						{entry.remark.frontmatter.facebook !== null && (
-							<a
-								href={`https://facebook.com/${entry.remark.frontmatter.facebook}`}
-								target="_blank"
-								rel="nofollow noreferrer"
-							>
-								<FacebookIcon />
-								{entry.remark.frontmatter.facebook}
-							</a>
-						)}
-						{entry.remark.frontmatter.instagram !== null && (
-							<a
-								href={`https://instagram.com/${entry.remark.frontmatter.instagram}`}
-								target="_blank"
-								rel="nofollow noreferrer"
-							>
-								<InstagramIcon />
-								{entry.remark.frontmatter.instagram}
-							</a>
-						)}
-						{entry.remark.frontmatter.twitter !== null && (
-							<a
-								href={`https://twitter.com/${entry.remark.frontmatter.twitter}`}
-								target="_blank"
-								rel="nofollow noreferrer"
-							>
-								<TwitterIcon />
-								{entry.remark.frontmatter.twitter}
-							</a>
-						)}
-					</Nav>
-				</React.Fragment>
+						<br />
+						<small>{entry.remark.frontmatter.role}</small>
+					</span>
+				</TeamEntry>
 			))}
-		</Markdown>
+		</Nav>
 	</section>
 )

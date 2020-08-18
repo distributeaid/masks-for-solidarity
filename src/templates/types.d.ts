@@ -34,6 +34,7 @@ export type Page = {
 			role: string | null
 			instagram: string | null
 			facebook: string | null
+			logo: string | null
 		}
 	}
 }

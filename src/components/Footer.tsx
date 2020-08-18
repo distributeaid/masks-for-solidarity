@@ -126,7 +126,6 @@ export const Footer = ({
 						<img
 							alt="Deploys by Netlify"
 							target="_blank"
-							rel="nofollow noreferrer"
 							data-src="https://www.netlify.com/img/global/badges/netlify-dark.svg"
 							className="lazyload"
 						/>
