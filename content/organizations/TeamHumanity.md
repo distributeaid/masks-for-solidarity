@@ -4,6 +4,7 @@ role: Production, Maker Support
 website: https://teamhumanity.info/
 facebook: teamhumanitydk
 instagram: teamhumanity
+logo: https://cdn.sanity.io/images/1z6tpjf0/production/14a4dd35137753808ea664d405fb5bc1172df62b-600x271.png
 ---
 
 Team Humanity envisions a world where they seek to alleviate human suffering by
