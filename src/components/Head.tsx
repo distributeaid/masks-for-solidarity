@@ -64,6 +64,7 @@ export const Head = ({
 				src="https://afarkas.github.io/lazysizes/lazysizes.min.js"
 				crossOrigin="anonymous"
 			></script>
+			<script type="module" src={withPrefix('/clientApp.js')}></script>
 		</Helmet>
 		<GlobalStyle />
 	</>

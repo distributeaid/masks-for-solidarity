@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, withPrefix } from 'gatsby'
 import styled from 'styled-components'
 import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import { Head } from '../components/Head'
@@ -102,6 +102,7 @@ const HomeTemplate = (data: {
 									Request Masks
 								</SecondaryButton>
 							</p>
+							<div id="campaignProgress" />
 						</Section>
 					)}
 					{aboutTheMasks && (
