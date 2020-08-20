@@ -102,7 +102,6 @@ const HomeTemplate = (data: {
 									Request Masks
 								</SecondaryButton>
 							</p>
-							<div id="campaignProgress" />
 						</Section>
 					)}
 					{aboutTheMasks && (
