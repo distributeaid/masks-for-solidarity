@@ -6,8 +6,8 @@ title: FAQ
 
 When you donate money via donorbox on this website, your money goes directly to
 Team Humanity on the ground in Greece. Every penny is used for the explicit
-purpose of funding the Masks for Humanity project. The journey of your money is
-as follows:
+purpose of funding the refugees.care project. The journey of your money is as
+follows:
 
 Team Humanity (on Lesvos, Greece), receive all the money generated from
 donations. Subsequently, they use the money to ensure that the women producing
@@ -18,8 +18,8 @@ can go where they are most needed in the US or Europe.
 
 ## How is environmental sustainability being considered regarding production of masks and the shipping of masks from Europe to the U.S.?
 
-At Masks for Humanity we put a lot of consideration into making sure our work
-has the smallest ecological footprint possible.
+At refugees.care we put a lot of consideration into making sure our work has the
+smallest ecological footprint possible.
 
 Our masks are washable and reusable, unlike the many single-use masks that are
 being purchased around the globe. Thus, we contribute to minimizing the amount

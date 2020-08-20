@@ -111,8 +111,8 @@ export const Navbar = () => {
 		<Nav className={toggled ? 'toggled' : ''}>
 			<Wrapper>
 				<a href="/" title={'Home'}>
-					<StyledLogoIcon title={'Masks for Humanity'} />
-					<StyledLogoIconWide title={'Masks for Humanity'} />
+					<StyledLogoIcon title={'refugees.care'} />
+					<StyledLogoIconWide title={'refugees.care'} />
 				</a>
 				<MenuToggle onClick={toggleMenu} title={'Toggle Menu'}>
 					<MenuToggleIcon />

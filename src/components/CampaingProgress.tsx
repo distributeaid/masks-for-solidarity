@@ -79,7 +79,7 @@ export const CampaignProgress = () => {
 		let isCancelled = false
 		setTimeout(() => {
 			void fetch(
-				'https://distributeaid.github.io/donorbox-campaign-scraper/masks-for-humanity.json',
+				'https://distributeaid.github.io/donorbox-campaign-scraper/progress.json',
 			)
 				.then(async (res) => res.json())
 				.then((p) => {

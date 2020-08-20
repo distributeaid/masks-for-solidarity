@@ -67,12 +67,12 @@ export const NewsletterSubscribeForm = () => {
 	const emailIsValid = /.+@.+\..+/.test(email)
 	return (
 		<Form
-			action={'https://tinyletter.com/masks-for-humanity'}
+			action={'https://tinyletter.com/refugees-care'}
 			method="post"
 			target="popupwindow"
 			onSubmit={() => {
 				window.open(
-					'https://tinyletter.com/masks-for-humanity',
+					'https://tinyletter.com/refugees-care',
 					'popupwindow',
 					'scrollbars=yes,width=800,height=600',
 				)
