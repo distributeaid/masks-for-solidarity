@@ -8,6 +8,8 @@ import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import { PrimaryButton } from './Buttons'
 import { mediumBreakpoint } from '../settings'
 import styled from 'styled-components'
+import { CampaignProgress } from './CampaingProgress'
+import { Markdown } from './Main'
 
 const windowGlobal = (typeof window !== 'undefined' && window) || undefined
 
@@ -53,6 +55,10 @@ const Content = styled.div`
 		-1px -1px 4px #00000099, 1px -1px 4px #00000099;
 `
 
+const StyledMarkdown = styled(Markdown)`
+	margin-bottom: 1rem;
+`
+
 export const Header = ({
 	gallery,
 	content,
@@ -74,7 +80,10 @@ export const Header = ({
 						<br />
 						{content.remark.frontmatter.title}
 					</h2>
-					<div>{renderHtmlAstToReact(content.remark.htmlAst)}</div>
+					<StyledMarkdown>
+						{renderHtmlAstToReact(content.remark.htmlAst)}
+					</StyledMarkdown>
+					<CampaignProgress />
 					<PrimaryButton>Donate now</PrimaryButton>
 				</Content>
 			</Wrapper>

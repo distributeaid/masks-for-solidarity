@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, withPrefix } from 'gatsby'
 import styled from 'styled-components'
 import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import { Head } from '../components/Head'
