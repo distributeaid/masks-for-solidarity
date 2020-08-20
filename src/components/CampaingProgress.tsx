@@ -57,11 +57,13 @@ const ProgressBar = ({ progress }: { progress: number }) => {
 	)
 }
 
-const currencyFormatter = new Intl.NumberFormat(navigator.language, {
-	style: 'decimal',
-	minimumFractionDigits: 0,
-	maximumFractionDigits: 0,
-})
+const currencyFormatter = isSSR
+	? { format: (n: number) => n }
+	: new Intl.NumberFormat(navigator.language, {
+			style: 'decimal',
+			minimumFractionDigits: 0,
+			maximumFractionDigits: 0,
+	  })
 
 export const CampaignProgress = () => {
 	const [progress, setProgress] = useState<{
@@ -69,7 +71,6 @@ export const CampaignProgress = () => {
 		goal: number
 		donations: number
 	}>()
-	const [stale, setStale] = useState(true)
 	useEffect(() => {
 		if (isSSR) {
 			setProgress({ raised: 3, goal: 15000, donations: 2 })
@@ -84,7 +85,6 @@ export const CampaignProgress = () => {
 				.then((p) => {
 					if (!isCancelled) {
 						setProgress(p)
-						setStale(false)
 					}
 				})
 		}, 1000)
