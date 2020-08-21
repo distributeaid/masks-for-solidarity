@@ -14,3 +14,15 @@ export const colors = {
 	gunpowder,
 	gunpowderDark: darken(0.1, gunpowder),
 } as const
+
+export const fonts = {
+	text: {
+		name: 'Work Sans',
+		weights: {
+			light: 300,
+			default: 450,
+			bold: 550,
+			headline: 650,
+		},
+	},
+} as const

@@ -3,13 +3,13 @@ import { createGlobalStyle } from 'styled-components'
 import { Helmet } from 'react-helmet'
 import { withPrefix } from 'gatsby'
 import { SiteMetaData } from '../templates/types'
-import { colors } from '../settings'
+import { colors, fonts } from '../settings'
 
 const GlobalStyle = createGlobalStyle`
       html,
       body {
-		font-family: 'Poppins', sans-serif;
-		font-weight: 400;
+		font-family: ${fonts.text.name}, sans-serif;
+		font-weight: ${fonts.text.weights.default};
 		height: 100%;
 		background-color: ${colors.gunpowder};
 		color: ${colors.recycledToiletPaper};
@@ -18,8 +18,8 @@ const GlobalStyle = createGlobalStyle`
 		height: 100%;
 	  }
 	  h1, h2, h3, h4, h5, h6 {
-		font-family: 'Montserrat', sans-serif;
-		font-weight: 700;
+		font-family: ${fonts.text.name}, sans-serif;
+		font-weight: ${fonts.text.weights.headline};
 	  }
 `
 
@@ -30,6 +30,15 @@ const loadAsync = (src: string): string => `(function(d){
 	x.href = "${src}";
 	y.parentNode.insertBefore(x, y);
 })(document);`
+
+const googleFontsArgs = Object.values(fonts)
+	.map(
+		({ name, weights }) =>
+			`family=${encodeURIComponent(name)}:wght@${Object.values(weights).join(
+				';',
+			)}`,
+	)
+	.join('&')
 
 export const Head = ({
 	siteMetaData: { title: siteTitle, description },
@@ -51,7 +60,7 @@ export const Head = ({
 			<link rel="preconnect" href="https://fonts.googleapis.com" />
 			<script type="text/javascript">
 				{loadAsync(
-					'https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500;700&family=Poppins&display=swap',
+					`https://fonts.googleapis.com/css2?${googleFontsArgs}&display=swap`,
 				)}
 			</script>
 			<script type="text/javascript">

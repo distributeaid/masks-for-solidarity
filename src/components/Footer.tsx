@@ -7,7 +7,6 @@ import { SiteMetaData } from '../templates/page'
 import HeartIcon from 'feather-icons/dist/icons/heart.svg'
 import GitHubIcon from 'feather-icons/dist/icons/github.svg'
 import VictoryIcon from './noun_victory_394398.svg'
-import Logo from './logo-currentColor.svg'
 
 const StyledFooter = styled.footer`
 	margin: 0 auto;
@@ -21,10 +20,6 @@ const StyledFooter = styled.footer`
 	a {
 		color: inherit;
 	}
-`
-
-const P = styled.p`
-	margin-bottom: 2rem;
 `
 
 const StyledVictoryIcon = styled(VictoryIcon)`
@@ -57,11 +52,6 @@ const Nav = styled.nav`
 			content: ' · ';
 		}
 	}
-`
-
-const StyledLogo = styled(Logo)`
-	max-width: 200px;
-	height: auto;
 `
 
 const Wrapper = styled.div`
@@ -107,10 +97,9 @@ export const Footer = ({
 					</a>
 				</Nav>
 				<div>
-					<StyledLogo />
-					<P>
+					<p>
 						Made with <StyledHeartIcon /> by Refugees in Moria.
-					</P>
+					</p>
 				</div>
 			</TwoCols>
 			<Attributions>

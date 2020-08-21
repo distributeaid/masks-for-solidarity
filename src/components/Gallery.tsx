@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { mediumBreakpoint } from '../settings'
 
 const GalleryHeader = styled.header`
-	height: 50%;
+	height: calc(100% - 48px);
+	@media (min-width: ${mediumBreakpoint}) {
+		height: 50%;
+	}
 	min-height: 250px;
 	transition: background 1s;
 	background-position: 50% 50%;

@@ -3,40 +3,16 @@ import styled from 'styled-components'
 import { colors, wideBreakpoint, mediumBreakpoint } from '../settings'
 import { withPrefix } from 'gatsby'
 import { rgba } from 'polished'
+import { fonts } from '../settings'
 
 import LogoIcon from './logo-colored.svg'
-import LogoIconWide from './logo-colored-wide.svg'
 import MenuToggleIcon from 'feather-icons/dist/icons/menu.svg'
-
-const StyledLogoIcon = styled(LogoIcon)`
-	display: none;
-	@media (min-width: ${mediumBreakpoint}) {
-		display: block;
-		width: auto;
-		height: 50px;
-		padding: 1rem 2rem;
-	}
-	@media (min-width: ${wideBreakpoint}) {
-		height: 60px;
-		padding: 2rem;
-	}
-`
-
-const StyledLogoIconWide = styled(LogoIconWide)`
-	display: block;
-	height: 35px;
-	padding: 1rem;
-	width: auto;
-	@media (min-width: ${mediumBreakpoint}) {
-		display: none;
-	}
-`
 
 const Link = styled.a`
 	color: ${rgba('#ffffff', 0.8)};
 	text-decoration: none;
-	font-family: Montserrat, sans-serif;
-	font-weight: 500;
+	font-family: ${fonts.text.name}, sans-serif;
+	font-weight: ${fonts.text.weights.bold};
 	&:hover {
 		color: white;
 	}
@@ -104,16 +80,52 @@ const MenuToggle = styled.button`
 	}
 `
 
+const LogoText = styled.span`
+	color: #fff;
+	@media (min-width: ${mediumBreakpoint}) {
+		font-size: 20px;
+	}
+	span:first-child {
+		color: ${colors.bossOrange};
+	}
+	span:last-child {
+		color: ${colors.maskLightGreen};
+	}
+	font-weight: ${fonts.text.weights.headline};
+`
+
+const Logo = styled.a`
+	text-decoration: none;
+	padding: 1rem;
+	@media (min-width: ${mediumBreakpoint}) {
+		padding: 1rem 2rem;
+	}
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	svg {
+		display: block;
+		width: auto;
+		height: 32px;
+		@media (min-width: ${mediumBreakpoint}) {
+			height: 50px;
+		}
+		margin-right: 0.5rem;
+	}
+`
+
 export const Navbar = () => {
 	const [toggled, setToggled] = useState(false)
 	const toggleMenu = () => setToggled((toggled) => !toggled)
 	return (
 		<Nav className={toggled ? 'toggled' : ''}>
 			<Wrapper>
-				<a href="/" title={'Home'}>
-					<StyledLogoIcon title={'refugees.care'} />
-					<StyledLogoIconWide title={'refugees.care'} />
-				</a>
+				<Logo href="/" title={'Home'}>
+					<LogoIcon title={'refugees.care'} />
+					<LogoText>
+						<span>refugees</span>.<span>care</span>
+					</LogoText>
+				</Logo>
 				<MenuToggle onClick={toggleMenu} title={'Toggle Menu'}>
 					<MenuToggleIcon />
 				</MenuToggle>
