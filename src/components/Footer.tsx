@@ -64,6 +64,9 @@ const TwoCols = styled.section`
 		margin-bottom: 4rem;
 		text-align: center;
 	}
+	div {
+		text-align: center;
+	}
 	@media (min-width: ${mediumBreakpoint}) {
 		display: flex;
 		justify-content: space-between;
