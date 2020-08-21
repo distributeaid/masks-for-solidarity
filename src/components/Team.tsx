@@ -79,7 +79,7 @@ export const Team = ({ intro, entries }: { intro: Page; entries: Page[] }) => (
 						data-src={imageUrl(entry.remark.frontmatter.logo ?? '')}
 						className="lazyload"
 						width={100}
-						heigth={100}
+						height={100}
 					/>
 					<span>
 						{entry.remark.frontmatter.title}
