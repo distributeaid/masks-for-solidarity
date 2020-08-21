@@ -84,7 +84,13 @@ export const Header = ({
 						{renderHtmlAstToReact(content.remark.htmlAst)}
 					</StyledMarkdown>
 					<CampaignProgress />
-					<PrimaryButton>Donate now</PrimaryButton>
+					<PrimaryButton
+						href="https://donorbox.org/masks-for-humanity"
+						target="_blank"
+						rel="nofollow noreferrer"
+					>
+						Donate now
+					</PrimaryButton>
 				</Content>
 			</Wrapper>
 		</Gallery>

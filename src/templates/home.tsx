@@ -97,7 +97,13 @@ const HomeTemplate = (data: {
 								{renderHtmlAstToReact(storyIntro.remark.htmlAst)}
 							</Markdown>
 							<p>
-								<PrimaryButton>Donate now</PrimaryButton>
+								<PrimaryButton
+									href="https://donorbox.org/masks-for-humanity"
+									target="_blank"
+									rel="nofollow noreferrer"
+								>
+									Donate now
+								</PrimaryButton>
 								<SecondaryButton href="#get-masks">
 									Request Masks
 								</SecondaryButton>
@@ -121,7 +127,13 @@ const HomeTemplate = (data: {
 								{renderHtmlAstToReact(supportUs.remark.htmlAst)}
 							</Markdown>
 							<p>
-								<PrimaryButton>Donate now</PrimaryButton>
+								<PrimaryButton
+									href="https://donorbox.org/masks-for-humanity"
+									target="_blank"
+									rel="nofollow noreferrer"
+								>
+									Donate now
+								</PrimaryButton>
 							</p>
 						</Section>
 					)}
@@ -159,7 +171,13 @@ const HomeTemplate = (data: {
 					<Section>
 						<h1>{headerContent?.remark.frontmatter.title}</h1>
 						<p>
-							<PrimaryButton>Donate now</PrimaryButton>
+							<PrimaryButton
+								href="https://donorbox.org/masks-for-humanity"
+								target="_blank"
+								rel="nofollow noreferrer"
+							>
+								Donate now
+							</PrimaryButton>
 							<SecondaryButton href="#get-masks">Request Masks</SecondaryButton>
 						</p>
 					</Section>
