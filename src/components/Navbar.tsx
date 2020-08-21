@@ -89,7 +89,7 @@ const LogoText = styled.span`
 		color: ${colors.bossOrange};
 	}
 	span:last-child {
-		color: ${colors.maskLightGreen};
+		color: ${colors.maskLighterGreen};
 	}
 	font-weight: ${fonts.text.weights.headline};
 `
