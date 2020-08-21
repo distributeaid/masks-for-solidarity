@@ -122,6 +122,8 @@ export const Footer = ({
 							alt="Deploys by Netlify"
 							data-src="https://www.netlify.com/img/global/badges/netlify-dark.svg"
 							className="lazyload"
+							width={114}
+							height={51}
 						/>
 					</a>
 				</p>
