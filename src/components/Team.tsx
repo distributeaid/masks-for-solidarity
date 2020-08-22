@@ -20,7 +20,7 @@ const TeamEntry = styled.a`
 	text-align: center;
 	display: flex;
 	width: 100%;
-	min-width: 150px;
+	min-width: 100px;
 	@media (min-width: 500px) {
 		width: 250px;
 	}
@@ -40,6 +40,7 @@ const TeamEntry = styled.a`
 	img {
 		width: 25%;
 		max-width: 100px;
+		height: auto;
 		@media (min-width: 500px) {
 			width: 60%;
 		}
@@ -58,34 +59,46 @@ const TeamEntry = styled.a`
 
 const imageUrl = (url: string) => {
 	if (url.endsWith('svg')) return url
-	return `${url}?w=150`
+	return `${url}?w=100`
 }
+
+const imageDimensions = (url: string): { width: number; height: number } =>
+	/-(?<width>[0-9]+)x(?<height>[0-9]+)\.[a-z]+$/.exec(url)?.groups ?? {
+		width: 100,
+		height: 100,
+	}
 
 export const Team = ({ intro, entries }: { intro: Page; entries: Page[] }) => (
 	<section>
 		<h2>{intro.remark.frontmatter.title}</h2>
 		<Markdown>{renderHtmlAstToReact(intro.remark.htmlAst)}</Markdown>
 		<Nav>
-			{entries.map((entry, id) => (
-				<TeamEntry
-					key={id}
-					href={entry.remark.frontmatter.website}
-					target="_blank"
-					rel="nofollow noreferrer"
-				>
-					<img
-						alt={entry.remark.frontmatter.title}
+			{entries.map((entry, id) => {
+				const dim = imageDimensions(entry.remark.frontmatter.logo as string)
+				console.log(dim)
+				return (
+					<TeamEntry
+						key={id}
+						href={entry.remark.frontmatter.website}
 						target="_blank"
-						data-src={imageUrl(entry.remark.frontmatter.logo ?? '')}
-						className="lazyload"
-					/>
-					<span>
-						{entry.remark.frontmatter.title}
-						<br />
-						<small>{entry.remark.frontmatter.role}</small>
-					</span>
-				</TeamEntry>
-			))}
+						rel="nofollow noreferrer"
+					>
+						<img
+							alt={entry.remark.frontmatter.title}
+							target="_blank"
+							data-src={imageUrl(entry.remark.frontmatter.logo ?? '')}
+							className="lazyload"
+							width={100}
+							height={Math.round(100 * (dim.height / dim.width))}
+						/>
+						<span>
+							{entry.remark.frontmatter.title}
+							<br />
+							<small>{entry.remark.frontmatter.role}</small>
+						</span>
+					</TeamEntry>
+				)
+			})}
 		</Nav>
 	</section>
 )
