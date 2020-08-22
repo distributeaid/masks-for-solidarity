@@ -75,7 +75,6 @@ export const Team = ({ intro, entries }: { intro: Page; entries: Page[] }) => (
 		<Nav>
 			{entries.map((entry, id) => {
 				const dim = imageDimensions(entry.remark.frontmatter.logo as string)
-				console.log(dim)
 				return (
 					<TeamEntry
 						key={id}
