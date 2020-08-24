@@ -85,7 +85,7 @@ export const Header = ({
 					</StyledMarkdown>
 					<CampaignProgress />
 					<PrimaryButton
-						href="https://donorbox.org/masks-for-humanity"
+						href="https://donorbox.org/refugees-care"
 						target="_blank"
 						rel="nofollow noreferrer"
 					>

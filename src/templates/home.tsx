@@ -98,7 +98,7 @@ const HomeTemplate = (data: {
 							</Markdown>
 							<p>
 								<PrimaryButton
-									href="https://donorbox.org/masks-for-humanity"
+									href="https://donorbox.org/refugees-care"
 									target="_blank"
 									rel="nofollow noreferrer"
 								>
@@ -128,7 +128,7 @@ const HomeTemplate = (data: {
 							</Markdown>
 							<p>
 								<PrimaryButton
-									href="https://donorbox.org/masks-for-humanity"
+									href="https://donorbox.org/refugees-care"
 									target="_blank"
 									rel="nofollow noreferrer"
 								>
@@ -172,7 +172,7 @@ const HomeTemplate = (data: {
 						<h1>{headerContent?.remark.frontmatter.title}</h1>
 						<p>
 							<PrimaryButton
-								href="https://donorbox.org/masks-for-humanity"
+								href="https://donorbox.org/refugees-care"
 								target="_blank"
 								rel="nofollow noreferrer"
 							>
