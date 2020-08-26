@@ -84,7 +84,7 @@ const HomeTemplate = (data: {
 				pageTitle={data.pageContext.page.remark.frontmatter?.title}
 			/>
 			<Wrapper>
-				<Navbar />
+				<Navbar siteMetaData={data.data.site.siteMetadata} />
 				<Header
 					gallery={data.data.allSanityGallery.nodes}
 					content={headerContent}

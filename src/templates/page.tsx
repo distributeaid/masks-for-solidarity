@@ -41,7 +41,7 @@ const PageTemplate = (data: {
 			pageTitle={data.pageContext.page.remark.frontmatter?.title}
 		/>
 		<Wrapper>
-			<Navbar />
+			<Navbar siteMetaData={data.data.site.siteMetadata} />
 			<main>
 				<Section>
 					<Markdown>

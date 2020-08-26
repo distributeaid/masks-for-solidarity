@@ -16,7 +16,7 @@ others who are impacted by the effects of racism in our global society. An
 initial batch of 10,000 masks were sent and distributed among organizations
 operating across the United States, including homeless shelters, food banks,
 indigenous reservations, medical facilities on the southern border, and women's
-shelters, and the idea for refugees.care was born.
+shelters, and the idea for Refugees Care was born.
 
 > Now these makers want to protect the world. Our starting goal is to fund,
 > make, and distribute 100,000 masks to people in need around the world by

@@ -1,7 +1,7 @@
 {
   "name": "@distributeaid/refugees.care",
   "version": "0.0.0-development",
-  "description": "Website for the refugees.care project",
+  "description": "Website for the Refugees Care project",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "snyk-protect": "snyk protect",
@@ -13,7 +13,7 @@
   },
   "keywords": [
     "Distribute Aid",
-    "refugees.care",
+    "Refugees Care",
     "GatsbyJS",
     "React",
     "TypeScript",

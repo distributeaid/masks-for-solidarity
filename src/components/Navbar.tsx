@@ -4,6 +4,7 @@ import { colors, wideBreakpoint, mediumBreakpoint } from '../settings'
 import { withPrefix } from 'gatsby'
 import { rgba } from 'polished'
 import { fonts } from '../settings'
+import { SiteMetaData } from '../templates/types'
 
 import LogoIcon from './logo-colored.svg'
 import MenuToggleIcon from 'feather-icons/dist/icons/menu.svg'
@@ -85,6 +86,11 @@ const LogoText = styled.span`
 	@media (min-width: ${mediumBreakpoint}) {
 		font-size: 20px;
 	}
+	span {
+		&:after {
+			content: ' ';
+		}
+	}
 	span:first-child {
 		color: ${colors.bossOrange};
 	}
@@ -114,16 +120,22 @@ const Logo = styled.a`
 	}
 `
 
-export const Navbar = () => {
+export const Navbar = ({
+	siteMetaData: { title: siteTitle },
+}: {
+	siteMetaData: SiteMetaData
+}) => {
 	const [toggled, setToggled] = useState(false)
 	const toggleMenu = () => setToggled((toggled) => !toggled)
 	return (
 		<Nav className={toggled ? 'toggled' : ''}>
 			<Wrapper>
 				<Logo href="/" title={'Home'}>
-					<LogoIcon title={'refugees.care'} />
+					<LogoIcon title={siteTitle} />
 					<LogoText>
-						<span>refugees</span>.<span>care</span>
+						{siteTitle.split(' ').map((s, i) => (
+							<span key={i}>{s}</span>
+						))}
 					</LogoText>
 				</Logo>
 				<MenuToggle onClick={toggleMenu} title={'Toggle Menu'}>
