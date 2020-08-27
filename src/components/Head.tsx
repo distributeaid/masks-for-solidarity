@@ -11,15 +11,16 @@ const GlobalStyle = createGlobalStyle`
 		font-family: ${fonts.text.name}, sans-serif;
 		font-weight: ${fonts.text.weights.default};
 		height: 100%;
-		background-color: ${colors.gunpowder};
-		color: ${colors.recycledToiletPaper};
+		background-color: ${colors.background};
+		color: ${colors.text};
       }
 	  #___gatsby, #gatsby-focus-wrapper {
 		height: 100%;
 	  }
 	  h1, h2, h3, h4, h5, h6 {
-		font-family: ${fonts.text.name}, sans-serif;
-		font-weight: ${fonts.text.weights.headline};
+		font-family: ${fonts.headline.name}, sans-serif;
+		font-weight: ${fonts.headline.weights.default};
+		text-transform: uppercase;
 	  }
 `
 

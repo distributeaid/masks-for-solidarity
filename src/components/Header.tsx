@@ -1,14 +1,12 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { GalleryImage, responsiveUrl } from '../sanity'
-import { Gallery } from './Gallery'
 import { rotate } from '../rotate'
 import { shuffle } from '../shuffle'
 import { Page } from '../templates/types'
 import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import { PrimaryButton } from './Buttons'
-import { mediumBreakpoint } from '../settings'
+import { mediumBreakpoint, wideBreakpoint, fonts, colors } from '../settings'
 import styled from 'styled-components'
-import { CampaignProgress } from './CampaingProgress'
 import { Markdown } from './Main'
 
 const windowGlobal = (typeof window !== 'undefined' && window) || undefined
@@ -26,38 +24,88 @@ const toResponsiveUrl = ({
 	responsiveUrl({ image, w: width, h: height })
 
 const Wrapper = styled.div`
-	margin: 0 auto;
-	width: 100%;
-	max-width: ${mediumBreakpoint};
-	height: 100%;
-	position: relative;
 	display: flex;
-	flex-direction: column-reverse;
+	flex-direction: column;
+	height: calc(100% - 64px);
+	@media (min-width: ${mediumBreakpoint}) {
+		height: 100%;
+		max-height: 400px;
+		flex-direction: row-reverse;
+		width: 100%;
+	}
+	margin: 0 auto;
 `
 
 const Content = styled.div`
-	padding: 1rem;
+	margin: 0 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	height: 50%;
 	@media (min-width: ${mediumBreakpoint}) {
-		padding: 0;
+		height: auto;
 		width: 50%;
 	}
-	margin-bottom: 2rem;
+	h2 {
+		text-align: center;
+		font-family: ${fonts.text.name};
+		font-weight: ${fonts.text.weights.default};
+		font-size: 200%;
+		text-transform: none;
+		small {
+			font-family: ${fonts.headline.name};
+			color: ${colors.lightText};
+			text-transform: uppercase;
+			font-size: 50%;
+		}
+	}
 	${PrimaryButton} {
 		margin-top: 2rem;
-		text-shadow: inherit;
-		box-shadow: 1px 1px 4px #00000099, -1px 1px 4px #00000099,
-			-1px -1px 4px #00000099, 1px -1px 4px #00000099;
 	}
-	h2 {
-		margin: 0 0 2rem 0;
+	section {
+		max-width: calc(${wideBreakpoint} / 2 - 2rem);
+		margin: 0 auto;
 	}
-	text-shadow: 1px 1px 4px #00000099, -1px 1px 4px #00000099,
-		-1px -1px 4px #00000099, 1px -1px 4px #00000099;
+`
+const StyledMarkdown = styled(Markdown)`
+	text-align: center;
+`
+const GalleryContainer = styled.aside`
+	height: 50%;
+	transition: background 1s;
+	background-position: 50% 50%;
+	background-size: cover;
+	background-color: #333;
+	@media (min-width: ${mediumBreakpoint}) {
+		height: 100%;
+		width: 50%;
+	}
 `
 
-const StyledMarkdown = styled(Markdown)`
-	margin-bottom: 1rem;
-`
+/**
+ * Renders a rotating Gallery from a generator that returns URLs to photos
+ */
+const Gallery = ({
+	galleryPhotos,
+}: React.PropsWithChildren<{
+	galleryPhotos: Generator<string>
+}>) => {
+	const [currentPhoto, setCurrentPhoto] = useState(galleryPhotos.next().value)
+	useEffect(() => {
+		let isCancelled = false
+		const i = setInterval(() => {
+			if (!isCancelled) setCurrentPhoto(galleryPhotos.next().value)
+		}, 10000)
+		return () => {
+			isCancelled = true
+			clearInterval(i)
+		}
+	}, [galleryPhotos])
+
+	return (
+		<GalleryContainer style={{ backgroundImage: `url(${currentPhoto})` }} />
+	)
+}
 
 export const Header = ({
 	gallery,
@@ -72,18 +120,18 @@ export const Header = ({
 	})
 	const galleryPhotos = rotate(shuffle(gallery.map(imageToUrl)))
 	return (
-		<Gallery galleryPhotos={galleryPhotos}>
-			<Wrapper>
-				<Content>
+		<Wrapper>
+			<Gallery galleryPhotos={galleryPhotos} />
+			<Content>
+				<section>
 					<h2>
-						<small>{content.remark.frontmatter.subtitle}:</small>
+						<small>{content.remark.frontmatter.subtitle}</small>
 						<br />
 						{content.remark.frontmatter.title}
 					</h2>
 					<StyledMarkdown>
 						{renderHtmlAstToReact(content.remark.htmlAst)}
 					</StyledMarkdown>
-					<CampaignProgress />
 					<PrimaryButton
 						href="https://donorbox.org/refugees-care"
 						target="_blank"
@@ -91,8 +139,8 @@ export const Header = ({
 					>
 						Donate now
 					</PrimaryButton>
-				</Content>
-			</Wrapper>
-		</Gallery>
+				</section>
+			</Content>
+		</Wrapper>
 	)
 }

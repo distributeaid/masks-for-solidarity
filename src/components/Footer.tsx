@@ -55,7 +55,7 @@ const Nav = styled.nav`
 `
 
 const Wrapper = styled.div`
-	background-color: ${colors.gunpowderDark};
+	background-color: ${colors.offsetBackground};
 `
 
 const TwoCols = styled.section`

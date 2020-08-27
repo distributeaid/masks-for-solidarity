@@ -1,28 +1,37 @@
-import { darken, lighten } from 'polished'
+import { lighten } from 'polished'
 export const mediumBreakpoint = '800px'
 export const wideBreakpoint = '1200px'
 
-const gunpowder = '#2d2d2d'
-const maskDarkGreen = '#003333'
-const maskLightGreen = '#669999'
+const teal = '#008080'
+const lightSeaGreen = '#20B2AA'
+const terracotta = '#e65722'
+const white = '#ffffff'
+const lightGray = '#f2f2f2'
+const offBlack = 'rgba(0,0,0,0.85)'
+const dimmedBlack = 'rgba(0,0,0,0.45)'
 export const colors = {
-	maskDarkGreen,
-	maskLightGreen,
-	maskLighterGreen: lighten(0.1, maskLightGreen),
-	bossOrange: '#ff6600',
-	recycledToiletPaper: '#c7c7c7',
-	gunpowder,
-	gunpowderDark: darken(0.1, gunpowder),
+	primary: teal,
+	secondary: lightSeaGreen,
+	highlight: terracotta,
+	text: offBlack,
+	lightText: dimmedBlack,
+	offsetBackground: lightGray,
+	background: white,
 } as const
 
 export const fonts = {
 	text: {
-		name: 'Work Sans',
+		name: 'Roboto Slab',
 		weights: {
 			light: 300,
-			default: 450,
-			bold: 550,
-			headline: 650,
+			default: 400,
+			bold: 700,
+		},
+	},
+	headline: {
+		name: 'Roboto',
+		weights: {
+			default: 500,
 		},
 	},
 } as const

@@ -5,7 +5,7 @@ import { colors, mediumBreakpoint } from '../settings'
 const Form = styled.form`
 	margin-top: 2rem;
 	@media (min-width: ${mediumBreakpoint}) {
-		border: 1px dotted ${colors.recycledToiletPaper};
+		border: 1px dotted ${colors.text};
 		padding: 1rem;
 		margin: 0;
 	}
@@ -16,47 +16,46 @@ const Input = styled.input`
 	padding: 0 1rem;
 `
 const Button = styled.button`
-	border: 2px solid ${colors.bossOrange};
+	border: 2px solid ${colors.highlight};
 	background-color: transparent;
-	color: ${colors.bossOrange};
+	color: ${colors.highlight};
 	padding: 0 1rem;
 	height: 48px;
 	&:hover {
-		border-color: white;
-		color: white;
+		border-color: ${colors.background};
+		color: ${colors.background};
 	}
 	&:disabled {
-		color: ${colors.recycledToiletPaper};
-		border-color: ${colors.recycledToiletPaper};
+		color: ${colors.text};
+		border-color: ${colors.text};
 		opacity: 0.75;
 	}
 `
 const InputWithButton = styled.div`
-display: flex;
-flex-direction: column;
-${Input} {
-    width: calc(100% - 2rem - 4px);
-}
-${Button} {
-    width: 100%;
-}
-${Input} + ${Button} {
-    margin-top: 0.5rem;
-}
-@media (min-width: ${mediumBreakpoint}) {
-    flex-direction: row;
-    ${Input} {
-        width: 100%;
-    }
-    ${Button} {
-        max-width: 200px;
-    }
-    ${Input} + ${Button} {
-        margin-left: 1rem;
-        margin-top: 0;
-    }
-}
-
+	display: flex;
+	flex-direction: column;
+	${Input} {
+		width: calc(100% - 2rem - 4px);
+	}
+	${Button} {
+		width: 100%;
+	}
+	${Input} + ${Button} {
+		margin-top: 0.5rem;
+	}
+	@media (min-width: ${mediumBreakpoint}) {
+		flex-direction: row;
+		${Input} {
+			width: 100%;
+		}
+		${Button} {
+			max-width: 200px;
+		}
+		${Input} + ${Button} {
+			margin-left: 1rem;
+			margin-top: 0;
+		}
+	}
 `
 const P = styled.p`
 	margin: 0 0 1rem 0;

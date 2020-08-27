@@ -7,12 +7,12 @@ const height = 20
 
 const ProgressBarContainer = styled.div<{ height: number }>`
 	height: ${(props) => props.height - 4}px;
-	border: 2px solid ${darken(0.25, colors.bossOrange)};
+	border: 2px solid ${darken(0.25, colors.highlight)};
 	margin: 0 1rem;
 `
 
 const ProgressBarBar = styled.div`
-	background-color: ${colors.bossOrange};
+	background-color: ${colors.highlight};
 	min-width: 1px;
 	height: 100%;
 `

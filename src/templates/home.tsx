@@ -91,81 +91,79 @@ const HomeTemplate = (data: {
 				/>
 				<main>
 					{storyIntro && (
-						<Section id="our-story">
-							<h1>{storyIntro.remark.frontmatter.title}</h1>
-							<Markdown>
-								{renderHtmlAstToReact(storyIntro.remark.htmlAst)}
-							</Markdown>
-							<p>
-								<PrimaryButton
-									href="https://donorbox.org/refugees-care"
-									target="_blank"
-									rel="nofollow noreferrer"
-								>
-									Donate now
-								</PrimaryButton>
-								<SecondaryButton href="#get-masks">
-									Request Masks
-								</SecondaryButton>
-							</p>
-						</Section>
+						<Offset>
+							<Section id="our-story">
+								<h1>{storyIntro.remark.frontmatter.title}</h1>
+								<Markdown>
+									{renderHtmlAstToReact(storyIntro.remark.htmlAst)}
+								</Markdown>
+								<p>
+									<PrimaryButton
+										href="https://donorbox.org/refugees-care"
+										target="_blank"
+										rel="nofollow noreferrer"
+									>
+										Donate now
+									</PrimaryButton>
+									<SecondaryButton href="#get-masks">
+										Request Masks
+									</SecondaryButton>
+								</p>
+							</Section>
+						</Offset>
 					)}
 					{aboutTheMasks && (
-						<Offset>
-							<Section id="about-the-masks">
-								<h1>{aboutTheMasks.remark.frontmatter.title}</h1>
-								<Markdown>
-									{renderHtmlAstToReact(aboutTheMasks.remark.htmlAst)}
-								</Markdown>
-							</Section>
-						</Offset>
+						<Section id="about-the-masks">
+							<h1>{aboutTheMasks.remark.frontmatter.title}</h1>
+							<Markdown>
+								{renderHtmlAstToReact(aboutTheMasks.remark.htmlAst)}
+							</Markdown>
+						</Section>
 					)}
 					{supportUs && (
-						<Section id="support-us">
-							<h1>{supportUs.remark.frontmatter.title}</h1>
-							<Markdown>
-								{renderHtmlAstToReact(supportUs.remark.htmlAst)}
-							</Markdown>
-							<p>
-								<PrimaryButton
-									href="https://donorbox.org/refugees-care"
-									target="_blank"
-									rel="nofollow noreferrer"
-								>
-									Donate now
-								</PrimaryButton>
-							</p>
-						</Section>
-					)}
-					{share && (
 						<Offset>
-							<Section id="share">
-								<h1>{share.remark.frontmatter.title}</h1>
+							<Section id="support-us">
+								<h1>{supportUs.remark.frontmatter.title}</h1>
 								<Markdown>
-									{renderHtmlAstToReact(share.remark.htmlAst)}
+									{renderHtmlAstToReact(supportUs.remark.htmlAst)}
 								</Markdown>
-								<NewsletterSubscribeForm />
+								<p>
+									<PrimaryButton
+										href="https://donorbox.org/refugees-care"
+										target="_blank"
+										rel="nofollow noreferrer"
+									>
+										Donate now
+									</PrimaryButton>
+								</p>
 							</Section>
 						</Offset>
 					)}
-					{getMasks && (
-						<Section id="get-masks">
-							<h1>{getMasks.remark.frontmatter.title}</h1>
-							<Markdown>
-								{renderHtmlAstToReact(getMasks.remark.htmlAst)}
-							</Markdown>
+					{share && (
+						<Section id="share">
+							<h1>{share.remark.frontmatter.title}</h1>
+							<Markdown>{renderHtmlAstToReact(share.remark.htmlAst)}</Markdown>
+							<NewsletterSubscribeForm />
 						</Section>
 					)}
-					{faq && (
-						<Offset id="faq">
-							<FAQ content={faq} />
+					{getMasks && (
+						<Offset>
+							<Section id="get-masks">
+								<h1>{getMasks.remark.frontmatter.title}</h1>
+								<Markdown>
+									{renderHtmlAstToReact(getMasks.remark.htmlAst)}
+								</Markdown>
+							</Section>
 						</Offset>
 					)}
-					<Section id="team">
-						{teamIntro !== undefined && teamPages.length > 0 && (
-							<Team intro={teamIntro} entries={teamPages} />
-						)}
-					</Section>
+					{faq && <FAQ content={faq} />}
+					<Offset>
+						<Section id="team">
+							{teamIntro !== undefined && teamPages.length > 0 && (
+								<Team intro={teamIntro} entries={teamPages} />
+							)}
+						</Section>
+					</Offset>
 				</main>
 				<Footer siteMetaData={data.data.site.siteMetadata}>
 					<Section>

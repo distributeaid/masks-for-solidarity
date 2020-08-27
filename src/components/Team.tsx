@@ -3,7 +3,7 @@ import { Page } from '../templates/types'
 import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import styled from 'styled-components'
 import { Markdown } from './Main'
-import { fonts } from '../settings'
+import { colors } from '../settings'
 
 const Nav = styled.nav`
 	display: grid;
@@ -29,7 +29,7 @@ const TeamEntry = styled.a`
 	text-decoration: none;
 	align-items: center;
 	span {
-		color: white;
+		color: ${colors.text};
 		opacity: 0.75;
 		font-size: 90%;
 		small {

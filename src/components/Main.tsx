@@ -12,7 +12,7 @@ export const Section = styled.section`
 `
 
 export const Offset = styled.div`
-	background-color: ${colors.gunpowderDark};
+	background-color: ${colors.offsetBackground};
 `
 
 export const Markdown = styled.div`
@@ -26,15 +26,16 @@ export const Markdown = styled.div`
 	p,
 	li {
 		letter-spacing: -0.25px;
+		font-size: 14px;
+		font-weight: ${fonts.text.weights.default};
 	}
 	blockquote {
 		margin: 0;
 		p {
 			font-size: 120%;
-			font-weight: ${fonts.text.weights.light};
 		}
 	}
 	a {
-		color: ${colors.bossOrange};
+		color: ${colors.highlight};
 	}
 `

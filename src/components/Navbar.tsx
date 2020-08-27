@@ -10,12 +10,12 @@ import LogoIcon from './logo-colored.svg'
 import MenuToggleIcon from 'feather-icons/dist/icons/menu.svg'
 
 const Link = styled.a`
-	color: ${rgba('#ffffff', 0.8)};
+	color: ${rgba(colors.text, 0.6)};
 	text-decoration: none;
-	font-family: ${fonts.text.name}, sans-serif;
-	font-weight: ${fonts.text.weights.bold};
+	font-family: ${fonts.headline.name}, sans-serif;
+	font-weight: ${fonts.headline.weights.default};
 	&:hover {
-		color: white;
+		color: ${colors.text};
 	}
 `
 
@@ -24,31 +24,30 @@ const LinksContainer = styled.div`
 	@media (min-width: ${mediumBreakpoint}) {
 		display: block;
 		margin-right: 2rem;
-        ${Link} + ${Link} {
-            margin-left: 1rem;
-        }
+		${Link} + ${Link} {
+			margin-left: 1rem;
+		}
 	}
-    @media (min-width: ${wideBreakpoint}) {
-        ${Link} + ${Link} {
-            margin-left: 2rem;
-        }
-        ${Link} {
-            font-size: 120%;
-        }
-    }
+	@media (min-width: ${wideBreakpoint}) {
+		${Link} + ${Link} {
+			margin-left: 2rem;
+		}
+		${Link} {
+			font-size: 120%;
+		}
+	}
 `
 
 const Nav = styled.nav`
-	background-color: ${colors.maskDarkGreen};
 	@media (max-width: ${mediumBreakpoint}) {
 		&.toggled {
 			${LinksContainer} {
 				display: flex;
 				flex-direction: column;
-                padding: 0 1rem 1rem 1rem;
-                ${Link} + ${Link} {
-                    margin-top: 0.5rem;
-                }
+				padding: 0 1rem 1rem 1rem;
+				${Link} + ${Link} {
+					margin-top: 0.5rem;
+				}
 			}
 		}
 	}
@@ -67,11 +66,11 @@ const Wrapper = styled.div`
 const MenuToggle = styled.button`
 	background-color: transparent;
 	border: 0;
-	color: ${rgba('#ffffff', 0.8)};
+	color: ${rgba(colors.text, 0.8)};
 	width: 48px;
 	height: 48px;
 	&:hover {
-		color: white;
+		color: ${colors.text};
 	}
 	position: absolute;
 	top: 10px;
@@ -82,7 +81,6 @@ const MenuToggle = styled.button`
 `
 
 const LogoText = styled.span`
-	color: #fff;
 	@media (min-width: ${mediumBreakpoint}) {
 		font-size: 20px;
 	}
@@ -92,12 +90,13 @@ const LogoText = styled.span`
 		}
 	}
 	span:first-child {
-		color: ${colors.bossOrange};
+		color: ${colors.highlight};
 	}
 	span:last-child {
-		color: ${colors.maskLighterGreen};
+		color: ${colors.primary};
 	}
-	font-weight: ${fonts.text.weights.headline};
+	font-weight: ${fonts.text.weights.default};
+	font-family: ${fonts.text.name};
 `
 
 const Logo = styled.a`
