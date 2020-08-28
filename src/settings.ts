@@ -1,4 +1,3 @@
-import { lighten } from 'polished'
 export const mediumBreakpoint = '800px'
 export const wideBreakpoint = '1200px'
 

@@ -26,10 +26,8 @@ const toResponsiveUrl = ({
 const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-	height: calc(100% - 64px);
 	@media (min-width: ${mediumBreakpoint}) {
-		height: 100%;
-		max-height: 400px;
+		height: 50%;
 		flex-direction: row-reverse;
 		width: 100%;
 	}
@@ -43,8 +41,8 @@ const Content = styled.div`
 	justify-content: space-around;
 	height: 50%;
 	@media (min-width: ${mediumBreakpoint}) {
-		height: auto;
 		width: 50%;
+		height: 100%;
 	}
 	h2 {
 		text-align: center;
@@ -61,6 +59,7 @@ const Content = styled.div`
 	}
 	${PrimaryButton} {
 		margin-top: 2rem;
+		margin-bottom: 2rem;
 	}
 	section {
 		max-width: calc(${wideBreakpoint} / 2 - 2rem);
@@ -71,7 +70,7 @@ const StyledMarkdown = styled(Markdown)`
 	text-align: center;
 `
 const GalleryContainer = styled.aside`
-	height: 50%;
+	padding-top: calc((3 / 4) * 100%);
 	transition: background 1s;
 	background-position: 50% 50%;
 	background-size: cover;
@@ -79,6 +78,7 @@ const GalleryContainer = styled.aside`
 	@media (min-width: ${mediumBreakpoint}) {
 		height: 100%;
 		width: 50%;
+		padding-top: 0;
 	}
 `
 

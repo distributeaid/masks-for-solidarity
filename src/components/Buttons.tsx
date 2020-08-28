@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { colors, fonts } from '../settings'
-import { rgba } from 'polished'
 
 const Button = styled.a`
 	font-weight: ${fonts.text.weights.bold};
