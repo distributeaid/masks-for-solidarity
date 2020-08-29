@@ -30,11 +30,9 @@ const TeamEntry = styled.a`
 	align-items: center;
 	span {
 		color: ${colors.text};
-		opacity: 0.75;
 		font-size: 90%;
 		small {
 			font-size: 90%;
-			opacity: 0.85;
 		}
 	}
 	img {
@@ -50,9 +48,6 @@ const TeamEntry = styled.a`
 	&:hover {
 		img {
 			filter: none;
-		}
-		span {
-			opacity: 1;
 		}
 	}
 `

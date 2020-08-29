@@ -17,9 +17,6 @@ const StyledFooter = styled.footer`
 		margin-bottom: -8px;
 		padding: 0 0.25rem;
 	}
-	a {
-		color: inherit;
-	}
 `
 
 const StyledVictoryIcon = styled(VictoryIcon)`

@@ -3,11 +3,11 @@ export const wideBreakpoint = '1200px'
 
 const teal = '#008080'
 const lightSeaGreen = '#20B2AA'
-const terracotta = '#e65722'
+const terracotta = '#b84014'
 const white = '#ffffff'
 const lightGray = '#f2f2f2'
 const offBlack = 'rgba(0,0,0,0.85)'
-const dimmedBlack = 'rgba(0,0,0,0.45)'
+const dimmedBlack = 'rgba(0,0,0,0.55)'
 export const colors = {
 	primary: teal,
 	secondary: lightSeaGreen,

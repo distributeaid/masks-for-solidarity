@@ -5,7 +5,7 @@ import { colors, fonts } from '../settings'
 const Button = styled.a`
 	font-weight: ${fonts.text.weights.bold};
 	&:hover {
-		color: ${colors.background};
+		color: ${colors.text};
 		border-color: ${colors.background};
 	}
 	background-color: transparent;
