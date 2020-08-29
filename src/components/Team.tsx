@@ -42,13 +42,7 @@ const TeamEntry = styled.a`
 		@media (min-width: 500px) {
 			width: 60%;
 		}
-		filter: grayscale(1);
 		margin-bottom: 1rem;
-	}
-	&:hover {
-		img {
-			filter: none;
-		}
 	}
 `
 
