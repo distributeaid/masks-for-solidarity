@@ -5,7 +5,7 @@ website: https://www.medsupplydrive.org/
 facebook: medsupplydrive
 twitter: medsupplydrive
 instagram: medsupplydrive
-logo: https://cdn.sanity.io/images/1z6tpjf0/production/8ce91dbfce4bc709c1a6e6aa8ff33ec8bad3b93a-333x364.png
+logo: https://cdn.sanity.io/images/1z6tpjf0/production/e89bfbd1e1c318c6154b768e7a592c1c6fdf1827-247x272.svg
 ---
 
 Med Supply Drive is a 501(c)(3) non-profit organization that has made it their
