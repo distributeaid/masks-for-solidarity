@@ -44,7 +44,4 @@ export const MarkdownContent = styled.div`
 			}
 		}
 	}
-	a {
-		color: ${colors.highlight};
-	}
 `

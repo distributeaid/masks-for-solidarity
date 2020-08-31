@@ -44,26 +44,28 @@ const Content = styled.div`
 		width: 50%;
 		height: 100%;
 	}
-	h2 {
-		text-align: center;
-		font-family: ${fonts.headline.name};
-		color: ${colors.lightText};
-		text-transform: uppercase;
-		font-size: ${fonts.text.sizes.default};
-		strong {
-			font-size: 36px;
-			text-transform: none;
-			font-family: ${fonts.text.name};
-			font-weight: ${fonts.text.weights.default};
-			color: ${colors.text};
-		}
-	}
 	${PrimaryButton} {
 		margin-top: 2rem;
 	}
 	section {
 		max-width: calc(${wideBreakpoint} / 2 - 2rem);
 		margin: 2rem auto;
+	}
+`
+
+export const Headline = styled.h1`
+	text-align: center;
+	font-family: ${fonts.headline.name};
+	color: ${colors.lightText};
+	text-transform: uppercase;
+	font-size: ${fonts.text.sizes.default};
+	line-height: 200%;
+	strong {
+		font-size: 36px;
+		text-transform: none;
+		font-family: ${fonts.text.name};
+		font-weight: ${fonts.text.weights.default};
+		color: ${colors.text};
 	}
 `
 const StyledMarkdown = styled(MarkdownContent)`
@@ -124,11 +126,11 @@ export const Header = ({
 			<Gallery galleryPhotos={galleryPhotos} />
 			<Content>
 				<section>
-					<h2>
+					<Headline>
 						{content.remark.frontmatter.subtitle}
 						<br />
 						<strong>{content.remark.frontmatter.title}</strong>
-					</h2>
+					</Headline>
 					<StyledMarkdown>
 						{renderHtmlAstToReact(content.remark.htmlAst)}
 					</StyledMarkdown>

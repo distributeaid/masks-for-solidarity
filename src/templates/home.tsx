@@ -1,9 +1,9 @@
 import React from 'react'
-import { graphql, withPrefix } from 'gatsby'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import { Head } from '../components/Head'
-import { Header } from '../components/Header'
+import { Header, Headline } from '../components/Header'
 import { Section, Offset, MarkdownContent } from '../components/Main'
 import { Footer } from '../components/Footer'
 import { Navbar } from '../components/Navbar'
@@ -171,21 +171,19 @@ const HomeTemplate = (data: {
 				</main>
 				<Footer siteMetaData={data.data.site.siteMetadata}>
 					<Section>
-						<MarkdownContent>
-							<h1>{headerContent?.remark.frontmatter.title}</h1>
-							<p>
-								<PrimaryButton
-									href="https://donorbox.org/refugees-care"
-									target="_blank"
-									rel="nofollow noreferrer"
-								>
-									Donate now
-								</PrimaryButton>
-								<SecondaryButton href="#get-masks">
-									Request Masks
-								</SecondaryButton>
-							</p>
-						</MarkdownContent>
+						<Headline>
+							<strong>{headerContent?.remark.frontmatter.title}</strong>
+						</Headline>
+						<p>
+							<PrimaryButton
+								href="https://donorbox.org/refugees-care"
+								target="_blank"
+								rel="nofollow noreferrer"
+							>
+								Donate now
+							</PrimaryButton>
+							<SecondaryButton href="#get-masks">Request Masks</SecondaryButton>
+						</p>
 					</Section>
 				</Footer>
 			</Wrapper>

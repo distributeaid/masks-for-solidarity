@@ -22,6 +22,11 @@ const GlobalStyle = createGlobalStyle`
 		font-weight: ${fonts.headline.weights.default};
 		text-transform: uppercase;
 	  }
+	  a {
+		  color: ${colors.text};
+		  text-decoration: underline;
+		  text-decoration-color: ${colors.secondary};
+	  }
 `
 
 const loadAsync = (src: string): string => `(function(d){
