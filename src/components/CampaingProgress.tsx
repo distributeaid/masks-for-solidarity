@@ -65,6 +65,8 @@ const currencyFormatter = isSSR
 			maximumFractionDigits: 0,
 	  })
 
+export const CampaignProgressPlaceholder = () => <Placeholder height={98} />
+
 export const CampaignProgress = () => {
 	const [progress, setProgress] = useState<{
 		raised: number
@@ -93,7 +95,7 @@ export const CampaignProgress = () => {
 			isCancelled = true
 		}
 	}, [isSSR])
-	if (progress === undefined) return <Placeholder height={98} />
+	if (progress === undefined) return <CampaignProgressPlaceholder />
 	const percentage = progress.raised / progress.goal
 	return (
 		<Container>

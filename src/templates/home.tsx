@@ -12,7 +12,11 @@ import { SiteMetaData, Page } from './types'
 import { Team } from '../components/Team'
 import { FAQ } from '../components/FAQ'
 import { PrimaryButton, SecondaryButton } from '../components/Buttons'
-import { CampaignProgress } from '../components/CampaingProgress'
+import {
+	CampaignProgress,
+	CampaignProgressPlaceholder,
+} from '../components/CampaingProgress'
+import { PlaceholderOffScreen } from '../components/PlaceholderOffScreen'
 
 const Wrapper = styled.div`
 	height: 100%;
@@ -110,7 +114,15 @@ const HomeTemplate = (data: {
 										Request Masks
 									</SecondaryButton>
 								</p>
-								<CampaignProgress />
+								<PlaceholderOffScreen>
+									{(visible) =>
+										visible ? (
+											<CampaignProgress />
+										) : (
+											<CampaignProgressPlaceholder />
+										)
+									}
+								</PlaceholderOffScreen>
 							</Section>
 						</Offset>
 					)}
