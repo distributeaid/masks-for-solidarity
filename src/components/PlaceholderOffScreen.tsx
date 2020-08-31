@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react'
 
+const isSSR = typeof window === 'undefined'
+
 const isInViewport = (elem: HTMLElement) => {
 	const bounding = elem.getBoundingClientRect()
 	return (
@@ -25,9 +27,11 @@ export const PlaceholderOffScreen = ({
 		ref.current !== null ? isInViewport(ref.current) : false,
 	)
 
-	document.onscroll = () => {
-		if (ref.current !== null && !isVisible) {
-			setIsVisible(isInViewport(ref.current))
+	if (!isSSR) {
+		document.onscroll = () => {
+			if (ref.current !== null && !isVisible) {
+				setIsVisible(isInViewport(ref.current))
+			}
 		}
 	}
 
