@@ -106,7 +106,9 @@ const renderAst = new rehypeReact({
 
 export const FAQ = ({ content }: { content: Page }) => (
 	<Section>
-		<h1>{content.remark.frontmatter.title}</h1>
-		<MarkdownContent>{renderAst(content.remark.htmlAst)}</MarkdownContent>
+		<MarkdownContent>
+			<h1>{content.remark.frontmatter.title}</h1>
+			{renderAst(content.remark.htmlAst)}
+		</MarkdownContent>
 	</Section>
 )
