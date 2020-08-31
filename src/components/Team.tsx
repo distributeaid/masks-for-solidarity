@@ -59,8 +59,8 @@ const imageDimensions = (url: string): { width: number; height: number } =>
 
 export const Team = ({ intro, entries }: { intro: Page; entries: Page[] }) => (
 	<section>
-		<h2>{intro.remark.frontmatter.title}</h2>
 		<MarkdownContent>
+			<h2>{intro.remark.frontmatter.title}</h2>
 			{renderHtmlAstToReact(intro.remark.htmlAst)}
 		</MarkdownContent>
 		<Nav>

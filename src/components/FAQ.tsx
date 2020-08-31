@@ -15,6 +15,7 @@ const Button = styled.button`
 	padding: 0;
 	border: 0;
 	color: inherit;
+	margin-left: 0.5rem;
 	@media (min-width: ${mediumBreakpoint}) {
 		display: none;
 	}
@@ -23,6 +24,8 @@ const OpenTitle = styled.h2`
 	display: flex;
 	justify-content: space-between;
 	font-size: 100%;
+	text-align: left !important;
+	text-transform: none !important;
 `
 const ClosedTitle = styled(OpenTitle)`
 	@media (max-width: ${mediumBreakpoint}) {

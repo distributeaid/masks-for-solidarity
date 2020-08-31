@@ -35,7 +35,6 @@ export const MarkdownContent = styled.div`
 		font-weight: ${fonts.text.weights.default};
 	}
 	blockquote {
-		text-align: center;
 		margin: 0;
 		p {
 			font-size: ${fonts.text.sizes.highlight};
