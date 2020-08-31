@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { colors, fonts } from '../settings'
+import { colors, fonts, buttonHeight } from '../settings'
 
 const Button = styled.a`
 	font-weight: ${fonts.text.weights.bold};
@@ -11,12 +11,12 @@ const Button = styled.a`
 	background-color: transparent;
 	display: inline-block;
 	text-decoration: none;
-	height: 40px;
-	line-height: 40px;
+	height: ${buttonHeight};
+	line-height: ${buttonHeight};
 	width: 100%;
 	text-align: center;
 	font-size: 90%;
-	border-radius: 40px;
+	border-radius: ${buttonHeight};
 `
 
 export const PrimaryButton = styled(Button)`
@@ -28,4 +28,7 @@ export const SecondaryButton = styled(Button)`
 	color: ${colors.primary};
 	background-color: ${colors.background};
 	border: 1.5px solid ${colors.primary};
+	${PrimaryButton} + & {
+		margin-top: 1rem;
+	}
 `

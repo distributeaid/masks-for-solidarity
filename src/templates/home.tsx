@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import { Head } from '../components/Head'
 import { Header } from '../components/Header'
-import { Section, Offset, Markdown } from '../components/Main'
+import { Section, Offset, MarkdownContent } from '../components/Main'
 import { Footer } from '../components/Footer'
 import { Navbar } from '../components/Navbar'
 import { NewsletterSubscribeForm } from '../components/NewsletterSubscribeForm'
@@ -12,6 +12,7 @@ import { SiteMetaData, Page } from './types'
 import { Team } from '../components/Team'
 import { FAQ } from '../components/FAQ'
 import { PrimaryButton, SecondaryButton } from '../components/Buttons'
+import { CampaignProgress } from '../components/CampaingProgress'
 
 const Wrapper = styled.div`
 	height: 100%;
@@ -93,10 +94,10 @@ const HomeTemplate = (data: {
 					{storyIntro && (
 						<Offset>
 							<Section id="our-story">
-								<h1>{storyIntro.remark.frontmatter.title}</h1>
-								<Markdown>
+								<MarkdownContent>
+									<h1>{storyIntro.remark.frontmatter.title}</h1>
 									{renderHtmlAstToReact(storyIntro.remark.htmlAst)}
-								</Markdown>
+								</MarkdownContent>
 								<p>
 									<PrimaryButton
 										href="https://donorbox.org/refugees-care"
@@ -109,24 +110,25 @@ const HomeTemplate = (data: {
 										Request Masks
 									</SecondaryButton>
 								</p>
+								<CampaignProgress />
 							</Section>
 						</Offset>
 					)}
 					{aboutTheMasks && (
 						<Section id="about-the-masks">
-							<h1>{aboutTheMasks.remark.frontmatter.title}</h1>
-							<Markdown>
+							<MarkdownContent>
+								<h1>{aboutTheMasks.remark.frontmatter.title}</h1>
 								{renderHtmlAstToReact(aboutTheMasks.remark.htmlAst)}
-							</Markdown>
+							</MarkdownContent>
 						</Section>
 					)}
 					{supportUs && (
 						<Offset>
 							<Section id="support-us">
-								<h1>{supportUs.remark.frontmatter.title}</h1>
-								<Markdown>
+								<MarkdownContent>
+									<h1>{supportUs.remark.frontmatter.title}</h1>
 									{renderHtmlAstToReact(supportUs.remark.htmlAst)}
-								</Markdown>
+								</MarkdownContent>
 								<p>
 									<PrimaryButton
 										href="https://donorbox.org/refugees-care"
@@ -141,18 +143,20 @@ const HomeTemplate = (data: {
 					)}
 					{share && (
 						<Section id="share">
-							<h1>{share.remark.frontmatter.title}</h1>
-							<Markdown>{renderHtmlAstToReact(share.remark.htmlAst)}</Markdown>
+							<MarkdownContent>
+								<h1>{share.remark.frontmatter.title}</h1>
+								{renderHtmlAstToReact(share.remark.htmlAst)}
+							</MarkdownContent>
 							<NewsletterSubscribeForm />
 						</Section>
 					)}
 					{getMasks && (
 						<Offset>
 							<Section id="get-masks">
-								<h1>{getMasks.remark.frontmatter.title}</h1>
-								<Markdown>
+								<MarkdownContent>
+									<h1>{getMasks.remark.frontmatter.title}</h1>
 									{renderHtmlAstToReact(getMasks.remark.htmlAst)}
-								</Markdown>
+								</MarkdownContent>
 							</Section>
 						</Offset>
 					)}
@@ -167,17 +171,21 @@ const HomeTemplate = (data: {
 				</main>
 				<Footer siteMetaData={data.data.site.siteMetadata}>
 					<Section>
-						<h1>{headerContent?.remark.frontmatter.title}</h1>
-						<p>
-							<PrimaryButton
-								href="https://donorbox.org/refugees-care"
-								target="_blank"
-								rel="nofollow noreferrer"
-							>
-								Donate now
-							</PrimaryButton>
-							<SecondaryButton href="#get-masks">Request Masks</SecondaryButton>
-						</p>
+						<MarkdownContent>
+							<h1>{headerContent?.remark.frontmatter.title}</h1>
+							<p>
+								<PrimaryButton
+									href="https://donorbox.org/refugees-care"
+									target="_blank"
+									rel="nofollow noreferrer"
+								>
+									Donate now
+								</PrimaryButton>
+								<SecondaryButton href="#get-masks">
+									Request Masks
+								</SecondaryButton>
+							</p>
+						</MarkdownContent>
 					</Section>
 				</Footer>
 			</Wrapper>

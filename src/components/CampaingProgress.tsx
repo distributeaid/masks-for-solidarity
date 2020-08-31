@@ -1,50 +1,47 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { colors } from '../settings'
-import { darken } from 'polished'
+import { colors, fonts } from '../settings'
+import { Placeholder } from './Placeholder'
 
-const height = 20
+const height = 32
 
 const ProgressBarContainer = styled.div<{ height: number }>`
-	height: ${(props) => props.height - 4}px;
-	border: 2px solid ${darken(0.25, colors.highlight)};
-	margin: 0 1rem;
+	height: ${(props) => props.height}px;
+	border-radius: ${(props) => props.height}px;
+	background-color: ${colors.background};
+	overflow: hidden;
 `
 
-const ProgressBarBar = styled.div`
-	background-color: ${colors.highlight};
+const ProgressBarBar = styled.div<{ height: number }>`
+	background-color: ${colors.secondary};
 	min-width: 1px;
 	height: 100%;
 `
 
 const Container = styled.div`
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
 	flex-direction: row;
 	align-items: center;
 	${ProgressBarContainer} {
-		flex-grow: 1;
+		grid-column-start: 1;
+		grid-column-end: 3;
 	}
-	span {
-		flex-grow: 0;
-	}
+	line-height: 150%;
 `
 
-const Placeholder = styled.div<{ height: number }>`
-	height: ${(props) => props.height}px;
-	width: 100%;
-	border-radius: ${(props) => props.height / 2}px;
-	@keyframes colorchange {
-		0% {
-			background-color: #ffffff10;
-		}
-		50% {
-			background-color: #ffffff30;
-		}
-		100% {
-			background-color: #ffffff10;
-		}
+const Info = styled.span`
+	color: ${colors.lightText};
+	text-align: center;
+	font-family: ${fonts.headline.name};
+	font-weight: ${fonts.headline.weights.default};
+	text-transform: uppercase;
+	span {
+		color: ${colors.text};
+		font-family: ${fonts.text.name};
+		font-weight: ${fonts.text.weights.default};
 	}
-	animation: colorchange 2s linear 0s infinite;
 `
 
 const isSSR = typeof window === 'undefined'
@@ -52,7 +49,10 @@ const isSSR = typeof window === 'undefined'
 const ProgressBar = ({ progress }: { progress: number }) => {
 	return (
 		<ProgressBarContainer height={height}>
-			<ProgressBarBar style={{ width: `${Math.round(progress * 100)}%` }} />
+			<ProgressBarBar
+				height={height}
+				style={{ width: `${Math.round(progress * 100)}%` }}
+			/>
 		</ProgressBarContainer>
 	)
 }
@@ -93,19 +93,25 @@ export const CampaignProgress = () => {
 			isCancelled = true
 		}
 	}, [isSSR])
-	if (progress === undefined) return <Placeholder height={height} />
+	if (progress === undefined) return <Placeholder height={98} />
 	const percentage = progress.raised / progress.goal
 	return (
 		<Container>
-			<span>
-				Raised: US$
-				<strong>{currencyFormatter.format(progress.raised)}</strong>
-			</span>
 			<ProgressBar progress={percentage} />
-			<span>
-				Goal: US$
-				<strong>{currencyFormatter.format(progress.goal)}</strong>
-			</span>
+			<Info>
+				Amount Raised:
+				<br />
+				<span>
+					US$<strong>{currencyFormatter.format(progress.raised)}</strong>
+				</span>
+			</Info>
+			<Info>
+				Our Goal:
+				<br />
+				<span>
+					US$<strong>{currencyFormatter.format(progress.goal)}</strong>
+				</span>
+			</Info>
 		</Container>
 	)
 }

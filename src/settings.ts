@@ -1,5 +1,6 @@
 export const mediumBreakpoint = '800px'
 export const wideBreakpoint = '1200px'
+export const buttonHeight = '48px'
 
 const teal = '#008080'
 const lightSeaGreen = '#20B2AA'
@@ -26,11 +27,18 @@ export const fonts = {
 			default: 400,
 			bold: 700,
 		},
+		sizes: {
+			default: '16px',
+			highlight: '21px',
+		},
 	},
 	headline: {
 		name: 'Roboto',
 		weights: {
 			default: 500,
+		},
+		sizes: {
+			h1: '36px',
 		},
 	},
 } as const

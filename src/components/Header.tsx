@@ -7,7 +7,7 @@ import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import { PrimaryButton } from './Buttons'
 import { mediumBreakpoint, wideBreakpoint, fonts, colors } from '../settings'
 import styled from 'styled-components'
-import { Markdown } from './Main'
+import { MarkdownContent } from './Main'
 
 const windowGlobal = (typeof window !== 'undefined' && window) || undefined
 
@@ -46,27 +46,27 @@ const Content = styled.div`
 	}
 	h2 {
 		text-align: center;
-		font-family: ${fonts.text.name};
-		font-weight: ${fonts.text.weights.default};
-		font-size: 200%;
-		text-transform: none;
-		small {
-			font-family: ${fonts.headline.name};
-			color: ${colors.lightText};
-			text-transform: uppercase;
-			font-size: 50%;
+		font-family: ${fonts.headline.name};
+		color: ${colors.lightText};
+		text-transform: uppercase;
+		font-size: ${fonts.text.sizes.default};
+		strong {
+			font-size: 36px;
+			text-transform: none;
+			font-family: ${fonts.text.name};
+			font-weight: ${fonts.text.weights.default};
+			color: ${colors.text};
 		}
 	}
 	${PrimaryButton} {
 		margin-top: 2rem;
-		margin-bottom: 2rem;
 	}
 	section {
 		max-width: calc(${wideBreakpoint} / 2 - 2rem);
-		margin: 0 auto;
+		margin: 2rem auto;
 	}
 `
-const StyledMarkdown = styled(Markdown)`
+const StyledMarkdown = styled(MarkdownContent)`
 	text-align: center;
 `
 const GalleryContainer = styled.aside`
@@ -125,9 +125,9 @@ export const Header = ({
 			<Content>
 				<section>
 					<h2>
-						<small>{content.remark.frontmatter.subtitle}</small>
+						{content.remark.frontmatter.subtitle}
 						<br />
-						{content.remark.frontmatter.title}
+						<strong>{content.remark.frontmatter.title}</strong>
 					</h2>
 					<StyledMarkdown>
 						{renderHtmlAstToReact(content.remark.htmlAst)}
