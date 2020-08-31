@@ -21,8 +21,8 @@ const StyledFooter = styled.footer`
 
 const StyledVictoryIcon = styled(VictoryIcon)`
 	height: 24px;
-	width: 24px;
-	fill: #fff;
+	width: 17px;
+	fill: ${colors.text};
 	margin-bottom: -5px;
 	opacity: 0.75;
 `
