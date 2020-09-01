@@ -21,5 +21,5 @@ Website for the Refugees Care project.
 Gatsby is configured in [`gatsby-node.js`](./gatsby-node.js) to collect the
 markdown files in the `content` folder and turn them into pages.
 
-All pages are rendered using the template
-[`src/templates/page.tsx`](./src/templates/pages.tsx).
+The start page is rendered using the template [`src/templates/home.tsx`](./src/templates/home.tsx).
+For other pages which only show content [`src/templates/page.tsx`](./src/templates/page.tsx) is used.
