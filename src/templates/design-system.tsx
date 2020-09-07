@@ -2,22 +2,25 @@ import React from 'react'
 import styled from 'styled-components'
 import { Head } from '../components/Head'
 import { fonts, colors, fontSizes } from '../settings'
+import { Content, Micro } from '../design/Content'
 
 const Header = styled.header`
 	background-color: #9a7900;
 	padding: 2rem;
+	color: #fff;
 	h1 {
+		font-family: ${fonts.serif.name};
+		font-weight: ${fonts.serif.weights.regular};
+		font-size: 24px;
+		margin-bottom: 0;
+		opacity: 0.8;
+	}
+	h2 {
+		margin-top: 0.5rem;
 		font-family: ${fonts.sans.name};
 		font-weight: ${fonts.sans.weights.medium};
 		font-size: 36px;
 		text-transform: none;
-		line-height: 125%;
-		color: #fff;
-		small {
-			font-family: ${fonts.serif.name};
-			font-weight: ${fonts.serif.weights.regular};
-			font-size: 21px;
-		}
 	}
 `
 
@@ -75,44 +78,6 @@ const Colors = styled.ul`
 	display: flex;
 `
 
-export const Small = styled.p``
-export const Micro = styled.p``
-export const Content = styled.div`
-	color: ${colors.text};
-	h1 {
-		font-family: ${fonts.serif.name};
-		font-weight: ${fonts.serif.weights.regular};
-		font-size: ${fontSizes.h1};
-	}
-	h2 {
-		font-family: ${fonts.serif.name};
-		font-weight: ${fonts.serif.weights.regular};
-		font-size: ${fontSizes.h2};
-	}
-	h3 {
-		font-family: ${fonts.sans.name};
-		font-weight: ${fonts.sans.weights.medium};
-		font-size: ${fontSizes.h3};
-		text-transform: uppercase;
-	}
-	p {
-		font-family: ${fonts.serif.name};
-		font-weight: ${fonts.serif.weights.regular};
-		font-size: ${fontSizes.text};
-	}
-	small,
-	${Small} {
-		font-family: ${fonts.serif.name};
-		font-weight: ${fonts.serif.weights.light};
-		font-size: ${fontSizes.small};
-	}
-	${Micro} {
-		font-family: ${fonts.sans.name};
-		font-weight: ${fonts.sans.weights.regular};
-		font-size: ${fontSizes.micro};
-	}
-`
-
 const DesignSystemTemplate = () => (
 	<>
 		<Head
@@ -123,11 +88,8 @@ const DesignSystemTemplate = () => (
 			}}
 		/>
 		<Header>
-			<h1>
-				<small>Dovetail Design System 1.0</small>
-				<br />
-				Elements
-			</h1>
+			<h1>Dovetail Design System 1.0</h1>
+			<h2>Elements</h2>
 		</Header>
 		<Cols>
 			<Section>
