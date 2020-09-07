@@ -8,19 +8,14 @@ import { colors, fonts } from '../settings'
 const GlobalStyle = createGlobalStyle`
       html,
       body {
-		font-family: ${fonts.text.name}, sans-serif;
-		font-weight: ${fonts.text.weights.default};
+		font-family: ${fonts.serif.name}, sans-serif;
+		font-weight: ${fonts.serif.weights.regular};
 		height: 100%;
 		background-color: ${colors.background};
 		color: ${colors.text};
       }
 	  #___gatsby, #gatsby-focus-wrapper {
 		height: 100%;
-	  }
-	  h1, h2, h3, h4, h5, h6 {
-		font-family: ${fonts.headline.name}, sans-serif;
-		font-weight: ${fonts.headline.weights.default};
-		text-transform: uppercase;
 	  }
 	  a {
 		  color: ${colors.text};
@@ -50,7 +45,7 @@ export const Head = ({
 	siteMetaData: { title: siteTitle, description },
 	pageTitle,
 }: {
-	siteMetaData: SiteMetaData
+	siteMetaData: Pick<SiteMetaData, 'title' | 'description'>
 	pageTitle?: string
 }) => (
 	<>

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { colors, fonts, buttonHeight } from '../settings'
 
 const Button = styled.a`
-	font-weight: ${fonts.text.weights.bold};
+	font-weight: ${fonts.serif.weights.bold};
 	&:hover {
 		color: ${colors.text};
 		border-color: ${colors.background};

@@ -5,7 +5,13 @@ import { shuffle } from '../shuffle'
 import { Page } from '../templates/types'
 import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import { PrimaryButton } from './Buttons'
-import { mediumBreakpoint, wideBreakpoint, fonts, colors } from '../settings'
+import {
+	mediumBreakpoint,
+	wideBreakpoint,
+	fonts,
+	fontSizes,
+	colors,
+} from '../settings'
 import styled from 'styled-components'
 import { MarkdownContent } from './Main'
 
@@ -55,16 +61,16 @@ const Content = styled.div`
 
 export const Headline = styled.h1`
 	text-align: center;
-	font-family: ${fonts.headline.name};
+	font-family: ${fonts.sans.name};
 	color: ${colors.lightText};
 	text-transform: uppercase;
-	font-size: ${fonts.text.sizes.default};
+	font-size: ${fontSizes.hero.h1};
 	line-height: 200%;
 	strong {
 		font-size: 36px;
 		text-transform: none;
-		font-family: ${fonts.text.name};
-		font-weight: ${fonts.text.weights.default};
+		font-family: ${fonts.serif.name};
+		font-weight: ${fonts.serif.weights.regular};
 		color: ${colors.text};
 	}
 `

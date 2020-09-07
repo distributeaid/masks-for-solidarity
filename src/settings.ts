@@ -4,41 +4,56 @@ export const buttonHeight = '48px'
 
 const teal = '#008080'
 const lightSeaGreen = '#20B2AA'
-const terracotta = '#b84014'
-const white = '#ffffff'
+const terracotta = '#e65722'
+const white = '#fff'
+const black = '#000'
+const mediumGrey = '#939393'
 const lightGray = '#f2f2f2'
-const offBlack = 'rgba(0,0,0,0.85)'
-const dimmedBlack = 'rgba(0,0,0,0.55)'
+const stoplight = '#fc4100'
+const mountaindew = '#00c147'
 export const colors = {
 	primary: teal,
 	secondary: lightSeaGreen,
 	highlight: terracotta,
-	text: offBlack,
-	lightText: dimmedBlack,
+	text: black,
+	lightText: mediumGrey,
 	offsetBackground: lightGray,
 	background: white,
+	error: stoplight,
+	success: mountaindew,
+} as const
+
+export const fontSizes = {
+	h1: '36px',
+	h2: '24px',
+	h3: '16px',
+	text: '18px',
+	small: '16px',
+	micro: '14px',
+	hero: {
+		h1: '46px',
+		h2: '32px',
+		h3: '24px',
+		text: '28px',
+		small: '24px',
+		micro: '24px',
+	},
 } as const
 
 export const fonts = {
-	text: {
+	serif: {
 		name: 'Roboto Slab',
 		weights: {
 			light: 300,
-			default: 400,
+			regular: 400,
 			bold: 700,
 		},
-		sizes: {
-			default: '16px',
-			highlight: '21px',
-		},
 	},
-	headline: {
+	sans: {
 		name: 'Roboto',
 		weights: {
-			default: 500,
-		},
-		sizes: {
-			h1: '36px',
+			regular: 300,
+			medium: 500,
 		},
 	},
 } as const

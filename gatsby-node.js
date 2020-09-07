@@ -73,4 +73,13 @@ const renderContentPage = async (
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
 	await renderContentPage('Home.md', '/', 'home', createPage, graphql)
 	await renderContentPage('Privacy.md', '/Privacy', 'page', createPage, graphql)
+	await createPage({
+		path: '/Dovetail',
+		component: path.join(
+			process.cwd(),
+			'src',
+			'templates',
+			`design-system.tsx`,
+		),
+	})
 }

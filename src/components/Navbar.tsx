@@ -12,8 +12,8 @@ import MenuToggleIcon from 'feather-icons/dist/icons/menu.svg'
 const Link = styled.a`
 	color: ${rgba(colors.text, 0.6)};
 	text-decoration: none;
-	font-family: ${fonts.headline.name}, sans-serif;
-	font-weight: ${fonts.headline.weights.default};
+	font-family: ${fonts.sans.name}, sans-serif;
+	font-weight: ${fonts.sans.weights.medium};
 	&:hover {
 		color: ${colors.text};
 	}
@@ -95,8 +95,8 @@ const LogoText = styled.span`
 	span:last-child {
 		color: ${colors.primary};
 	}
-	font-weight: ${fonts.text.weights.default};
-	font-family: ${fonts.text.name};
+	font-weight: ${fonts.serif.weights.regular};
+	font-family: ${fonts.serif.name};
 `
 
 const Logo = styled.a`

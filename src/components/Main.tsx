@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { mediumBreakpoint, colors, fonts } from '../settings'
+import { mediumBreakpoint, colors, fonts, fontSizes } from '../settings'
 
 export const Section = styled.section`
 	margin: 0 auto;
@@ -25,19 +25,24 @@ export const MarkdownContent = styled.div`
 		text-transform: uppercase;
 		color: ${colors.lightText};
 		text-align: center;
-		font-size: ${fonts.text.sizes.default};
+	}
+	h1 {
+		font-size: ${fontSizes.h1};
+	}
+	h2 {
+		font-size: ${fontSizes.h2};
 	}
 	div,
 	p,
 	li {
 		letter-spacing: -0.25px;
 		font-size: 14px;
-		font-weight: ${fonts.text.weights.default};
+		font-weight: ${fonts.serif.weights.regular};
 	}
 	blockquote {
 		margin: 0;
 		p {
-			font-size: ${fonts.text.sizes.highlight};
+			font-size: ${fontSizes.hero.text};
 			&:first-child {
 				margin-top: 0;
 			}

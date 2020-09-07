@@ -34,13 +34,13 @@ const Container = styled.div`
 const Info = styled.span`
 	color: ${colors.lightText};
 	text-align: center;
-	font-family: ${fonts.headline.name};
-	font-weight: ${fonts.headline.weights.default};
+	font-family: ${fonts.sans.name};
+	font-weight: ${fonts.sans.weights.medium};
 	text-transform: uppercase;
 	span {
 		color: ${colors.text};
-		font-family: ${fonts.text.name};
-		font-weight: ${fonts.text.weights.default};
+		font-family: ${fonts.serif.name};
+		font-weight: ${fonts.serif.weights.regular};
 	}
 `
 
