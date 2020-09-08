@@ -35,7 +35,7 @@ const Header = styled.header`
 const Section = styled.section``
 
 const SubSection = styled.div`
-	border-top: 1px solid #6f6f6f33;
+	border-top: 1px solid ${colors.border};
 	padding: 1rem 0;
 	@media (min-width: ${breakpoints.medium}) {
 		padding: 2rem 0;
@@ -89,7 +89,7 @@ const Color = styled.li<{ color: string }>`
 		display: block;
 		width: 100%;
 		padding-bottom: 100%;
-		border: 1px solid #6f6f6f33;
+		border: 1px solid ${colors.border};
 		border-radius: 100%;
 		margin-bottom: 1rem;
 		background-color: ${(props) => props.color};
