@@ -23,7 +23,6 @@ export const MarkdownContent = styled.div`
 		margin-top: 1rem;
 		margin-bottom: 0;
 		text-transform: uppercase;
-		color: ${colors.lightText};
 		text-align: center;
 	}
 	h1 {

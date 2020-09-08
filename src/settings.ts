@@ -7,7 +7,7 @@ export const breakpoints = {
 
 const teal = '#008080'
 const lightSeaGreen = '#20B2AA'
-const terracotta = '#e65722'
+const terracotta = '#cc4c1d'
 const white = '#fff'
 const black = '#000'
 const mediumGrey = '#939393'
