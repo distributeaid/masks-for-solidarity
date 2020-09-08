@@ -9,7 +9,7 @@ const teal = '#008080'
 const lightSeaGreen = '#20B2AA'
 const terracotta = '#cc4c1d'
 const white = '#fff'
-const black = '#000'
+const charcoal = '#333'
 const mediumGrey = '#939393'
 const fog = '#e2e2e2'
 const lightGray = '#f2f2f2'
@@ -19,7 +19,7 @@ export const colors = {
 	primary: teal,
 	secondary: lightSeaGreen,
 	highlight: terracotta,
-	text: black,
+	text: charcoal,
 	lightText: mediumGrey,
 	border: fog,
 	offsetBackground: lightGray,
