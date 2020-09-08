@@ -261,7 +261,12 @@ const DesignSystemTemplate = () => (
 						Salami pastrami andouille fatback.
 					</p>
 				</Accordion>
-				<Accordion title={'Accordion Title (Initial Expanded)'} expanded={true}>
+				<Accordion
+					title={
+						'A very long Accordion Title, as it may be appear in the FAQ (initially expanded)'
+					}
+					expanded={true}
+				>
 					<p>
 						Bacon ipsum dolor amet swine spare ribs ground round capicola.
 						Corned beef capicola pork belly chuck ribeye. Picanha biltong
