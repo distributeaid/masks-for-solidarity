@@ -5,13 +5,7 @@ import { shuffle } from '../shuffle'
 import { Page } from '../templates/types'
 import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import { PrimaryButton } from './Buttons'
-import {
-	mediumBreakpoint,
-	wideBreakpoint,
-	fonts,
-	fontSizes,
-	colors,
-} from '../settings'
+import { breakpoints, fonts, fontSizes, colors } from '../settings'
 import styled from 'styled-components'
 import { MarkdownContent } from './Main'
 
@@ -32,7 +26,7 @@ const toResponsiveUrl = ({
 const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-	@media (min-width: ${mediumBreakpoint}) {
+	@media (min-width: ${breakpoints.medium}) {
 		height: 50%;
 		flex-direction: row-reverse;
 		width: 100%;
@@ -46,7 +40,7 @@ const Content = styled.div`
 	flex-direction: column;
 	justify-content: space-around;
 	height: 50%;
-	@media (min-width: ${mediumBreakpoint}) {
+	@media (min-width: ${breakpoints.medium}) {
 		width: 50%;
 		height: 100%;
 	}
@@ -54,7 +48,7 @@ const Content = styled.div`
 		margin-top: 2rem;
 	}
 	section {
-		max-width: calc(${wideBreakpoint} / 2 - 2rem);
+		max-width: calc(${breakpoints.wide} / 2 - 2rem);
 		margin: 2rem auto;
 	}
 `
@@ -83,7 +77,7 @@ const GalleryContainer = styled.aside`
 	background-position: 50% 50%;
 	background-size: cover;
 	background-color: #333;
-	@media (min-width: ${mediumBreakpoint}) {
+	@media (min-width: ${breakpoints.medium}) {
 		height: 100%;
 		width: 50%;
 		padding-top: 0;

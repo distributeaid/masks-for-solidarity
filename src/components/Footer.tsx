@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { withPrefix } from 'gatsby'
-import { mediumBreakpoint, colors } from '../settings'
+import { breakpoints, colors } from '../settings'
 import { SiteMetaData } from '../templates/page'
 
 import HeartIcon from 'feather-icons/dist/icons/heart.svg'
@@ -10,7 +10,7 @@ import VictoryIcon from './noun_victory_394398.svg'
 
 const StyledFooter = styled.footer`
 	margin: 0 auto;
-	max-width: ${mediumBreakpoint};
+	max-width: ${breakpoints.medium};
 	padding: 4rem 1rem 2rem 1rem;
 	svg {
 		display: inline-block;
@@ -64,7 +64,7 @@ const TwoCols = styled.section`
 	div {
 		text-align: center;
 	}
-	@media (min-width: ${mediumBreakpoint}) {
+	@media (min-width: ${breakpoints.medium}) {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;

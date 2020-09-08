@@ -4,7 +4,7 @@ import { Page } from '../templates/types'
 import * as rehypeReact from 'rehype-react'
 import { Section } from './Main'
 import { MarkdownContent } from '../components/Main'
-import { mediumBreakpoint } from '../settings'
+import { breakpoints } from '../settings'
 
 import PlusIcon from 'feather-icons/dist/icons/plus-circle.svg'
 import MinusIcon from 'feather-icons/dist/icons/minus-circle.svg'
@@ -16,7 +16,7 @@ const Button = styled.button`
 	border: 0;
 	color: inherit;
 	margin-left: 0.5rem;
-	@media (min-width: ${mediumBreakpoint}) {
+	@media (min-width: ${breakpoints.medium}) {
 		display: none;
 	}
 `
@@ -28,7 +28,7 @@ const OpenTitle = styled.h2`
 	text-transform: none !important;
 `
 const ClosedTitle = styled(OpenTitle)`
-	@media (max-width: ${mediumBreakpoint}) {
+	@media (max-width: ${breakpoints.medium}) {
 		&
 			+ ${P},
 			&

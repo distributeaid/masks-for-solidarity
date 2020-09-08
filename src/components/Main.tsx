@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { mediumBreakpoint, colors, fonts, fontSizes } from '../settings'
+import { breakpoints, colors, fonts, fontSizes } from '../settings'
 
 export const Section = styled.section`
 	margin: 0 auto;
-	max-width: ${mediumBreakpoint};
+	max-width: ${breakpoints.medium};
 	padding: 1rem;
-	@media (min-width: ${mediumBreakpoint}) {
+	@media (min-width: ${breakpoints.medium}) {
 		padding: 4rem 0;
 	}
 `

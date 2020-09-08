@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { colors, wideBreakpoint, mediumBreakpoint } from '../settings'
+import { colors, breakpoints } from '../settings'
 import { withPrefix } from 'gatsby'
 import { rgba } from 'polished'
 import { fonts } from '../settings'
@@ -21,14 +21,14 @@ const Link = styled.a`
 
 const LinksContainer = styled.div`
 	display: none;
-	@media (min-width: ${mediumBreakpoint}) {
+	@media (min-width: ${breakpoints.medium}) {
 		display: block;
 		margin-right: 2rem;
 		${Link} + ${Link} {
 			margin-left: 1rem;
 		}
 	}
-	@media (min-width: ${wideBreakpoint}) {
+	@media (min-width: ${breakpoints.wide}) {
 		${Link} + ${Link} {
 			margin-left: 2rem;
 		}
@@ -39,7 +39,7 @@ const LinksContainer = styled.div`
 `
 
 const Nav = styled.nav`
-	@media (max-width: ${mediumBreakpoint}) {
+	@media (max-width: ${breakpoints.medium}) {
 		&.toggled {
 			${LinksContainer} {
 				display: flex;
@@ -55,8 +55,8 @@ const Nav = styled.nav`
 
 const Wrapper = styled.div`
 	margin: 0 auto;
-	max-width: ${wideBreakpoint};
-	@media (min-width: ${mediumBreakpoint}) {
+	max-width: ${breakpoints.wide};
+	@media (min-width: ${breakpoints.medium}) {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -75,13 +75,13 @@ const MenuToggle = styled.button`
 	position: absolute;
 	top: 10px;
 	right: 10px;
-	@media (min-width: ${mediumBreakpoint}) {
+	@media (min-width: ${breakpoints.medium}) {
 		display: none;
 	}
 `
 
 const LogoText = styled.span`
-	@media (min-width: ${mediumBreakpoint}) {
+	@media (min-width: ${breakpoints.medium}) {
 		font-size: 20px;
 	}
 	span {
@@ -102,7 +102,7 @@ const LogoText = styled.span`
 const Logo = styled.a`
 	text-decoration: none;
 	padding: 1rem;
-	@media (min-width: ${mediumBreakpoint}) {
+	@media (min-width: ${breakpoints.medium}) {
 		padding: 1rem 2rem;
 	}
 	display: flex;
@@ -112,7 +112,7 @@ const Logo = styled.a`
 		display: block;
 		width: auto;
 		height: 32px;
-		@media (min-width: ${mediumBreakpoint}) {
+		@media (min-width: ${breakpoints.medium}) {
 			height: 50px;
 		}
 		margin-right: 0.5rem;

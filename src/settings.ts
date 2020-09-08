@@ -1,6 +1,9 @@
-export const mediumBreakpoint = '800px'
-export const wideBreakpoint = '1200px'
 export const buttonHeight = '48px'
+
+export const breakpoints = {
+	medium: '800px',
+	wide: '1200px',
+}
 
 const teal = '#008080'
 const lightSeaGreen = '#20B2AA'

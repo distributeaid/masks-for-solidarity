@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Head } from '../components/Head'
-import { fonts, colors, fontSizes } from '../settings'
+import { fonts, colors, fontSizes, breakpoints } from '../settings'
 import { Content, Micro } from '../design/Content'
 
 const Header = styled.header`
@@ -34,8 +34,15 @@ const Section = styled.section`
 
 const Cols = styled.div`
 	display: flex;
+	flex-direction: column;
+	@media (min-width: ${breakpoints.medium}) {
+		flex-direction: row;
+	}
 	${Section} {
-		width: 50%;
+		width: 100%;
+		@media (min-width: ${breakpoints.medium}) {
+			width: 50%;
+		}
 	}
 `
 
@@ -60,8 +67,12 @@ const Color = styled.li<{ color: string }>`
 	:before {
 		content: ' ';
 		display: block;
-		height: 100px;
-		width: 100px;
+		height: 50px;
+		width: 50px;
+		@media (min-width: ${breakpoints.wide}) {
+			height: 100px;
+			width: 100px;
+		}
 		border: 1px solid #6f6f6f33;
 		border-radius: 100%;
 		margin-bottom: 1rem;

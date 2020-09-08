@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { colors, mediumBreakpoint } from '../settings'
+import { colors, breakpoints } from '../settings'
 
 const Form = styled.form`
 	margin-top: 2rem;
-	@media (min-width: ${mediumBreakpoint}) {
+	@media (min-width: ${breakpoints.medium}) {
 		border: 1px dotted ${colors.text};
 		padding: 1rem;
 		margin: 0;
@@ -43,7 +43,7 @@ const InputWithButton = styled.div`
 	${Input} + ${Button} {
 		margin-top: 0.5rem;
 	}
-	@media (min-width: ${mediumBreakpoint}) {
+	@media (min-width: ${breakpoints.medium}) {
 		flex-direction: row;
 		${Input} {
 			width: 100%;
