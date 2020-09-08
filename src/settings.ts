@@ -11,6 +11,7 @@ const terracotta = '#cc4c1d'
 const white = '#fff'
 const black = '#000'
 const mediumGrey = '#939393'
+const fog = '#6f6f6f33'
 const lightGray = '#f2f2f2'
 const stoplight = '#fc4100'
 const mountaindew = '#00c147'
@@ -20,6 +21,7 @@ export const colors = {
 	highlight: terracotta,
 	text: black,
 	lightText: mediumGrey,
+	border: fog,
 	offsetBackground: lightGray,
 	background: white,
 	error: stoplight,

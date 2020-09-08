@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
 		height: 100%;
 		background-color: ${colors.background};
 		color: ${colors.text};
+		line-height: 1.5rem;
       }
 	  #___gatsby, #gatsby-focus-wrapper {
 		height: 100%;

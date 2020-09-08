@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Head } from '../components/Head'
 import { fonts, colors, fontSizes, breakpoints } from '../settings'
 import { Content, Micro } from '../design/Content'
+import { Accordion } from '../components/Accordion'
 
 const Header = styled.header`
 	background-color: #9a7900;
@@ -16,20 +17,23 @@ const Header = styled.header`
 		opacity: 0.8;
 	}
 	h2 {
-		margin-top: 0.5rem;
+		margin-top: 1.5rem;
+		margin-bottom: 0;
 		font-family: ${fonts.sans.name};
 		font-weight: ${fonts.sans.weights.medium};
 		font-size: 36px;
 		text-transform: none;
 	}
+	h1 + h2 {
+		margin-top: 0.5rem;
+	}
 `
 
-const Section = styled.section`
-	div {
-		border-top: 1px solid #6f6f6f33;
-		padding: 2rem 0;
-	}
-	padding: 2rem;
+const Section = styled.section``
+
+const SubSection = styled.div`
+	border-top: 1px solid #6f6f6f33;
+	padding: 2rem 0;
 `
 
 const Cols = styled.div`
@@ -39,9 +43,11 @@ const Cols = styled.div`
 		flex-direction: row;
 	}
 	${Section} {
-		width: 100%;
+		width: calc(100% - 4rem);
+		margin: 2rem;
 		@media (min-width: ${breakpoints.medium}) {
-			width: 50%;
+			width: calc(50% - 4rem);
+			margin: 2rem;
 		}
 	}
 `
@@ -64,15 +70,12 @@ const Color = styled.li<{ color: string }>`
 	font-family: ${fonts.serif.name};
 	color: #6f6f6f;
 	font-size: 12px;
+	width: calc((100% / 5) - 2rem);
 	:before {
 		content: ' ';
 		display: block;
-		height: 50px;
-		width: 50px;
-		@media (min-width: ${breakpoints.wide}) {
-			height: 100px;
-			width: 100px;
-		}
+		width: 100%;
+		padding-bottom: 100%;
 		border: 1px solid #6f6f6f33;
 		border-radius: 100%;
 		margin-bottom: 1rem;
@@ -105,54 +108,66 @@ const DesignSystemTemplate = () => (
 		<Cols>
 			<Section>
 				<SectionHeader>Typography</SectionHeader>
-				<Content>
-					<h1>H1 Heading</h1>
-				</Content>
-				<Label>
-					Header 1 &mdash; {fonts.serif.name} {fonts.serif.weights.regular}{' '}
-					{fontSizes.h1}/{fontSizes.hero.h1}
-				</Label>
-				<Content>
-					<h2>H2 Heading</h2>
-				</Content>
-				<Label>
-					Header 2 &mdash; {fonts.serif.name} {fonts.serif.weights.regular}{' '}
-					{fontSizes.h2}/{fontSizes.hero.h2}
-				</Label>
-				<Content>
-					<h3>H3 Heading</h3>
-				</Content>
-				<Label>
-					Header 3 &mdash; {fonts.sans.name} {fonts.sans.weights.medium}{' '}
-					(Uppercase) {fontSizes.h3}/{fontSizes.hero.h3}
-				</Label>
-				<Content>
-					<p>This is an example of the body text style.</p>
-				</Content>
-				<Label>
-					Body &mdash; {fonts.serif.name} {fonts.serif.weights.regular}{' '}
-					{fontSizes.text}/{fontSizes.hero.text}
-				</Label>
-				<Content>
-					<p>
-						<small>This is an example of the small body text style.</small>
-					</p>
-				</Content>
-				<Label>
-					S Body &mdash; {fonts.serif.name} {fonts.serif.weights.light}{' '}
-					{fontSizes.small}/{fontSizes.hero.small}
-				</Label>
-				<Content>
-					<Micro>This is an example of the micro text style.</Micro>
-				</Content>
-				<Label>
-					Micro &mdash; {fonts.sans.name} {fonts.sans.weights.regular}{' '}
-					{fontSizes.micro}/{fontSizes.hero.micro}
-				</Label>
+				<SubSection>
+					<Content>
+						<h1>H1 Heading</h1>
+					</Content>
+					<Label>
+						Header 1 &mdash; {fonts.serif.name} {fonts.serif.weights.regular}{' '}
+						{fontSizes.h1}/{fontSizes.hero.h1}
+					</Label>
+				</SubSection>
+				<SubSection>
+					<Content>
+						<h2>H2 Heading</h2>
+					</Content>
+					<Label>
+						Header 2 &mdash; {fonts.serif.name} {fonts.serif.weights.regular}{' '}
+						{fontSizes.h2}/{fontSizes.hero.h2}
+					</Label>
+				</SubSection>
+				<SubSection>
+					<Content>
+						<h3>H3 Heading</h3>
+					</Content>
+					<Label>
+						Header 3 &mdash; {fonts.sans.name} {fonts.sans.weights.medium}{' '}
+						(Uppercase) {fontSizes.h3}/{fontSizes.hero.h3}
+					</Label>
+				</SubSection>
+				<SubSection>
+					<Content>
+						<p>This is an example of the body text style.</p>
+					</Content>
+					<Label>
+						Body &mdash; {fonts.serif.name} {fonts.serif.weights.regular}{' '}
+						{fontSizes.text}/{fontSizes.hero.text}
+					</Label>
+				</SubSection>
+				<SubSection>
+					<Content>
+						<p>
+							<small>This is an example of the small body text style.</small>
+						</p>
+					</Content>
+					<Label>
+						S Body &mdash; {fonts.serif.name} {fonts.serif.weights.light}{' '}
+						{fontSizes.small}/{fontSizes.hero.small}
+					</Label>
+				</SubSection>
+				<SubSection>
+					<Content>
+						<Micro>This is an example of the micro text style.</Micro>
+					</Content>
+					<Label>
+						Micro &mdash; {fonts.sans.name} {fonts.sans.weights.regular}{' '}
+						{fontSizes.micro}/{fontSizes.hero.micro}
+					</Label>
+				</SubSection>
 			</Section>
 			<Section>
 				<SectionHeader>Colors</SectionHeader>
-				<div>
+				<SubSection>
 					<Label>Primary palette</Label>
 					<Colors>
 						<Color color={colors.primary}>
@@ -171,8 +186,8 @@ const DesignSystemTemplate = () => (
 							{colors.highlight}
 						</Color>
 					</Colors>
-				</div>
-				<div>
+				</SubSection>
+				<SubSection>
 					<Label>Neutral Palette</Label>
 					<Colors>
 						<Color color={colors.text}>
@@ -186,7 +201,7 @@ const DesignSystemTemplate = () => (
 							{colors.lightText}
 						</Color>
 						<Color color={colors.background}>
-							Background
+							BG
 							<br />
 							{colors.background}
 						</Color>
@@ -195,9 +210,14 @@ const DesignSystemTemplate = () => (
 							<br />
 							{colors.offsetBackground}
 						</Color>
+						<Color color={colors.border}>
+							Border
+							<br />
+							{colors.border}
+						</Color>
 					</Colors>
-				</div>
-				<div>
+				</SubSection>
+				<SubSection>
 					<Label>Extended Palette</Label>
 					<Colors>
 						<Color color={colors.success}>
@@ -211,7 +231,31 @@ const DesignSystemTemplate = () => (
 							{colors.error}
 						</Color>
 					</Colors>
-				</div>
+				</SubSection>
+			</Section>
+		</Cols>
+		<Header>
+			<h2>Components</h2>
+		</Header>
+		<Cols>
+			<Section>
+				<SectionHeader>Accordion</SectionHeader>
+				<Accordion title={'Accordion Title'}>
+					<p>
+						Bacon ipsum dolor amet swine spare ribs ground round capicola.
+						Corned beef capicola pork belly chuck ribeye. Picanha biltong
+						turkey, corned beef beef kielbasa kevin chislic chuck tenderloin.
+						Salami pastrami andouille fatback.
+					</p>
+				</Accordion>
+				<Accordion title={'Accordion Title (Initial Expanded)'} expanded={true}>
+					<p>
+						Bacon ipsum dolor amet swine spare ribs ground round capicola.
+						Corned beef capicola pork belly chuck ribeye. Picanha biltong
+						turkey, corned beef beef kielbasa kevin chislic chuck tenderloin.
+						Salami pastrami andouille fatback.
+					</p>
+				</Accordion>
 			</Section>
 		</Cols>
 		<footer>
