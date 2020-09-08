@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Head } from '../components/Head'
-import { fonts, colors, fontSizes, breakpoints } from '../settings'
+import { fonts, colors, fontSizes, breakpoints, buttonSizes } from '../settings'
 import { Content, Micro } from '../design/Content'
 import { Accordion } from '../components/Accordion'
+import { Button } from '../components/Buttons'
 
 const Header = styled.header`
 	background-color: #9a7900;
@@ -58,6 +59,17 @@ const Cols = styled.div`
 	}
 `
 
+const OneCol = styled.div`
+	${Section} {
+		width: calc(100% - 2rem);
+		margin: 1rem;
+		@media (min-width: ${breakpoints.medium}) {
+			width: calc(100% - 4rem);
+			margin: 2rem;
+		}
+	}
+`
+
 const Footer = styled.footer`
 	padding: 1rem;
 	@media (min-width: ${breakpoints.medium}) {
@@ -103,6 +115,29 @@ const Colors = styled.ul`
 	list-style: none;
 	padding: 0;
 	display: flex;
+`
+
+const Buttons = styled.div`
+	width: 100%;
+	button {
+		width: 100%;
+		&:not(:first-child) {
+			display: none;
+		}
+	}
+	& + & {
+		margin-top: 1rem;
+	}
+	@media (min-width: ${breakpoints.medium}) {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		grid-gap: 1rem;
+		button {
+			&:not(:first-child) {
+				display: inline-block;
+			}
+		}
+	}
 `
 
 const ipsum = `Bacon ipsum dolor amet swine spare ribs ground round capicola.
@@ -166,10 +201,10 @@ const DesignSystemTemplate = () => (
 				<SubSection>
 					<Content>
 						<p>
-							<small>This is an example of the small body text style.</small>
+							<>This is an example of the small body text style.</>
 						</p>
 						<p>
-							<small>{ipsum}</small>
+							<>{ipsum}</>
 						</p>
 					</Content>
 					<Label>
@@ -276,6 +311,106 @@ const DesignSystemTemplate = () => (
 				</Accordion>
 			</Section>
 		</Cols>
+		<OneCol>
+			<Section>
+				<SectionHeader>Buttons</SectionHeader>
+				<SubSection>
+					<Label>Regular ({buttonSizes.regular})</Label>
+					<Buttons>
+						<Button>Primary</Button>
+						<Button hover>Hover</Button>
+						<Button active>Active</Button>
+						<Button disabled>Disabled</Button>
+						<Button focus>Focus</Button>
+					</Buttons>
+					<Buttons>
+						<Button secondary>Secondary</Button>
+						<Button secondary hover>
+							Hover
+						</Button>
+						<Button secondary active>
+							Active
+						</Button>
+						<Button secondary disabled>
+							Disabled
+						</Button>
+						<Button secondary focus>
+							Focus
+						</Button>
+					</Buttons>
+				</SubSection>
+				<SubSection>
+					<Label>Large ({buttonSizes.large})</Label>
+					<Buttons>
+						<Button large>Primary</Button>
+						<Button large hover>
+							Hover
+						</Button>
+						<Button large active>
+							Active
+						</Button>
+						<Button large disabled>
+							Disabled
+						</Button>
+						<Button large focus>
+							Focus
+						</Button>
+					</Buttons>
+					<Buttons>
+						<Button secondary large>
+							Secondary
+						</Button>
+						<Button secondary large hover>
+							Hover
+						</Button>
+						<Button secondary large active>
+							Active
+						</Button>
+						<Button secondary large disabled>
+							Disabled
+						</Button>
+						<Button secondary large focus>
+							Focus
+						</Button>
+					</Buttons>
+				</SubSection>
+				<SubSection>
+					<Label>Small ({buttonSizes.small})</Label>
+					<Buttons>
+						<Button small>Primary</Button>
+						<Button small hover>
+							Hover
+						</Button>
+						<Button small active>
+							Active
+						</Button>
+						<Button small disabled>
+							Disabled
+						</Button>
+						<Button small focus>
+							Focus
+						</Button>
+					</Buttons>
+					<Buttons>
+						<Button secondary small>
+							Secondary
+						</Button>
+						<Button secondary small hover>
+							Hover
+						</Button>
+						<Button secondary small active>
+							Active
+						</Button>
+						<Button secondary small disabled>
+							Disabled
+						</Button>
+						<Button secondary small focus>
+							Focus
+						</Button>
+					</Buttons>
+				</SubSection>
+			</Section>
+		</OneCol>
 		<Footer>
 			<Section>
 				<Label>

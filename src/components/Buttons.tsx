@@ -1,34 +1,103 @@
 import React from 'react'
 import styled from 'styled-components'
-import { colors, fonts, buttonHeight } from '../settings'
+import { colors, fonts, buttonSizes } from '../settings'
+import { mix } from 'polished'
 
-const Button = styled.a`
+const ButtonBase = styled.button`
+	font-family: ${fonts.serif.name};
 	font-weight: ${fonts.serif.weights.bold};
-	&:hover {
-		color: ${colors.text};
-		border-color: ${colors.background};
-	}
-	background-color: transparent;
-	display: inline-block;
-	text-decoration: none;
-	height: ${buttonHeight};
-	line-height: ${buttonHeight};
-	width: 100%;
-	text-align: center;
-	font-size: 90%;
-	border-radius: ${buttonHeight};
-`
+	border: 0;
 
-export const PrimaryButton = styled(Button)`
-	color: ${colors.background};
+	height: ${buttonSizes.regular};
+	border-radius: ${buttonSizes.regular};
+	padding: 0 ${buttonSizes.regular};
+	&.large {
+		border-radius: ${buttonSizes.large};
+		height: ${buttonSizes.large};
+		padding: 0 ${buttonSizes.large};
+	}
+	&.small {
+		height: ${buttonSizes.small};
+		border-radius: ${buttonSizes.small};
+		padding: 0 ${buttonSizes.small};
+	}
+
 	background-color: ${colors.primary};
-`
+	color: ${colors.background};
+	&.secondary {
+		background-color: ${colors.background};
+		border: 1px solid ${colors.primary};
+		color: ${colors.primary};
+	}
 
-export const SecondaryButton = styled(Button)`
-	color: ${colors.primary};
-	background-color: ${colors.background};
-	border: 1.5px solid ${colors.primary};
-	${PrimaryButton} + & {
-		margin-top: 1rem;
+	&:hover,
+	&.hover {
+		background-color: ${mix(0.25, '#fff', colors.primary)};
+		&.secondary {
+			background-color: ${colors.offsetBackground};
+		}
+	}
+
+	&:active,
+	&.active {
+		background-color: ${mix(0.25, '#000', colors.primary)};
+		&.secondary {
+			background-color: ${mix(0.25, '#000', colors.background)};
+		}
+	}
+
+	&:focus,
+	&.focus {
+		outline: 2px solid ${colors.text};
+		-moz-outline-radius: ${buttonSizes.large};
+		&.large {
+			-moz-outline-radius: ${buttonSizes.regular};
+		}
+		&.small {
+			-moz-outline-radius: ${buttonSizes.small};
+		}
+	}
+
+	&:disabled,
+	&.disabled {
+		background-color: ${colors.offsetBackground};
+		&.secondary {
+			border-color: ${colors.offsetBackground};
+			background-color: ${colors.background};
+		}
 	}
 `
+
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+	hover?: boolean
+	active?: boolean
+	focus?: boolean
+	large?: boolean
+	small?: boolean
+	secondary?: boolean
+}
+
+const classNames = (args: Record<string, boolean | undefined>): string =>
+	Object.entries(args)
+		.map(([k, v]) => (v === true ? k : ''))
+		.join(' ')
+		.trim()
+		.replace(/ {2,}/g, ' ')
+
+export const Button = ({
+	children,
+	secondary,
+	large,
+	small,
+	hover,
+	active,
+	focus,
+	...rest
+}: ButtonProps) => (
+	<ButtonBase
+		className={classNames({ secondary, large, small, hover, active, focus })}
+		{...rest}
+	>
+		{children}
+	</ButtonBase>
+)

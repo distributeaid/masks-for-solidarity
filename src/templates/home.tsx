@@ -11,7 +11,7 @@ import { NewsletterSubscribeForm } from '../components/NewsletterSubscribeForm'
 import { SiteMetaData, Page } from './types'
 import { Team } from '../components/Team'
 import { FAQ } from '../components/FAQ'
-import { PrimaryButton, SecondaryButton } from '../components/Buttons'
+import { PrimaryButton, SecondaryButton } from '../components/Links'
 import {
 	CampaignProgress,
 	CampaignProgressPlaceholder,
