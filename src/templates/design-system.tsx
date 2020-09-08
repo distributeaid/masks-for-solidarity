@@ -7,18 +7,21 @@ import { Accordion } from '../components/Accordion'
 
 const Header = styled.header`
 	background-color: #9a7900;
-	padding: 2rem;
+	padding: 1rem;
+	@media (min-width: ${breakpoints.medium}) {
+		padding: 2rem;
+	}
 	color: #fff;
 	h1 {
 		font-family: ${fonts.serif.name};
 		font-weight: ${fonts.serif.weights.regular};
 		font-size: 24px;
-		margin-bottom: 0;
+		margin-bottom: 1rem;
 		opacity: 0.8;
 	}
 	h2 {
-		margin-top: 1.5rem;
-		margin-bottom: 0;
+		margin-top: 2rem;
+		margin-bottom: 1rem;
 		font-family: ${fonts.sans.name};
 		font-weight: ${fonts.sans.weights.medium};
 		font-size: 36px;
@@ -33,7 +36,10 @@ const Section = styled.section``
 
 const SubSection = styled.div`
 	border-top: 1px solid #6f6f6f33;
-	padding: 2rem 0;
+	padding: 1rem 0;
+	@media (min-width: ${breakpoints.medium}) {
+		padding: 2rem 0;
+	}
 `
 
 const Cols = styled.div`
@@ -43,12 +49,19 @@ const Cols = styled.div`
 		flex-direction: row;
 	}
 	${Section} {
-		width: calc(100% - 4rem);
-		margin: 2rem;
+		width: calc(100% - 2rem);
+		margin: 1rem;
 		@media (min-width: ${breakpoints.medium}) {
 			width: calc(50% - 4rem);
 			margin: 2rem;
 		}
+	}
+`
+
+const Footer = styled.footer`
+	padding: 1rem;
+	@media (min-width: ${breakpoints.medium}) {
+		padding: 2rem;
 	}
 `
 
@@ -258,7 +271,7 @@ const DesignSystemTemplate = () => (
 				</Accordion>
 			</Section>
 		</Cols>
-		<footer>
+		<Footer>
 			<Section>
 				<Label>
 					Design-System for{' '}
@@ -289,7 +302,7 @@ const DesignSystemTemplate = () => (
 					.
 				</Label>
 			</Section>
-		</footer>
+		</Footer>
 	</>
 )
 
