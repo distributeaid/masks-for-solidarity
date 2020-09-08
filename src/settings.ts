@@ -1,5 +1,11 @@
 export const buttonHeight = '48px'
 
+export const buttonSizes = {
+	regular: '48px',
+	large: '56px',
+	small: '40px',
+} as const
+
 export const breakpoints = {
 	medium: '800px',
 	wide: '1200px',
