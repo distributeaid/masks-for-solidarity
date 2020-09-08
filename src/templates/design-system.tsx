@@ -105,6 +105,11 @@ const Colors = styled.ul`
 	display: flex;
 `
 
+const ipsum = `Bacon ipsum dolor amet swine spare ribs ground round capicola.
+Corned beef capicola pork belly chuck ribeye. Picanha biltong
+turkey, corned beef beef kielbasa kevin chislic chuck
+tenderloin. Salami pastrami andouille fatback.`
+
 const DesignSystemTemplate = () => (
 	<>
 		<Head
@@ -151,6 +156,7 @@ const DesignSystemTemplate = () => (
 				<SubSection>
 					<Content>
 						<p>This is an example of the body text style.</p>
+						<p>{ipsum}</p>
 					</Content>
 					<Label>
 						Body &mdash; {fonts.serif.name} {fonts.serif.weights.regular}{' '}
@@ -162,6 +168,9 @@ const DesignSystemTemplate = () => (
 						<p>
 							<small>This is an example of the small body text style.</small>
 						</p>
+						<p>
+							<small>{ipsum}</small>
+						</p>
 					</Content>
 					<Label>
 						S Body &mdash; {fonts.serif.name} {fonts.serif.weights.light}{' '}
@@ -171,6 +180,7 @@ const DesignSystemTemplate = () => (
 				<SubSection>
 					<Content>
 						<Micro>This is an example of the micro text style.</Micro>
+						<Micro>{ipsum}</Micro>
 					</Content>
 					<Label>
 						Micro &mdash; {fonts.sans.name} {fonts.sans.weights.regular}{' '}
@@ -254,12 +264,7 @@ const DesignSystemTemplate = () => (
 			<Section>
 				<SectionHeader>Accordion</SectionHeader>
 				<Accordion title={'Accordion Title'}>
-					<p>
-						Bacon ipsum dolor amet swine spare ribs ground round capicola.
-						Corned beef capicola pork belly chuck ribeye. Picanha biltong
-						turkey, corned beef beef kielbasa kevin chislic chuck tenderloin.
-						Salami pastrami andouille fatback.
-					</p>
+					<p>{ipsum}</p>
 				</Accordion>
 				<Accordion
 					title={
@@ -267,12 +272,7 @@ const DesignSystemTemplate = () => (
 					}
 					expanded={true}
 				>
-					<p>
-						Bacon ipsum dolor amet swine spare ribs ground round capicola.
-						Corned beef capicola pork belly chuck ribeye. Picanha biltong
-						turkey, corned beef beef kielbasa kevin chislic chuck tenderloin.
-						Salami pastrami andouille fatback.
-					</p>
+					<p>{ipsum}</p>
 				</Accordion>
 			</Section>
 		</Cols>
