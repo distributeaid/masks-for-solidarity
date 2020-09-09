@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { colors, fonts, buttonSizes } from '../settings'
 import { mix } from 'polished'
+import { classNames } from '../util/classNames'
 
 const ButtonBase = styled.button`
 	font-family: ${fonts.serif.name};
@@ -76,13 +77,6 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 	small?: boolean
 	secondary?: boolean
 }
-
-const classNames = (args: Record<string, boolean | undefined>): string =>
-	Object.entries(args)
-		.map(([k, v]) => (v === true ? k : ''))
-		.join(' ')
-		.trim()
-		.replace(/ {2,}/g, ' ')
 
 export const Button = ({
 	children,

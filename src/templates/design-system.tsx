@@ -5,6 +5,7 @@ import { fonts, colors, fontSizes, breakpoints, buttonSizes } from '../settings'
 import { Content, Micro } from '../design/Content'
 import { Accordion } from '../components/Accordion'
 import { Button } from '../components/Buttons'
+import { Link } from '../components/StyledLinks'
 import {
 	MinusIcon,
 	PlusIcon,
@@ -173,10 +174,22 @@ const Icons = styled.ul`
 	}
 `
 
-const ipsum = `Bacon ipsum dolor amet swine spare ribs ground round capicola.
-Corned beef capicola pork belly chuck ribeye. Picanha biltong
-turkey, corned beef beef kielbasa kevin chislic chuck
-tenderloin. Salami pastrami andouille fatback.`
+const Links = styled.div`
+	display: flex;
+	justify-content: space-between;
+`
+
+const Ipsum = () => (
+	<>
+		Bacon ipsum dolor amet swine spare ribs ground round capicola. Corned beef
+		capicola pork belly chuck ribeye. Picanha biltong turkey, corned beef beef
+		kielbasa kevin chislic chuck tenderloin.{' '}
+		<a href="https://wurst.de/" target="_blank" rel="nofollow noreferrer">
+			Salami pastrami
+		</a>{' '}
+		andouille fatback.
+	</>
+)
 
 const DesignSystemTemplate = () => (
 	<>
@@ -224,7 +237,9 @@ const DesignSystemTemplate = () => (
 				<SubSection>
 					<Content>
 						<p>This is an example of the body text style.</p>
-						<p>{ipsum}</p>
+						<p>
+							<Ipsum />
+						</p>
 					</Content>
 					<Label>
 						Body &mdash; {fonts.serif.name} {fonts.serif.weights.regular}{' '}
@@ -234,10 +249,12 @@ const DesignSystemTemplate = () => (
 				<SubSection>
 					<Content>
 						<p>
-							<>This is an example of the small body text style.</>
+							<small>This is an example of the small body text style.</small>
 						</p>
 						<p>
-							<>{ipsum}</>
+							<small>
+								<Ipsum />
+							</small>
 						</p>
 					</Content>
 					<Label>
@@ -248,7 +265,9 @@ const DesignSystemTemplate = () => (
 				<SubSection>
 					<Content>
 						<Micro>This is an example of the micro text style.</Micro>
-						<Micro>{ipsum}</Micro>
+						<Micro>
+							<Ipsum />
+						</Micro>
 					</Content>
 					<Label>
 						Micro &mdash; {fonts.sans.name} {fonts.sans.weights.regular}{' '}
@@ -330,19 +349,72 @@ const DesignSystemTemplate = () => (
 		</Header>
 		<Cols>
 			<Section>
-				<SectionHeader>Accordion</SectionHeader>
+				<SectionHeader>Links</SectionHeader>
 				<SubSection>
-					<Accordion title={'Accordion Title'}>
-						<p>{ipsum}</p>
-					</Accordion>
-					<Accordion
-						title={
-							'A very long Accordion Title, as it may be appear in the FAQ (initially expanded)'
-						}
-						expanded={true}
-					>
-						<p>{ipsum}</p>
-					</Accordion>
+					<Label>Primary</Label>
+					<Links>
+						<Link href="#">Learn more here</Link>
+						<Link href="#" hover>
+							Learn more here
+						</Link>
+						<Link href="#" active>
+							Learn more here
+						</Link>
+						<Link href="#" focus>
+							Learn more here
+						</Link>
+					</Links>
+				</SubSection>
+				<SubSection>
+					<Label>Icon</Label>
+					<Links>
+						<Link href="#" title="Facebook">
+							<FacebookIcon />
+						</Link>
+						<Link href="#" hover title="Facebook">
+							<FacebookIcon />
+						</Link>
+						<Link href="#" active title="Facebook">
+							<FacebookIcon />
+						</Link>
+						<Link href="#" focus title="Facebook">
+							<FacebookIcon />
+						</Link>
+					</Links>
+				</SubSection>
+				<SubSection>
+					<Label>Secondary</Label>
+					<Links>
+						<Link href="#" secondary>
+							Learn more here
+						</Link>
+						<Link href="#" secondary hover>
+							Learn more here
+						</Link>
+						<Link href="#" secondary active>
+							Learn more here
+						</Link>
+						<Link href="#" secondary focus>
+							Learn more here
+						</Link>
+					</Links>
+				</SubSection>
+				<SubSection>
+					<Label>Icon (secondary)</Label>
+					<Links>
+						<Link href="#" secondary title="Facebook">
+							<FacebookIcon />
+						</Link>
+						<Link href="#" secondary hover title="Facebook">
+							<FacebookIcon />
+						</Link>
+						<Link href="#" secondary active title="Facebook">
+							<FacebookIcon />
+						</Link>
+						<Link href="#" secondary focus title="Facebook">
+							<FacebookIcon />
+						</Link>
+					</Links>
 				</SubSection>
 			</Section>
 			<Section>
@@ -489,6 +561,28 @@ const DesignSystemTemplate = () => (
 				</SubSection>
 			</Section>
 		</OneCol>
+		<Cols>
+			<Section>
+				<SectionHeader>Accordion</SectionHeader>
+				<SubSection>
+					<Accordion title={'Accordion Title'}>
+						<p>
+							<Ipsum />
+						</p>
+					</Accordion>
+					<Accordion
+						title={
+							'A very long Accordion Title, as it may be appear in the FAQ (initially expanded)'
+						}
+						expanded={true}
+					>
+						<p>
+							<Ipsum />
+						</p>
+					</Accordion>
+				</SubSection>
+			</Section>
+		</Cols>
 		<Footer>
 			<Section>
 				<Label>

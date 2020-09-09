@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet'
 import { withPrefix } from 'gatsby'
 import { SiteMetaData } from '../templates/types'
 import { colors, fonts } from '../settings'
+import { GlobalLinkStyle } from './StyledLinks'
 
 const GlobalStyle = createGlobalStyle`
       html,
@@ -17,11 +18,6 @@ const GlobalStyle = createGlobalStyle`
       }
 	  #___gatsby, #gatsby-focus-wrapper {
 		height: 100%;
-	  }
-	  a {
-		  color: ${colors.text};
-		  text-decoration: underline;
-		  text-decoration-color: ${colors.secondary};
 	  }
 `
 
@@ -82,5 +78,6 @@ export const Head = ({
 			></script>
 		</Helmet>
 		<GlobalStyle />
+		<GlobalLinkStyle />
 	</>
 )
