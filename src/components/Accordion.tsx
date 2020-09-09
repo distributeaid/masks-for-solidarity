@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { colors, fonts, fontSizes } from '../settings'
-
-import PlusIcon from 'feather-icons/dist/icons/plus.svg'
-import MinusIcon from 'feather-icons/dist/icons/minus.svg'
+import { colors, fontSizes } from '../settings'
+import { PlusIcon, MinusIcon } from './Icons'
 
 const Container = styled.section`
 	border: 0;

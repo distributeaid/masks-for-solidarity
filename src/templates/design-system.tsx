@@ -5,6 +5,20 @@ import { fonts, colors, fontSizes, breakpoints, buttonSizes } from '../settings'
 import { Content, Micro } from '../design/Content'
 import { Accordion } from '../components/Accordion'
 import { Button } from '../components/Buttons'
+import {
+	MinusIcon,
+	PlusIcon,
+	XIcon,
+	MenuIcon,
+	FacebookIcon,
+	LinkedInIcon,
+	TwitterIcon,
+	EmailIcon,
+	CheckCircleIcon,
+	AlertTriangleIcon,
+	HeartIcon,
+	GithubIcon,
+} from '../components/Icons'
 
 const Header = styled.header`
 	background-color: #9a7900;
@@ -79,6 +93,7 @@ const Footer = styled.footer`
 
 const Label = styled.p`
 	font-family: ${fonts.serif.name};
+	font-weight: ${fonts.serif.weights.light};
 	color: #6f6f6f;
 	font-size: 12px;
 `
@@ -130,13 +145,31 @@ const Buttons = styled.div`
 	}
 	@media (min-width: ${breakpoints.medium}) {
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		grid-template-columns: repeat(5, 1fr);
 		grid-gap: 1rem;
 		button {
 			&:not(:first-child) {
 				display: inline-block;
 			}
 		}
+	}
+`
+
+const Icons = styled.ul`
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	@media (min-width: 400px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	@media (min-width: ${breakpoints.wide}) {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	grid-gap: 20px;
+	list-style: none;
+	padding: 0;
+	svg {
+		background-color: ${colors.offsetBackground};
+		padding: calc((50px - 24px) / 2) calc((100px - 24px) / 2);
 	}
 `
 
@@ -298,17 +331,62 @@ const DesignSystemTemplate = () => (
 		<Cols>
 			<Section>
 				<SectionHeader>Accordion</SectionHeader>
-				<Accordion title={'Accordion Title'}>
-					<p>{ipsum}</p>
-				</Accordion>
-				<Accordion
-					title={
-						'A very long Accordion Title, as it may be appear in the FAQ (initially expanded)'
-					}
-					expanded={true}
-				>
-					<p>{ipsum}</p>
-				</Accordion>
+				<SubSection>
+					<Accordion title={'Accordion Title'}>
+						<p>{ipsum}</p>
+					</Accordion>
+					<Accordion
+						title={
+							'A very long Accordion Title, as it may be appear in the FAQ (initially expanded)'
+						}
+						expanded={true}
+					>
+						<p>{ipsum}</p>
+					</Accordion>
+				</SubSection>
+			</Section>
+			<Section>
+				<SectionHeader>Icons</SectionHeader>
+				<SubSection>
+					<Icons>
+						<li>
+							<MinusIcon /> <Label>Minus</Label>
+						</li>
+						<li>
+							<PlusIcon /> <Label>Plus</Label>
+						</li>
+						<li>
+							<XIcon /> <Label>X</Label>
+						</li>
+						<li>
+							<MenuIcon /> <Label>Menu</Label>
+						</li>
+						<li>
+							<FacebookIcon /> <Label>Facebook</Label>
+						</li>
+						<li>
+							<LinkedInIcon /> <Label>LinkedIn</Label>
+						</li>
+						<li>
+							<TwitterIcon /> <Label>Twitter</Label>
+						</li>
+						<li>
+							<EmailIcon /> <Label>Email</Label>
+						</li>
+						<li>
+							<CheckCircleIcon /> <Label>CheckCircle</Label>
+						</li>
+						<li>
+							<AlertTriangleIcon /> <Label>AlertTriangle</Label>
+						</li>
+						<li>
+							<HeartIcon /> <Label>Heart</Label>
+						</li>
+						<li>
+							<GithubIcon /> <Label>Github</Label>
+						</li>
+					</Icons>
+				</SubSection>
 			</Section>
 		</Cols>
 		<OneCol>
