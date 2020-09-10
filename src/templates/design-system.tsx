@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
 import { Head } from '../components/Head'
 import { fonts, colors, fontSizes, breakpoints, buttonSizes } from '../settings'
 import { Content, Micro } from '../design/Content'
@@ -20,8 +21,9 @@ import {
 	CheckCircleIcon,
 	AlertTriangleIcon,
 	HeartIcon,
-	GithubIcon,
+	GitHubIcon,
 } from '../components/Icons'
+import { SiteMetaData } from './types'
 
 const Header = styled.header`
 	background-color: #9a7900;
@@ -48,6 +50,8 @@ const Header = styled.header`
 	h1 + h2 {
 		margin-top: 0.5rem;
 	}
+	position: relative;
+	overflow: hidden;
 `
 
 const Section = styled.section``
@@ -195,6 +199,26 @@ const Form = styled.form`
 	}
 `
 
+const GitHubRibbon = styled.a`
+	background-color: #efefef;
+	color: #333;
+	position: absolute;
+	top: -8px;
+	right: -142px;
+	@media (min-width: ${breakpoints.medium}) {
+		top: 20px;
+		right: -115px;
+	}
+
+	width: 300px;
+	padding: 0.5rem;
+	text-align: center;
+	transform: rotate(45deg);
+	border-bottom: 1px solid #505050;
+	border-top: 1px solid #505050;
+	box-shadow: -2px 2px 15px -4px #000000b8; ;
+`
+
 const Ipsum = () => (
 	<>
 		Bacon ipsum dolor amet swine spare ribs ground round capicola. Corned beef
@@ -207,7 +231,29 @@ const Ipsum = () => (
 	</>
 )
 
-const DesignSystemTemplate = () => (
+export const query = graphql`
+	query DesignSystemTemplateQuery {
+		site {
+			siteMetadata {
+				gitHubUrl
+			}
+		}
+	}
+`
+
+const DesignSystemTemplate = ({
+	data: {
+		site: {
+			siteMetadata: { gitHubUrl },
+		},
+	},
+}: {
+	data: {
+		site: {
+			siteMetadata: SiteMetaData
+		}
+	}
+}) => (
 	<>
 		<Head
 			siteMetaData={{
@@ -218,6 +264,14 @@ const DesignSystemTemplate = () => (
 		/>
 		<Header>
 			<h1>Dovetail Design System 1.0</h1>
+			<GitHubRibbon
+				href={gitHubUrl}
+				target="_blank"
+				rel="nofollow noreferrer"
+				title="GitHub project for this site"
+			>
+				<GitHubIcon />
+			</GitHubRibbon>
 			<h2>Elements</h2>
 		</Header>
 		<Cols>
@@ -471,7 +525,7 @@ const DesignSystemTemplate = () => (
 							<HeartIcon /> <SectionLabel>Heart</SectionLabel>
 						</li>
 						<li>
-							<GithubIcon /> <SectionLabel>Github</SectionLabel>
+							<GitHubIcon /> <SectionLabel>Github</SectionLabel>
 						</li>
 					</Icons>
 				</SubSection>

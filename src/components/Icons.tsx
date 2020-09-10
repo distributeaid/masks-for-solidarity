@@ -24,4 +24,4 @@ export const EmailIcon = Email
 export const CheckCircleIcon = CheckCircle
 export const AlertTriangleIcon = AlertTriangle
 export const HeartIcon = Heart
-export const GithubIcon = Github
+export const GitHubIcon = Github
