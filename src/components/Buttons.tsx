@@ -50,9 +50,9 @@ const ButtonBase = styled.button`
 	&:focus,
 	&.focus {
 		outline: 2px solid ${colors.text};
-		-moz-outline-radius: ${buttonSizes.large};
+		-moz-outline-radius: ${buttonSizes.regular};
 		&.large {
-			-moz-outline-radius: ${buttonSizes.regular};
+			-moz-outline-radius: ${buttonSizes.large};
 		}
 		&.small {
 			-moz-outline-radius: ${buttonSizes.small};
