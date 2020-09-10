@@ -4,23 +4,23 @@ import { colors, fonts, buttonSizes } from '../settings'
 import { mix } from 'polished'
 import { classNames } from '../util/classNames'
 
-const ButtonBase = styled.button`
+export const ButtonBase = styled.button`
 	font-family: ${fonts.serif.name};
 	font-weight: ${fonts.serif.weights.bold};
 	border: 0;
 
 	height: ${buttonSizes.regular};
 	border-radius: ${buttonSizes.regular};
-	padding: 0 ${buttonSizes.regular};
+	padding: 0 calc(${buttonSizes.regular} / 2);
 	&.large {
 		border-radius: ${buttonSizes.large};
 		height: ${buttonSizes.large};
-		padding: 0 ${buttonSizes.large};
+		padding: 0 calc(${buttonSizes.large} / 2);
 	}
 	&.small {
 		height: ${buttonSizes.small};
 		border-radius: ${buttonSizes.small};
-		padding: 0 ${buttonSizes.small};
+		padding: 0 calc(${buttonSizes.small} / 2);
 	}
 
 	background-color: ${colors.primary};
@@ -65,6 +65,7 @@ const ButtonBase = styled.button`
 		&.secondary {
 			border-color: ${colors.offsetBackground};
 			background-color: ${colors.background};
+			color: ${colors.offsetBackground};
 		}
 	}
 `

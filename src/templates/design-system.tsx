@@ -5,6 +5,8 @@ import { fonts, colors, fontSizes, breakpoints, buttonSizes } from '../settings'
 import { Content, Micro } from '../design/Content'
 import { Accordion } from '../components/Accordion'
 import { Button } from '../components/Buttons'
+import { Input, Label } from '../components/Inputs'
+import { OneLine } from '../components/Forms'
 import { Link } from '../components/StyledLinks'
 import {
 	MinusIcon,
@@ -92,7 +94,7 @@ const Footer = styled.footer`
 	}
 `
 
-const Label = styled.p`
+const SectionLabel = styled.p`
 	font-family: ${fonts.serif.name};
 	font-weight: ${fonts.serif.weights.light};
 	color: #6f6f6f;
@@ -179,6 +181,20 @@ const Links = styled.div`
 	justify-content: space-between;
 `
 
+const Form = styled.form`
+	& + & {
+		margin-top: 1rem;
+	}
+	&:not(:first-child) {
+		display: none;
+	}
+	@media (min-width: ${breakpoints.wide}) {
+		&:not(:first-child) {
+			display: block;
+		}
+	}
+`
+
 const Ipsum = () => (
 	<>
 		Bacon ipsum dolor amet swine spare ribs ground round capicola. Corned beef
@@ -211,28 +227,28 @@ const DesignSystemTemplate = () => (
 					<Content>
 						<h1>H1 Heading</h1>
 					</Content>
-					<Label>
+					<SectionLabel>
 						Header 1 &mdash; {fonts.serif.name} {fonts.serif.weights.regular}{' '}
 						{fontSizes.h1}/{fontSizes.hero.h1}
-					</Label>
+					</SectionLabel>
 				</SubSection>
 				<SubSection>
 					<Content>
 						<h2>H2 Heading</h2>
 					</Content>
-					<Label>
+					<SectionLabel>
 						Header 2 &mdash; {fonts.serif.name} {fonts.serif.weights.regular}{' '}
 						{fontSizes.h2}/{fontSizes.hero.h2}
-					</Label>
+					</SectionLabel>
 				</SubSection>
 				<SubSection>
 					<Content>
 						<h3>H3 Heading</h3>
 					</Content>
-					<Label>
+					<SectionLabel>
 						Header 3 &mdash; {fonts.sans.name} {fonts.sans.weights.medium}{' '}
 						(Uppercase) {fontSizes.h3}/{fontSizes.hero.h3}
-					</Label>
+					</SectionLabel>
 				</SubSection>
 				<SubSection>
 					<Content>
@@ -241,10 +257,10 @@ const DesignSystemTemplate = () => (
 							<Ipsum />
 						</p>
 					</Content>
-					<Label>
+					<SectionLabel>
 						Body &mdash; {fonts.serif.name} {fonts.serif.weights.regular}{' '}
 						{fontSizes.text}/{fontSizes.hero.text}
-					</Label>
+					</SectionLabel>
 				</SubSection>
 				<SubSection>
 					<Content>
@@ -257,10 +273,10 @@ const DesignSystemTemplate = () => (
 							</small>
 						</p>
 					</Content>
-					<Label>
+					<SectionLabel>
 						S Body &mdash; {fonts.serif.name} {fonts.serif.weights.light}{' '}
 						{fontSizes.small}/{fontSizes.hero.small}
-					</Label>
+					</SectionLabel>
 				</SubSection>
 				<SubSection>
 					<Content>
@@ -269,16 +285,16 @@ const DesignSystemTemplate = () => (
 							<Ipsum />
 						</Micro>
 					</Content>
-					<Label>
+					<SectionLabel>
 						Micro &mdash; {fonts.sans.name} {fonts.sans.weights.regular}{' '}
 						{fontSizes.micro}/{fontSizes.hero.micro}
-					</Label>
+					</SectionLabel>
 				</SubSection>
 			</Section>
 			<Section>
 				<SectionHeader>Colors</SectionHeader>
 				<SubSection>
-					<Label>Primary palette</Label>
+					<SectionLabel>Primary palette</SectionLabel>
 					<Colors>
 						<Color color={colors.primary}>
 							Primary
@@ -298,7 +314,7 @@ const DesignSystemTemplate = () => (
 					</Colors>
 				</SubSection>
 				<SubSection>
-					<Label>Neutral Palette</Label>
+					<SectionLabel>Neutral Palette</SectionLabel>
 					<Colors>
 						<Color color={colors.text}>
 							Text
@@ -328,7 +344,7 @@ const DesignSystemTemplate = () => (
 					</Colors>
 				</SubSection>
 				<SubSection>
-					<Label>Extended Palette</Label>
+					<SectionLabel>Extended Palette</SectionLabel>
 					<Colors>
 						<Color color={colors.success}>
 							Success
@@ -351,7 +367,7 @@ const DesignSystemTemplate = () => (
 			<Section>
 				<SectionHeader>Links</SectionHeader>
 				<SubSection>
-					<Label>Primary</Label>
+					<SectionLabel>Primary</SectionLabel>
 					<Links>
 						<Link href="#">Learn more here</Link>
 						<Link href="#" hover>
@@ -366,7 +382,7 @@ const DesignSystemTemplate = () => (
 					</Links>
 				</SubSection>
 				<SubSection>
-					<Label>Icon</Label>
+					<SectionLabel>Icon</SectionLabel>
 					<Links>
 						<Link href="#" title="Facebook">
 							<FacebookIcon />
@@ -383,7 +399,7 @@ const DesignSystemTemplate = () => (
 					</Links>
 				</SubSection>
 				<SubSection>
-					<Label>Secondary</Label>
+					<SectionLabel>Secondary</SectionLabel>
 					<Links>
 						<Link href="#" secondary>
 							Learn more here
@@ -400,7 +416,7 @@ const DesignSystemTemplate = () => (
 					</Links>
 				</SubSection>
 				<SubSection>
-					<Label>Icon (secondary)</Label>
+					<SectionLabel>Icon (secondary)</SectionLabel>
 					<Links>
 						<Link href="#" secondary title="Facebook">
 							<FacebookIcon />
@@ -422,40 +438,40 @@ const DesignSystemTemplate = () => (
 				<SubSection>
 					<Icons>
 						<li>
-							<MinusIcon /> <Label>Minus</Label>
+							<MinusIcon /> <SectionLabel>Minus</SectionLabel>
 						</li>
 						<li>
-							<PlusIcon /> <Label>Plus</Label>
+							<PlusIcon /> <SectionLabel>Plus</SectionLabel>
 						</li>
 						<li>
-							<XIcon /> <Label>X</Label>
+							<XIcon /> <SectionLabel>X</SectionLabel>
 						</li>
 						<li>
-							<MenuIcon /> <Label>Menu</Label>
+							<MenuIcon /> <SectionLabel>Menu</SectionLabel>
 						</li>
 						<li>
-							<FacebookIcon /> <Label>Facebook</Label>
+							<FacebookIcon /> <SectionLabel>Facebook</SectionLabel>
 						</li>
 						<li>
-							<LinkedInIcon /> <Label>LinkedIn</Label>
+							<LinkedInIcon /> <SectionLabel>LinkedIn</SectionLabel>
 						</li>
 						<li>
-							<TwitterIcon /> <Label>Twitter</Label>
+							<TwitterIcon /> <SectionLabel>Twitter</SectionLabel>
 						</li>
 						<li>
-							<EmailIcon /> <Label>Email</Label>
+							<EmailIcon /> <SectionLabel>Email</SectionLabel>
 						</li>
 						<li>
-							<CheckCircleIcon /> <Label>CheckCircle</Label>
+							<CheckCircleIcon /> <SectionLabel>CheckCircle</SectionLabel>
 						</li>
 						<li>
-							<AlertTriangleIcon /> <Label>AlertTriangle</Label>
+							<AlertTriangleIcon /> <SectionLabel>AlertTriangle</SectionLabel>
 						</li>
 						<li>
-							<HeartIcon /> <Label>Heart</Label>
+							<HeartIcon /> <SectionLabel>Heart</SectionLabel>
 						</li>
 						<li>
-							<GithubIcon /> <Label>Github</Label>
+							<GithubIcon /> <SectionLabel>Github</SectionLabel>
 						</li>
 					</Icons>
 				</SubSection>
@@ -465,7 +481,7 @@ const DesignSystemTemplate = () => (
 			<Section>
 				<SectionHeader>Buttons</SectionHeader>
 				<SubSection>
-					<Label>Regular ({buttonSizes.regular})</Label>
+					<SectionLabel>Regular ({buttonSizes.regular})</SectionLabel>
 					<Buttons>
 						<Button>Primary</Button>
 						<Button hover>Hover</Button>
@@ -490,7 +506,7 @@ const DesignSystemTemplate = () => (
 					</Buttons>
 				</SubSection>
 				<SubSection>
-					<Label>Large ({buttonSizes.large})</Label>
+					<SectionLabel>Large ({buttonSizes.large})</SectionLabel>
 					<Buttons>
 						<Button large>Primary</Button>
 						<Button large hover>
@@ -525,7 +541,7 @@ const DesignSystemTemplate = () => (
 					</Buttons>
 				</SubSection>
 				<SubSection>
-					<Label>Small ({buttonSizes.small})</Label>
+					<SectionLabel>Small ({buttonSizes.small})</SectionLabel>
 					<Buttons>
 						<Button small>Primary</Button>
 						<Button small hover>
@@ -582,10 +598,110 @@ const DesignSystemTemplate = () => (
 					</Accordion>
 				</SubSection>
 			</Section>
+			<Section>
+				<SectionHeader>Newsletter Form</SectionHeader>
+				<SubSection>
+					<Form>
+						<OneLine>
+							<Input
+								id="email1"
+								type="email"
+								placeholder="yourname@example.com"
+							/>
+							<Button secondary>Subscribe</Button>
+						</OneLine>
+						<Label htmlFor="email1">Please provide your email address</Label>
+					</Form>
+					<Form>
+						<OneLine>
+							<Input
+								id="email2"
+								type="email"
+								placeholder="yourname@example.com"
+								defaultValue="janedoe@"
+							/>
+							<Button secondary>Subscribe</Button>
+						</OneLine>
+						<Label htmlFor="email2">Please provide your email address</Label>
+					</Form>
+					<Form>
+						<OneLine>
+							<Input
+								id="email-valid"
+								type="email"
+								placeholder="yourname@example.com"
+								defaultValue="janedoe@example.com"
+								success
+							/>
+							<Button secondary>Subscribe</Button>
+						</OneLine>
+						<Label htmlFor="email-valid" success>
+							The email is valid.
+						</Label>
+					</Form>
+					<Form>
+						<OneLine>
+							<Input
+								id="email-invalid"
+								type="email"
+								placeholder="yourname@example.com"
+								defaultValue="janedoe@example"
+								error
+							/>
+							<Button secondary>Subscribe</Button>
+						</OneLine>
+						<Label htmlFor="email-invalid" error>
+							The email is not valid.
+						</Label>
+					</Form>
+					<Form>
+						<OneLine>
+							<Input
+								id="email3"
+								type="email"
+								placeholder="yourname@example.com"
+								hover
+							/>
+							<Button hover secondary>
+								Subscribe
+							</Button>
+						</OneLine>
+						<Label htmlFor="email3">Please provide your email address</Label>
+					</Form>
+					<Form>
+						<OneLine>
+							<Input
+								id="email4"
+								type="email"
+								placeholder="yourname@example.com"
+								disabled
+							/>
+							<Button disabled secondary>
+								Subscribe
+							</Button>
+						</OneLine>
+						<Label htmlFor="email4">Please provide your email address</Label>
+					</Form>
+					<Form>
+						<OneLine>
+							<Input
+								id="email5"
+								type="email"
+								placeholder="yourname@example.com"
+								focus
+							/>
+							<Button focus secondary>
+								Subscribe
+							</Button>
+						</OneLine>
+						<Label htmlFor="email5">Please provide your email address</Label>
+					</Form>
+				</SubSection>
+			</Section>
 		</Cols>
 		<Footer>
 			<Section>
-				<Label>
+				<SectionLabel>
 					Design-System for{' '}
 					<a
 						href="https://refugees.care/"
@@ -612,7 +728,7 @@ const DesignSystemTemplate = () => (
 						Distribute Aid
 					</a>
 					.
-				</Label>
+				</SectionLabel>
 			</Section>
 		</Footer>
 	</>
