@@ -10,9 +10,11 @@ export const InputBase = styled.input`
 	font-weight: ${fonts.serif.weights.regular};
 	border: 1px solid ${colors.lightText};
 
+	overflow: hidden;
+
 	height: calc(${buttonSizes.regular} - 2px);
 	border-radius: ${buttonSizes.regular};
-	padding: 0 calc(${buttonSizes.regular} / 2);
+	padding: 0 0 0 calc(${buttonSizes.regular} / 2);
 
 	background-color: ${colors.background};
 	color: ${colors.text};
