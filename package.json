@@ -32,7 +32,7 @@
   "homepage": "https://github.com/distributeaid/refugees.care#readme",
   "dependencies": {
     "feather-icons": "4.28.0",
-    "snyk": "1.392.1"
+    "snyk": "1.393.0"
   },
   "snyk": true,
   "engines": {
@@ -40,8 +40,8 @@
     "npm": ">=6.0.0"
   },
   "devDependencies": {
-    "@bifravst/code-style": "8.0.70",
-    "@bifravst/eslint-config-typescript": "5.0.30",
+    "@bifravst/code-style": "8.0.72",
+    "@bifravst/eslint-config-typescript": "5.0.31",
     "@commitlint/cli": "9.1.2",
     "@commitlint/config-angular": "9.1.2",
     "@types/react-dom": "16.9.8",
@@ -50,8 +50,8 @@
     "babel-plugin-styled-components": "1.11.1",
     "check-node-version": "4.0.3",
     "eslint-plugin-react": "7.20.6",
-    "gatsby": "2.24.56",
-    "gatsby-cli": "2.12.94",
+    "gatsby": "2.24.57",
+    "gatsby-cli": "2.12.95",
     "gatsby-plugin-react-helmet": "3.3.10",
     "gatsby-plugin-react-svg": "3.0.0",
     "gatsby-plugin-styled-components": "3.3.10",
