@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { breakpoints, colors, fonts, fontSizes } from '../settings'
+import { breakpoints, fonts, fontSizes } from '../settings'
 
 export const Section = styled.section`
 	margin: 0 auto;
@@ -9,10 +9,6 @@ export const Section = styled.section`
 	@media (min-width: ${breakpoints.medium}) {
 		padding: 4rem 0;
 	}
-`
-
-export const Offset = styled.div`
-	background-color: ${colors.offsetBackground};
 `
 
 export const MarkdownContent = styled.div`

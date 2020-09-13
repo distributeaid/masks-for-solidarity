@@ -24,6 +24,7 @@ import {
 	GitHubIcon,
 } from '../components/Icons'
 import { SiteMetaData } from './types'
+import { Offset } from '../components/Offset'
 
 const Header = styled.header`
 	background-color: #9a7900;
@@ -54,7 +55,12 @@ const Header = styled.header`
 	overflow: hidden;
 `
 
-const Section = styled.section``
+const SectionLabel = styled.p`
+	font-family: ${fonts.serif.name};
+	font-weight: ${fonts.serif.weights.light};
+	color: #666;
+	font-size: 12px;
+`
 
 const SubSection = styled.div`
 	border-top: 1px solid ${colors.border};
@@ -64,58 +70,21 @@ const SubSection = styled.div`
 	}
 `
 
-const Cols = styled.div`
-	display: flex;
-	flex-direction: column;
-	@media (min-width: ${breakpoints.medium}) {
-		flex-direction: row;
-	}
-	${Section} {
-		width: calc(100% - 2rem);
-		margin: 1rem;
-		@media (min-width: ${breakpoints.medium}) {
-			width: calc(50% - 4rem);
-			margin: 2rem;
-		}
-	}
-`
-
-const OneCol = styled.div`
-	${Section} {
-		width: calc(100% - 2rem);
-		margin: 1rem;
-		@media (min-width: ${breakpoints.medium}) {
-			width: calc(100% - 4rem);
-			margin: 2rem;
-		}
-	}
-`
-
-const Footer = styled.footer`
-	padding: 1rem;
-	@media (min-width: ${breakpoints.medium}) {
-		padding: 2rem;
-	}
-`
-
-const SectionLabel = styled.p`
-	font-family: ${fonts.serif.name};
-	font-weight: ${fonts.serif.weights.light};
-	color: #6f6f6f;
-	font-size: 12px;
-`
-
 const SectionHeader = styled.h2`
 	font-family: ${fonts.serif.name};
 	font-weight: ${fonts.serif.weights.regular};
 	font-size: 24px;
 	color: #9a7900;
 	text-transform: none;
+	margin: 1rem;
+	@media (min-width: ${breakpoints.medium}) {
+		margin: 2rem 2rem 1rem 2rem;
+	}
 `
 
 const Color = styled.li<{ color: string }>`
 	font-family: ${fonts.serif.name};
-	color: #6f6f6f;
+	color: #666;
 	font-size: 12px;
 	width: calc((100% / 5) - 2rem);
 	:before {
@@ -140,7 +109,10 @@ const Colors = styled.ul`
 `
 
 const Buttons = styled.div`
-	width: 100%;
+	width: calc(100% - 2rem);
+	@media (min-width: ${breakpoints.medium}) {
+		width: calc(100% - 4rem);
+	}
 	button {
 		width: 100%;
 		&:not(:first-child) {
@@ -197,6 +169,10 @@ const Form = styled.form`
 			display: block;
 		}
 	}
+	margin: 1rem;
+	@media (min-width: ${breakpoints.medium}) {
+		margin: 1rem 2rem;
+	}
 `
 
 const GitHubRibbon = styled.a`
@@ -218,6 +194,43 @@ const GitHubRibbon = styled.a`
 	border-top: 1px solid #505050;
 	box-shadow: -2px 2px 15px -4px #000000b8; ;
 `
+
+const StyledAccordion = styled(Accordion)`
+	@media (min-width: ${breakpoints.medium}) {
+		margin: 1rem;
+	}
+`
+
+const Section = styled.section`
+	${Content}, ${SectionLabel}, ${Colors}, ${Links}, ${Buttons}, ${StyledAccordion} {
+		margin: 1rem;
+		@media (min-width: ${breakpoints.medium}) {
+			margin: 1rem 2rem;
+		}
+	}
+`
+
+const Cols = styled.div`
+	display: flex;
+	flex-direction: column;
+	@media (min-width: ${breakpoints.medium}) {
+		flex-direction: row;
+	}
+	${Section} {
+		width: 100%;
+		@media (min-width: ${breakpoints.medium}) {
+			width: calc(50% - 1rem);
+		}
+	}
+
+	${Section} + ${Section} {
+		@media (min-width: ${breakpoints.medium}) {
+			margin-left: 2rem;
+		}
+	}
+`
+
+const OneCol = styled.div``
 
 const Ipsum = () => (
 	<>
@@ -316,22 +329,24 @@ const DesignSystemTemplate = ({
 						{fontSizes.text}/{fontSizes.hero.text}
 					</SectionLabel>
 				</SubSection>
-				<SubSection>
-					<Content>
-						<p>
-							<small>This is an example of the small body text style.</small>
-						</p>
-						<p>
-							<small>
-								<Ipsum />
-							</small>
-						</p>
-					</Content>
-					<SectionLabel>
-						S Body &mdash; {fonts.serif.name} {fonts.serif.weights.light}{' '}
-						{fontSizes.small}/{fontSizes.hero.small}
-					</SectionLabel>
-				</SubSection>
+				<Offset>
+					<SubSection>
+						<Content>
+							<p>
+								<small>This is an example of the small body text style.</small>
+							</p>
+							<p>
+								<small>
+									<Ipsum />
+								</small>
+							</p>
+						</Content>
+						<SectionLabel>
+							S Body &mdash; {fonts.serif.name} {fonts.serif.weights.light}{' '}
+							{fontSizes.small}/{fontSizes.hero.small}
+						</SectionLabel>
+					</SubSection>
+				</Offset>
 				<SubSection>
 					<Content>
 						<Micro>This is an example of the micro text style.</Micro>
@@ -423,18 +438,41 @@ const DesignSystemTemplate = ({
 				<SubSection>
 					<SectionLabel>Primary</SectionLabel>
 					<Links>
-						<Link href="#">Learn more here</Link>
+						<Link href="#">Link</Link>
 						<Link href="#" hover>
-							Learn more here
+							Hover
 						</Link>
 						<Link href="#" active>
-							Learn more here
+							Active
 						</Link>
 						<Link href="#" focus>
-							Learn more here
+							Focus
+						</Link>
+						<Link href="#" visited>
+							Visited
 						</Link>
 					</Links>
 				</SubSection>
+				<Offset>
+					<SubSection>
+						<SectionLabel>Primary</SectionLabel>
+						<Links>
+							<Link href="#">Link</Link>
+							<Link href="#" hover>
+								Hover
+							</Link>
+							<Link href="#" active>
+								Active
+							</Link>
+							<Link href="#" focus>
+								Focus
+							</Link>
+							<Link href="#" visited>
+								Visited
+							</Link>
+						</Links>
+					</SubSection>
+				</Offset>
 				<SubSection>
 					<SectionLabel>Icon</SectionLabel>
 					<Links>
@@ -450,25 +488,75 @@ const DesignSystemTemplate = ({
 						<Link href="#" focus title="Facebook">
 							<FacebookIcon />
 						</Link>
+						<Link href="#" visited title="Facebook">
+							<FacebookIcon />
+						</Link>
 					</Links>
 				</SubSection>
+				<Offset>
+					<SubSection>
+						<SectionLabel>Icon</SectionLabel>
+						<Links>
+							<Link href="#" title="Facebook">
+								<FacebookIcon />
+							</Link>
+							<Link href="#" hover title="Facebook">
+								<FacebookIcon />
+							</Link>
+							<Link href="#" active title="Facebook">
+								<FacebookIcon />
+							</Link>
+							<Link href="#" focus title="Facebook">
+								<FacebookIcon />
+							</Link>
+							<Link href="#" visited title="Facebook">
+								<FacebookIcon />
+							</Link>
+						</Links>
+					</SubSection>
+				</Offset>
 				<SubSection>
 					<SectionLabel>Secondary</SectionLabel>
 					<Links>
 						<Link href="#" secondary>
-							Learn more here
+							Link
 						</Link>
 						<Link href="#" secondary hover>
-							Learn more here
+							Hover
 						</Link>
 						<Link href="#" secondary active>
-							Learn more here
+							Active
 						</Link>
 						<Link href="#" secondary focus>
-							Learn more here
+							Focus
+						</Link>
+						<Link href="#" secondary visited>
+							Visited
 						</Link>
 					</Links>
 				</SubSection>
+				<Offset>
+					<SubSection>
+						<SectionLabel>Secondary</SectionLabel>
+						<Links>
+							<Link href="#" secondary>
+								Link
+							</Link>
+							<Link href="#" secondary hover>
+								Hover
+							</Link>
+							<Link href="#" secondary active>
+								Active
+							</Link>
+							<Link href="#" secondary focus>
+								Focus
+							</Link>
+							<Link href="#" secondary visited>
+								Visited
+							</Link>
+						</Links>
+					</SubSection>
+				</Offset>
 				<SubSection>
 					<SectionLabel>Icon (secondary)</SectionLabel>
 					<Links>
@@ -484,8 +572,33 @@ const DesignSystemTemplate = ({
 						<Link href="#" secondary focus title="Facebook">
 							<FacebookIcon />
 						</Link>
+						<Link href="#" secondary visited title="Facebook">
+							<FacebookIcon />
+						</Link>
 					</Links>
 				</SubSection>
+				<Offset>
+					<SubSection>
+						<SectionLabel>Icon (secondary)</SectionLabel>
+						<Links>
+							<Link href="#" secondary title="Facebook">
+								<FacebookIcon />
+							</Link>
+							<Link href="#" secondary hover title="Facebook">
+								<FacebookIcon />
+							</Link>
+							<Link href="#" secondary active title="Facebook">
+								<FacebookIcon />
+							</Link>
+							<Link href="#" secondary focus title="Facebook">
+								<FacebookIcon />
+							</Link>
+							<Link href="#" secondary visited title="Facebook">
+								<FacebookIcon />
+							</Link>
+						</Links>
+					</SubSection>
+				</Offset>
 			</Section>
 			<Section>
 				<SectionHeader>Icons</SectionHeader>
@@ -635,12 +748,12 @@ const DesignSystemTemplate = ({
 			<Section>
 				<SectionHeader>Accordion</SectionHeader>
 				<SubSection>
-					<Accordion title={'Accordion Title'}>
+					<StyledAccordion title={'Accordion Title'}>
 						<p>
 							<Ipsum />
 						</p>
-					</Accordion>
-					<Accordion
+					</StyledAccordion>
+					<StyledAccordion
 						title={
 							'A very long Accordion Title, as it may be appear in the FAQ (initially expanded)'
 						}
@@ -649,7 +762,7 @@ const DesignSystemTemplate = ({
 						<p>
 							<Ipsum />
 						</p>
-					</Accordion>
+					</StyledAccordion>
 				</SubSection>
 			</Section>
 			<Section>
@@ -753,7 +866,7 @@ const DesignSystemTemplate = ({
 				</SubSection>
 			</Section>
 		</Cols>
-		<Footer>
+		<footer>
 			<Section>
 				<SectionLabel>
 					Design-System for{' '}
@@ -784,7 +897,7 @@ const DesignSystemTemplate = ({
 					.
 				</SectionLabel>
 			</Section>
-		</Footer>
+		</footer>
 	</>
 )
 

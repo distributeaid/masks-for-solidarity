@@ -11,7 +11,7 @@ export const breakpoints = {
 	wide: '1200px',
 }
 
-const teal = '#008080'
+const teal = '#007777'
 const lightSeaGreen = '#20B2AA'
 const terracotta = '#cc4c1d'
 const white = '#fff'

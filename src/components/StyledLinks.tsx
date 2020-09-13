@@ -42,6 +42,13 @@ export const GlobalLinkStyle = createGlobalStyle`
 		&.focus {
 			outline: 2px solid ${colors.text};
 		}
+
+		&:visited, &.visited {
+			color: ${colors.primary};
+			&.secondary {
+				color: ${colors.text};
+			}
+		}
 	}
 `
 
@@ -50,6 +57,7 @@ type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
 	active?: boolean
 	focus?: boolean
 	secondary?: boolean
+	visited?: boolean
 }
 
 export const Link = ({
@@ -58,9 +66,13 @@ export const Link = ({
 	hover,
 	active,
 	focus,
+	visited,
 	...rest
 }: LinkProps) => (
-	<a className={classNames({ secondary, hover, active, focus })} {...rest}>
+	<a
+		className={classNames({ secondary, hover, active, focus, visited })}
+		{...rest}
+	>
 		{children}
 	</a>
 )

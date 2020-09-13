@@ -34,10 +34,15 @@ export const Accordion = ({
 	title,
 	expanded,
 	children,
-}: React.PropsWithChildren<{ title: string; expanded?: boolean }>) => {
+	className,
+}: React.PropsWithChildren<{
+	title: string
+	expanded?: boolean
+	className?: string
+}>) => {
 	const [open, setOpen] = useState(expanded ?? false)
 	return (
-		<Container>
+		<Container className={className}>
 			{open && (
 				<>
 					<OpenTitle onClick={() => setOpen((o) => !o)}>

@@ -34,7 +34,6 @@ const StyledHeartIcon = styled(HeartIcon)`
 const Attributions = styled.aside`
 	margin-top: 4rem;
 	margin-bottom: 2rem;
-	opacity: 0.75;
 	font-size: 85%;
 	text-align: center;
 `
