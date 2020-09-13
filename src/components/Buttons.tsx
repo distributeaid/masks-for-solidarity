@@ -62,10 +62,12 @@ export const ButtonBase = styled.button`
 	&:disabled,
 	&.disabled {
 		background-color: ${colors.offsetBackground};
+		border: 1px solid ${colors.border};
+		color: ${colors.border};
 		&.secondary {
-			border-color: ${colors.offsetBackground};
+			border-color: ${colors.border};
 			background-color: ${colors.background};
-			color: ${colors.offsetBackground};
+			color: ${colors.border};
 		}
 	}
 `

@@ -116,6 +116,12 @@ const Colors = styled.ul`
 
 const Buttons = styled.div`
 	width: calc(100% - 2rem);
+	&:first-child {
+		padding-top: 1rem;
+	}
+	&:last-child {
+		padding-bottom: 1rem;
+	}
 	@media (min-width: ${breakpoints.medium}) {
 		width: calc(100% - 4rem);
 	}
@@ -126,7 +132,8 @@ const Buttons = styled.div`
 		}
 	}
 	& + & {
-		margin-top: 1rem;
+		margin-top: 0;
+		padding-top: 0;
 	}
 	@media (min-width: ${breakpoints.medium}) {
 		display: grid;
@@ -161,6 +168,7 @@ const Icons = styled.ul`
 const Links = styled.div`
 	display: flex;
 	justify-content: space-between;
+	padding: 1rem 0;
 `
 
 const Form = styled.form`
@@ -458,10 +466,7 @@ const DesignSystemTemplate = ({
 							Visited
 						</Link>
 					</Links>
-				</SubSection>
-				<Offset>
-					<SubSection>
-						<SectionLabel>Primary</SectionLabel>
+					<Offset>
 						<Links>
 							<Link href="#">Link</Link>
 							<Link href="#" hover>
@@ -477,9 +482,7 @@ const DesignSystemTemplate = ({
 								Visited
 							</Link>
 						</Links>
-					</SubSection>
-				</Offset>
-				<SubSection>
+					</Offset>
 					<SectionLabel>Icon</SectionLabel>
 					<Links>
 						<Link href="#" title="Facebook">
@@ -498,10 +501,7 @@ const DesignSystemTemplate = ({
 							<FacebookIcon />
 						</Link>
 					</Links>
-				</SubSection>
-				<Offset>
-					<SubSection>
-						<SectionLabel>Icon</SectionLabel>
+					<Offset>
 						<Links>
 							<Link href="#" title="Facebook">
 								<FacebookIcon />
@@ -519,9 +519,7 @@ const DesignSystemTemplate = ({
 								<FacebookIcon />
 							</Link>
 						</Links>
-					</SubSection>
-				</Offset>
-				<SubSection>
+					</Offset>
 					<SectionLabel>Secondary</SectionLabel>
 					<Links>
 						<Link href="#" secondary>
@@ -540,10 +538,7 @@ const DesignSystemTemplate = ({
 							Visited
 						</Link>
 					</Links>
-				</SubSection>
-				<Offset>
-					<SubSection>
-						<SectionLabel>Secondary</SectionLabel>
+					<Offset>
 						<Links>
 							<Link href="#" secondary>
 								Link
@@ -561,9 +556,7 @@ const DesignSystemTemplate = ({
 								Visited
 							</Link>
 						</Links>
-					</SubSection>
-				</Offset>
-				<SubSection>
+					</Offset>
 					<SectionLabel>Icon (secondary)</SectionLabel>
 					<Links>
 						<Link href="#" secondary title="Facebook">
@@ -582,10 +575,7 @@ const DesignSystemTemplate = ({
 							<FacebookIcon />
 						</Link>
 					</Links>
-				</SubSection>
-				<Offset>
-					<SubSection>
-						<SectionLabel>Icon (secondary)</SectionLabel>
+					<Offset>
 						<Links>
 							<Link href="#" secondary title="Facebook">
 								<FacebookIcon />
@@ -603,8 +593,8 @@ const DesignSystemTemplate = ({
 								<FacebookIcon />
 							</Link>
 						</Links>
-					</SubSection>
-				</Offset>
+					</Offset>
+				</SubSection>
 			</Section>
 			<Section>
 				<SectionHeader>Icons</SectionHeader>
@@ -677,8 +667,30 @@ const DesignSystemTemplate = ({
 							Focus
 						</Button>
 					</Buttons>
-				</SubSection>
-				<SubSection>
+					<Offset>
+						<Buttons>
+							<Button>Primary</Button>
+							<Button hover>Hover</Button>
+							<Button active>Active</Button>
+							<Button disabled>Disabled</Button>
+							<Button focus>Focus</Button>
+						</Buttons>
+						<Buttons>
+							<Button secondary>Secondary</Button>
+							<Button secondary hover>
+								Hover
+							</Button>
+							<Button secondary active>
+								Active
+							</Button>
+							<Button secondary disabled>
+								Disabled
+							</Button>
+							<Button secondary focus>
+								Focus
+							</Button>
+						</Buttons>
+					</Offset>
 					<SectionLabel>Large ({buttonSizes.large})</SectionLabel>
 					<Buttons>
 						<Button large>Primary</Button>
@@ -712,8 +724,40 @@ const DesignSystemTemplate = ({
 							Focus
 						</Button>
 					</Buttons>
-				</SubSection>
-				<SubSection>
+					<Offset>
+						<Buttons>
+							<Button large>Primary</Button>
+							<Button large hover>
+								Hover
+							</Button>
+							<Button large active>
+								Active
+							</Button>
+							<Button large disabled>
+								Disabled
+							</Button>
+							<Button large focus>
+								Focus
+							</Button>
+						</Buttons>
+						<Buttons>
+							<Button secondary large>
+								Secondary
+							</Button>
+							<Button secondary large hover>
+								Hover
+							</Button>
+							<Button secondary large active>
+								Active
+							</Button>
+							<Button secondary large disabled>
+								Disabled
+							</Button>
+							<Button secondary large focus>
+								Focus
+							</Button>
+						</Buttons>
+					</Offset>
 					<SectionLabel>Small ({buttonSizes.small})</SectionLabel>
 					<Buttons>
 						<Button small>Primary</Button>
@@ -747,6 +791,40 @@ const DesignSystemTemplate = ({
 							Focus
 						</Button>
 					</Buttons>
+					<Offset>
+						<Buttons>
+							<Button small>Primary</Button>
+							<Button small hover>
+								Hover
+							</Button>
+							<Button small active>
+								Active
+							</Button>
+							<Button small disabled>
+								Disabled
+							</Button>
+							<Button small focus>
+								Focus
+							</Button>
+						</Buttons>
+						<Buttons>
+							<Button secondary small>
+								Secondary
+							</Button>
+							<Button secondary small hover>
+								Hover
+							</Button>
+							<Button secondary small active>
+								Active
+							</Button>
+							<Button secondary small disabled>
+								Disabled
+							</Button>
+							<Button secondary small focus>
+								Focus
+							</Button>
+						</Buttons>
+					</Offset>
 				</SubSection>
 			</Section>
 		</OneCol>
