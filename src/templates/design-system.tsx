@@ -27,7 +27,13 @@ import { SiteMetaData } from './types'
 import { Offset } from '../components/Offset'
 
 const Header = styled.header`
-	background-color: #9a7900;
+	background: #09328b;
+	background: radial-gradient(
+		farthest-side at bottom right,
+		#fff9f1 0%,
+		#b493c4 20%,
+		#09328b 60%
+	);
 	padding: 1rem;
 	@media (min-width: ${breakpoints.medium}) {
 		padding: 2rem;
@@ -74,7 +80,7 @@ const SectionHeader = styled.h2`
 	font-family: ${fonts.serif.name};
 	font-weight: ${fonts.serif.weights.regular};
 	font-size: 24px;
-	color: #9a7900;
+	color: #09328b;
 	text-transform: none;
 	margin: 1rem;
 	@media (min-width: ${breakpoints.medium}) {
