@@ -1,4 +1,4 @@
-export const buttonHeight = '48px'
+export const menuHeight = '64px'
 
 export const buttonSizes = {
 	regular: '48px',
@@ -13,7 +13,7 @@ export const breakpoints = {
 
 const teal = '#007777'
 const lightSeaGreen = '#20B2AA'
-const terracotta = '#cc4c1d'
+const terracotta = '#c0471b'
 const white = '#fff'
 const charcoal = '#333'
 const mediumGrey = '#757575'

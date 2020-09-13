@@ -30,12 +30,27 @@ export const ButtonBase = styled.button`
 		border: 1px solid ${colors.primary};
 		color: ${colors.primary};
 	}
+	&.link {
+		height: auto;
+		border: 0;
+		padding: 0;
+		background-color: transparent;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		color: ${colors.text};
+		font-weight: ${fonts.serif.weights.regular};
+		padding: 0;
+	}
 
 	&:hover,
 	&.hover {
 		background-color: ${mix(0.25, '#fff', colors.primary)};
 		&.secondary {
 			background-color: ${colors.offsetBackground};
+		}
+		&.link {
+			background-color: transparent;
 		}
 	}
 
@@ -44,6 +59,9 @@ export const ButtonBase = styled.button`
 		background-color: ${mix(0.25, '#000', colors.primary)};
 		&.secondary {
 			background-color: ${mix(0.25, '#000', colors.background)};
+		}
+		&.link {
+			background-color: transparent;
 		}
 	}
 
@@ -57,6 +75,9 @@ export const ButtonBase = styled.button`
 		&.small {
 			-moz-outline-radius: ${buttonSizes.small};
 		}
+		&.link {
+			background-color: transparent;
+		}
 	}
 
 	&:disabled,
@@ -69,6 +90,10 @@ export const ButtonBase = styled.button`
 			background-color: ${colors.background};
 			color: ${colors.border};
 		}
+		&.link {
+			background-color: transparent;
+			border: 0;
+		}
 	}
 `
 
@@ -79,6 +104,7 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 	large?: boolean
 	small?: boolean
 	secondary?: boolean
+	link?: boolean
 }
 
 export const Button = ({
@@ -89,10 +115,20 @@ export const Button = ({
 	hover,
 	active,
 	focus,
+	link,
+	className,
 	...rest
 }: ButtonProps) => (
 	<ButtonBase
-		className={classNames({ secondary, large, small, hover, active, focus })}
+		className={`${className} ${classNames({
+			secondary,
+			large,
+			small,
+			hover,
+			active,
+			focus,
+			link,
+		})}`}
 		{...rest}
 	>
 		{children}

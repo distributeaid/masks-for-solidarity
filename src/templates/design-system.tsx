@@ -25,6 +25,7 @@ import {
 } from '../components/Icons'
 import { SiteMetaData } from './types'
 import { Offset } from '../components/Offset'
+import { Menu } from '../components/Menu/Menu'
 
 const Header = styled.header`
 	background: #09328b;
@@ -126,7 +127,6 @@ const Buttons = styled.div`
 		width: calc(100% - 4rem);
 	}
 	button {
-		width: 100%;
 		&:not(:first-child) {
 			display: none;
 		}
@@ -142,6 +142,9 @@ const Buttons = styled.div`
 		button {
 			&:not(:first-child) {
 				display: inline-block;
+				&.link {
+					display: flex;
+				}
 			}
 		}
 	}
@@ -227,6 +230,12 @@ const StyledAccordion = styled(Accordion)`
 	}
 `
 
+const StyledMenu = styled(Menu)`
+	@media (min-width: ${breakpoints.medium}) {
+		margin: 0 2rem;
+	}
+`
+
 const Section = styled.section`
 	${Content}, ${SectionLabel}, ${Colors}, ${Links}, ${Buttons}, ${StyledAccordion} {
 		margin: 1rem;
@@ -275,6 +284,7 @@ export const query = graphql`
 		site {
 			siteMetadata {
 				gitHubUrl
+				title
 			}
 		}
 	}
@@ -282,9 +292,7 @@ export const query = graphql`
 
 const DesignSystemTemplate = ({
 	data: {
-		site: {
-			siteMetadata: { gitHubUrl },
-		},
+		site: { siteMetadata },
 	},
 }: {
 	data: {
@@ -304,7 +312,7 @@ const DesignSystemTemplate = ({
 		<Header>
 			<h1>Dovetail Design System 1.0</h1>
 			<GitHubRibbon
-				href={gitHubUrl}
+				href={siteMetadata.gitHubUrl}
 				target="_blank"
 				rel="nofollow noreferrer"
 				title="GitHub project for this site"
@@ -874,6 +882,39 @@ const DesignSystemTemplate = ({
 							</Button>
 						</Buttons>
 					</Offset>
+					<SectionLabel>Link</SectionLabel>
+					<Buttons>
+						<Button link>Link</Button>
+						<Button link hover>
+							Hover
+						</Button>
+						<Button link active>
+							Active
+						</Button>
+						<Button link disabled>
+							Disabled
+						</Button>
+						<Button link focus>
+							Focus
+						</Button>
+					</Buttons>
+					<Offset>
+						<Buttons>
+							<Button link>Link</Button>
+							<Button link hover>
+								Hover
+							</Button>
+							<Button link active>
+								Active
+							</Button>
+							<Button link disabled>
+								Disabled
+							</Button>
+							<Button link focus>
+								Focus
+							</Button>
+						</Buttons>
+					</Offset>
 				</SubSection>
 			</Section>
 		</OneCol>
@@ -999,6 +1040,12 @@ const DesignSystemTemplate = ({
 				</SubSection>
 			</Section>
 		</Cols>
+		<OneCol>
+			<Section>
+				<SectionHeader>Menu</SectionHeader>
+				<StyledMenu siteMetaData={siteMetadata} />
+			</Section>
+		</OneCol>
 		<footer>
 			<Section>
 				<SectionLabel>
