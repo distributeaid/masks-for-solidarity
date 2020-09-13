@@ -266,6 +266,12 @@ const Cols = styled.div`
 `
 
 const OneCol = styled.div``
+const OneColDesktop = styled.div`
+	display: none;
+	@media (min-width: ${breakpoints.medium}) {
+		display: block;
+	}
+`
 
 const Ipsum = () => (
 	<>
@@ -1074,6 +1080,16 @@ const DesignSystemTemplate = ({
 				</SubSection>
 			</Section>
 		</Cols>
+		<OneColDesktop>
+			<Section>
+				<SectionHeader>Desktop Menu</SectionHeader>
+				<SubSection>
+					<StyledMenu siteMetaData={siteMetadata} desktop>
+						<MenuItems />
+					</StyledMenu>
+				</SubSection>
+			</Section>
+		</OneColDesktop>
 		<footer>
 			<Section>
 				<SectionLabel>
