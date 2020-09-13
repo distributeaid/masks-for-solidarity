@@ -8,13 +8,15 @@ import {
 	menuHeight,
 } from '../../settings'
 import { MenuIcon, XIcon } from '../Icons'
-import { Link } from '../StyledLinks'
-
-import LogoIcon from '../logo-colored.svg'
+import { rgba } from 'polished'
 import { SiteMetaData } from '../../templates/types'
 import { Button } from '../Buttons'
 
-const Nav = styled.nav`
+import LogoIcon from '../logo-colored.svg'
+
+const Container = styled.div``
+
+const NavBar = styled.div`
 	background-color: ${colors.offsetBackground};
 	display: flex;
 	justify-content: space-between;
@@ -55,8 +57,46 @@ const Logo = styled.a`
 	}
 `
 
-const Links = styled.div`
+const Links = styled.nav`
+	padding: 2rem 0;
+	a:not(.button) {
+		color: ${colors.text};
+		text-decoration: none;
+		font-weight: ${fonts.serif.weights.regular};
+		margin: 0.5rem 0;
+		padding: 0 0 0.5rem 0;
+		&:hover,
+		&.hover,
+		&.current {
+			font-weight: ${fonts.serif.weights.bold};
+		}
+		&.current {
+			border-bottom: 4px solid ${colors.highlight};
+		}
+	}
+	a.button {
+		margin-top: 2rem;
+	}
+`
+
+const MobileNavigation = styled.nav`
+	background-color: ${rgba(colors.offsetBackground, 0.9)};
+	${Links} {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		align-items: center;
+		a {
+			font-size: ${fontSizes.h2};
+		}
+	}
+`
+
+const DesktopNavigation = styled.nav`
 	display: none;
+	@media (min-width: ${breakpoints.medium}) {
+		display: block;
+	}
 `
 
 const LinkButton = ({
@@ -92,37 +132,46 @@ const CloseMenu = (props: any) => (
 
 export const Menu = ({
 	desktop,
+	mobile,
 	expanded,
 	className,
 	siteMetaData: { title: siteTitle },
+	children,
 }: React.PropsWithChildren<{
 	desktop?: boolean
+	mobile?: boolean
 	expanded?: boolean
 	className?: string
 	siteMetaData: SiteMetaData
 }>) => {
-	const [open, setOpen] = useState(expanded ?? false)
+	const [open, setOpen] = useState(expanded === true ?? false)
+	const onDesktop = desktop === true
+	const onMobile = mobile === true
 	return (
-		<Nav className={className}>
-			<Logo href="/" title={'Home'}>
-				<LogoIcon title={siteTitle} />
-				<LogoText>
-					{siteTitle.split(' ').map((s, i) => (
-						<span key={i}>{s}</span>
-					))}
-				</LogoText>
-			</Logo>
-			<Links>
-				<Link>Our Story</Link>
-				<Link>About the masks</Link>
-				<Link>Support us</Link>
-				<Link>Get masks</Link>
-				<Link>FAQ</Link>
-				<Link>Who’s involved?</Link>
-				<Link button>Donate</Link>
-			</Links>
-			{!open && <ShowMenu onClick={() => setOpen(true)} />}
-			{open && <CloseMenu onClick={() => setOpen(false)} />}
-		</Nav>
+		<Container className={className}>
+			<NavBar>
+				<Logo href="/" title={'Home'}>
+					<LogoIcon />
+					<LogoText>
+						{siteTitle.split(' ').map((s, i) => (
+							<span key={i}>{s}</span>
+						))}
+					</LogoText>
+				</Logo>
+				{(!onMobile || onDesktop) && (
+					<DesktopNavigation>
+						<Links>{children}</Links>
+					</DesktopNavigation>
+				)}
+
+				{!open && <ShowMenu onClick={() => setOpen(true)} />}
+				{open && <CloseMenu onClick={() => setOpen(false)} />}
+			</NavBar>
+			{open && (onMobile || !onDesktop) && (
+				<MobileNavigation>
+					<Links>{children}</Links>
+				</MobileNavigation>
+			)}
+		</Container>
 	)
 }

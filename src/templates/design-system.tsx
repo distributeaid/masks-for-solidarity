@@ -279,6 +279,22 @@ const Ipsum = () => (
 	</>
 )
 
+const MenuItems = () => (
+	<>
+		<a href="#">Our Story</a>
+		<a href="#" className="current">
+			About the masks
+		</a>
+		<a href="#">Support us</a>
+		<a href="#">Get masks</a>
+		<a href="#">FAQ</a>
+		<a href="#">Who’s involved?</a>
+		<a href="#" className="button">
+			Donate
+		</a>
+	</>
+)
+
 export const query = graphql`
 	query DesignSystemTemplateQuery {
 		site {
@@ -1040,12 +1056,24 @@ const DesignSystemTemplate = ({
 				</SubSection>
 			</Section>
 		</Cols>
-		<OneCol>
+		<Cols>
 			<Section>
-				<SectionHeader>Menu</SectionHeader>
-				<StyledMenu siteMetaData={siteMetadata} />
+				<SectionHeader>Mobile Menu Closed</SectionHeader>
+				<SubSection>
+					<StyledMenu siteMetaData={siteMetadata} mobile>
+						<MenuItems />
+					</StyledMenu>
+				</SubSection>
 			</Section>
-		</OneCol>
+			<Section>
+				<SectionHeader>Mobile Menu Open</SectionHeader>
+				<SubSection>
+					<StyledMenu siteMetaData={siteMetadata} mobile expanded>
+						<MenuItems />
+					</StyledMenu>
+				</SubSection>
+			</Section>
+		</Cols>
 		<footer>
 			<Section>
 				<SectionLabel>
