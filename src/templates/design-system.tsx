@@ -169,6 +169,18 @@ const Links = styled.div`
 	display: flex;
 	justify-content: space-between;
 	padding: 1rem 0;
+	a.button {
+		&:not(:first-child) {
+			display: none;
+		}
+	}
+	@media (min-width: ${breakpoints.medium}) {
+		a.button {
+			&:not(:first-child) {
+				display: inline-block;
+			}
+		}
+	}
 `
 
 const Form = styled.form`
@@ -591,6 +603,43 @@ const DesignSystemTemplate = ({
 							</Link>
 							<Link href="#" secondary visited title="Facebook">
 								<FacebookIcon />
+							</Link>
+						</Links>
+					</Offset>
+					<SectionLabel>Button</SectionLabel>
+					<Links>
+						<Link href="#" button>
+							Link
+						</Link>
+						<Link href="#" button hover>
+							Hover
+						</Link>
+						<Link href="#" button active>
+							Active
+						</Link>
+						<Link href="#" button focus>
+							Focus
+						</Link>
+						<Link href="#" button visited>
+							Visited
+						</Link>
+					</Links>
+					<Offset>
+						<Links>
+							<Link href="#" button>
+								Link
+							</Link>
+							<Link href="#" button hover>
+								Hover
+							</Link>
+							<Link href="#" button active>
+								Active
+							</Link>
+							<Link href="#" button focus>
+								Focus
+							</Link>
+							<Link href="#" button visited>
+								Visited
 							</Link>
 						</Links>
 					</Offset>

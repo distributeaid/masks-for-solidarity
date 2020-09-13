@@ -1,6 +1,6 @@
 import React from 'react'
 import { createGlobalStyle } from 'styled-components'
-import { colors, fonts } from '../settings'
+import { colors, fonts, buttonSizes } from '../settings'
 import { mix } from 'polished'
 import { classNames } from '../util/classNames'
 
@@ -18,13 +18,27 @@ export const GlobalLinkStyle = createGlobalStyle`
 			font-weight: ${fonts.serif.weights.regular};
 		}
 
+		&.button {
+			display: inline-block;
+			background-color: ${colors.primary};
+			height: ${buttonSizes.regular};
+			line-height: ${buttonSizes.regular};
+			border-radius: ${buttonSizes.regular};
+			padding: 0 calc(${buttonSizes.regular} / 2);
+			text-decoration: none;
+			color: ${colors.background};
+		}
+
 		&:hover,
 		&.hover {
 			color: ${mix(0.15, '#000', colors.primary)};
 			text-decoration-color: ${mix(0.25, '#fff', colors.secondary)};
 			&.secondary {
 				color: ${mix(0.25, '#fff', colors.text)};
-				
+			}
+			&.button {
+				color: ${colors.background};
+				background-color: ${mix(0.25, '#fff', colors.primary)};
 			}
 		}
 
@@ -34,7 +48,10 @@ export const GlobalLinkStyle = createGlobalStyle`
 			text-decoration-color: ${mix(0.25, '#000', colors.secondary)};
 			&.secondary {
 				color: ${colors.text};
-
+			}
+			&.button {
+				color: ${colors.background};
+				background-color: ${mix(0.25, '#000', colors.primary)};
 			}
 		}
 
@@ -48,6 +65,9 @@ export const GlobalLinkStyle = createGlobalStyle`
 			&.secondary {
 				color: ${colors.text};
 			}
+			&.button {
+				color: ${colors.background};
+			}
 		}
 	}
 `
@@ -58,6 +78,7 @@ type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
 	focus?: boolean
 	secondary?: boolean
 	visited?: boolean
+	button?: boolean
 }
 
 export const Link = ({
@@ -67,10 +88,11 @@ export const Link = ({
 	active,
 	focus,
 	visited,
+	button,
 	...rest
 }: LinkProps) => (
 	<a
-		className={classNames({ secondary, hover, active, focus, visited })}
+		className={classNames({ secondary, hover, active, focus, visited, button })}
 		{...rest}
 	>
 		{children}
