@@ -1,19 +1,13 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import {
-	colors,
-	fontSizes,
-	fonts,
-	breakpoints,
-	menuHeight,
-} from '../../settings'
-import { MenuIcon, XIcon } from '../Icons'
+import { colors, fontSizes, fonts, breakpoints, menuHeight } from '../settings'
+import { MenuIcon, XIcon } from './Icons'
 import { rgba } from 'polished'
-import { SiteMetaData } from '../../templates/types'
-import { Button } from '../Buttons'
+import { SiteMetaData } from '../templates/types'
+import { Button } from './Buttons'
+import { classNames } from '../util/classNames'
 
-import LogoIcon from '../logo-colored.svg'
-import { classNames } from '../../util/classNames'
+import LogoIcon from './logo-colored.svg'
 
 const NavBar = styled.div`
 	background-color: ${colors.offsetBackground};

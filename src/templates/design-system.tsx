@@ -25,7 +25,7 @@ import {
 } from '../components/Icons'
 import { SiteMetaData } from './types'
 import { Offset } from '../components/Offset'
-import { Menu } from '../components/Menu/Menu'
+import { Menu } from '../components/Menu'
 
 const Header = styled.header`
 	background: #09328b;

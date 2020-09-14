@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, withPrefix } from 'gatsby'
 import styled from 'styled-components'
 import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import { Head } from '../components/Head'
@@ -7,7 +7,7 @@ import { Header, Headline } from '../components/Header'
 import { Section, MarkdownContent } from '../components/Main'
 import { Offset } from '../components/Offset'
 import { Footer } from '../components/Footer'
-import { Navbar } from '../components/Navbar'
+import { Menu } from '../components/Menu'
 import { NewsletterSubscribeForm } from '../components/NewsletterSubscribeForm'
 import { SiteMetaData, Page } from './types'
 import { Team } from '../components/Team'
@@ -18,6 +18,7 @@ import {
 	CampaignProgressPlaceholder,
 } from '../components/CampaingProgress'
 import { PlaceholderOffScreen } from '../components/PlaceholderOffScreen'
+import { Navigation } from './navigation'
 
 const Wrapper = styled.div`
 	height: 100%;
@@ -90,7 +91,7 @@ const HomeTemplate = (data: {
 				pageTitle={data.pageContext.page.remark.frontmatter?.title}
 			/>
 			<Wrapper>
-				<Navbar siteMetaData={data.data.site.siteMetadata} />
+				<Navigation siteMetaData={data.data.site.siteMetadata} />
 				<Header
 					gallery={data.data.allSanityGallery.nodes}
 					content={headerContent}

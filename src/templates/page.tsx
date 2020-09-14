@@ -7,6 +7,7 @@ import { Footer } from '../components/Footer'
 import { Navbar } from '../components/Navbar'
 import { SiteMetaData, Page } from './types'
 import { Section, MarkdownContent } from '../components/Main'
+import { Navigation } from './navigation'
 
 const Wrapper = styled.div`
 	height: 100%;
@@ -41,7 +42,7 @@ const PageTemplate = (data: {
 			pageTitle={data.pageContext.page.remark.frontmatter?.title}
 		/>
 		<Wrapper>
-			<Navbar siteMetaData={data.data.site.siteMetadata} />
+			<Navigation siteMetaData={data.data.site.siteMetadata} />
 			<main>
 				<Section>
 					<MarkdownContent>
