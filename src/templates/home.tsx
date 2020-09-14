@@ -12,7 +12,7 @@ import { NewsletterSubscribeForm } from '../components/NewsletterSubscribeForm'
 import { SiteMetaData, Page } from './types'
 import { Team } from '../components/Team'
 import { FAQ } from '../components/FAQ'
-import { PrimaryButton, SecondaryButton } from '../components/Links'
+import { Link } from '../components/Links'
 import {
 	CampaignProgress,
 	CampaignProgressPlaceholder,
@@ -104,16 +104,17 @@ const HomeTemplate = (data: {
 									{renderHtmlAstToReact(storyIntro.remark.htmlAst)}
 								</MarkdownContent>
 								<p>
-									<PrimaryButton
+									<Link
+										button
 										href="https://donorbox.org/refugees-care"
 										target="_blank"
 										rel="nofollow noreferrer"
 									>
 										Donate now
-									</PrimaryButton>
-									<SecondaryButton href="#get-masks">
+									</Link>
+									<Link button secondary href="#get-masks">
 										Request Masks
-									</SecondaryButton>
+									</Link>
 								</p>
 								<PlaceholderOffScreen>
 									{(visible) =>
@@ -143,13 +144,14 @@ const HomeTemplate = (data: {
 									{renderHtmlAstToReact(supportUs.remark.htmlAst)}
 								</MarkdownContent>
 								<p>
-									<PrimaryButton
+									<Link
+										button
 										href="https://donorbox.org/refugees-care"
 										target="_blank"
 										rel="nofollow noreferrer"
 									>
 										Donate now
-									</PrimaryButton>
+									</Link>
 								</p>
 							</Section>
 						</Offset>
@@ -188,14 +190,17 @@ const HomeTemplate = (data: {
 							<strong>{headerContent?.remark.frontmatter.title}</strong>
 						</Headline>
 						<p>
-							<PrimaryButton
+							<Link
+								button
 								href="https://donorbox.org/refugees-care"
 								target="_blank"
 								rel="nofollow noreferrer"
 							>
 								Donate now
-							</PrimaryButton>
-							<SecondaryButton href="#get-masks">Request Masks</SecondaryButton>
+							</Link>
+							<Link button secondary href="#get-masks">
+								Request Masks
+							</Link>
 						</p>
 					</Section>
 				</Footer>

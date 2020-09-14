@@ -8,7 +8,7 @@ import { Accordion } from '../components/Accordion'
 import { Button } from '../components/Buttons'
 import { Input, Label } from '../components/Inputs'
 import { OneLine } from '../components/Forms'
-import { Link } from '../components/StyledLinks'
+import { Link } from '../components/Links'
 import {
 	MinusIcon,
 	PlusIcon,
@@ -171,7 +171,12 @@ const Icons = styled.ul`
 const Links = styled.div`
 	display: flex;
 	justify-content: space-between;
-	padding: 1rem 0;
+	&:first-child {
+		padding-top: 1rem;
+	}
+	&:last-child {
+		padding-bottom: 1rem;
+	}
 	a.button {
 		&:not(:first-child) {
 			display: none;
@@ -636,10 +641,10 @@ const DesignSystemTemplate = ({
 							</Link>
 						</Links>
 					</Offset>
-					<SectionLabel>Button</SectionLabel>
+					<SectionLabel>Button Regular (${buttonSizes.regular})</SectionLabel>
 					<Links>
 						<Link href="#" button>
-							Link
+							Primary
 						</Link>
 						<Link href="#" button hover>
 							Hover
@@ -654,10 +659,27 @@ const DesignSystemTemplate = ({
 							Visited
 						</Link>
 					</Links>
+					<Links>
+						<Link href="#" button secondary>
+							Secondary
+						</Link>
+						<Link href="#" button secondary hover>
+							Hover
+						</Link>
+						<Link href="#" button secondary active>
+							Active
+						</Link>
+						<Link href="#" button secondary focus>
+							Focus
+						</Link>
+						<Link href="#" button secondary visited>
+							Visited
+						</Link>
+					</Links>
 					<Offset>
 						<Links>
 							<Link href="#" button>
-								Link
+								Primary
 							</Link>
 							<Link href="#" button hover>
 								Hover
@@ -672,7 +694,59 @@ const DesignSystemTemplate = ({
 								Visited
 							</Link>
 						</Links>
+						<Links>
+							<Link href="#" button secondary>
+								Secondary
+							</Link>
+							<Link href="#" button secondary hover>
+								Hover
+							</Link>
+							<Link href="#" button secondary active>
+								Active
+							</Link>
+							<Link href="#" button secondary focus>
+								Focus
+							</Link>
+							<Link href="#" button secondary visited>
+								Visited
+							</Link>
+						</Links>
 					</Offset>
+					<SectionLabel>Button Large (${buttonSizes.large})</SectionLabel>
+					<Links>
+						<Link href="#" button large>
+							Primary
+						</Link>
+						<Link href="#" button large hover>
+							Hover
+						</Link>
+						<Link href="#" button large active>
+							Active
+						</Link>
+						<Link href="#" button large focus>
+							Focus
+						</Link>
+						<Link href="#" button large visited>
+							Visited
+						</Link>
+					</Links>
+					<Links>
+						<Link href="#" button large secondary>
+							Secondary
+						</Link>
+						<Link href="#" button large secondary hover>
+							Hover
+						</Link>
+						<Link href="#" button large secondary active>
+							Active
+						</Link>
+						<Link href="#" button large secondary focus>
+							Focus
+						</Link>
+						<Link href="#" button large secondary visited>
+							Visited
+						</Link>
+					</Links>
 				</SubSection>
 			</Section>
 			<Section>
@@ -803,73 +877,7 @@ const DesignSystemTemplate = ({
 							Focus
 						</Button>
 					</Buttons>
-					<Offset>
-						<Buttons>
-							<Button large>Primary</Button>
-							<Button large hover>
-								Hover
-							</Button>
-							<Button large active>
-								Active
-							</Button>
-							<Button large disabled>
-								Disabled
-							</Button>
-							<Button large focus>
-								Focus
-							</Button>
-						</Buttons>
-						<Buttons>
-							<Button secondary large>
-								Secondary
-							</Button>
-							<Button secondary large hover>
-								Hover
-							</Button>
-							<Button secondary large active>
-								Active
-							</Button>
-							<Button secondary large disabled>
-								Disabled
-							</Button>
-							<Button secondary large focus>
-								Focus
-							</Button>
-						</Buttons>
-					</Offset>
 					<SectionLabel>Small ({buttonSizes.small})</SectionLabel>
-					<Buttons>
-						<Button small>Primary</Button>
-						<Button small hover>
-							Hover
-						</Button>
-						<Button small active>
-							Active
-						</Button>
-						<Button small disabled>
-							Disabled
-						</Button>
-						<Button small focus>
-							Focus
-						</Button>
-					</Buttons>
-					<Buttons>
-						<Button secondary small>
-							Secondary
-						</Button>
-						<Button secondary small hover>
-							Hover
-						</Button>
-						<Button secondary small active>
-							Active
-						</Button>
-						<Button secondary small disabled>
-							Disabled
-						</Button>
-						<Button secondary small focus>
-							Focus
-						</Button>
-					</Buttons>
 					<Offset>
 						<Buttons>
 							<Button small>Primary</Button>

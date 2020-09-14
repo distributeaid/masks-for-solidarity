@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 import { withPrefix } from 'gatsby'
 import { SiteMetaData } from '../templates/types'
 import { colors, fonts } from '../settings'
-import { GlobalLinkStyle } from './StyledLinks'
+import { GlobalLinkStyle } from './Links'
 
 const GlobalStyle = createGlobalStyle`
       html,

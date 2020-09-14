@@ -4,7 +4,7 @@ import { rotate } from '../rotate'
 import { shuffle } from '../shuffle'
 import { Page } from '../templates/types'
 import { renderHtmlAstToReact } from '../renderHtmlToReact'
-import { PrimaryButton } from './Links'
+import { Link } from './Links'
 import { breakpoints, fonts, fontSizes, colors } from '../settings'
 import styled from 'styled-components'
 import { MarkdownContent } from './Main'
@@ -44,10 +44,7 @@ const Content = styled.div`
 		width: 50%;
 		height: 100%;
 	}
-	${PrimaryButton} {
-		margin-top: 2rem;
-	}
-	section {
+	Section {
 		max-width: calc(${breakpoints.wide} / 2 - 2rem);
 		margin: 2rem auto;
 	}
@@ -81,6 +78,13 @@ const GalleryContainer = styled.aside`
 		height: 100%;
 		width: 50%;
 		padding-top: 0;
+	}
+`
+
+const Section = styled.section`
+	text-align: center;
+	${StyledMarkdown} {
+		margin-bottom: 2rem;
 	}
 `
 
@@ -125,7 +129,7 @@ export const Header = ({
 		<Wrapper>
 			<Gallery galleryPhotos={galleryPhotos} />
 			<Content>
-				<section>
+				<Section>
 					<Headline>
 						{content.remark.frontmatter.subtitle}
 						<br />
@@ -134,14 +138,16 @@ export const Header = ({
 					<StyledMarkdown>
 						{renderHtmlAstToReact(content.remark.htmlAst)}
 					</StyledMarkdown>
-					<PrimaryButton
+					<Link
+						button
+						large
 						href="https://donorbox.org/refugees-care"
 						target="_blank"
 						rel="nofollow noreferrer"
 					>
 						Donate now
-					</PrimaryButton>
-				</section>
+					</Link>
+				</Section>
 			</Content>
 		</Wrapper>
 	)
