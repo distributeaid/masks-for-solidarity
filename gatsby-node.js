@@ -30,6 +30,7 @@ const renderContentPage = async (
 								instagram
 								facebook
 								logo
+								photoSanityId
 							}
 							headings {
 								id

@@ -2,7 +2,7 @@ import React from 'react'
 import { Page } from '../templates/types'
 import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import styled from 'styled-components'
-import { MarkdownContent } from './Main'
+import { Content } from './Content'
 import { colors } from '../settings'
 
 const Nav = styled.nav`
@@ -59,10 +59,10 @@ const imageDimensions = (url: string): { width: number; height: number } =>
 
 export const Team = ({ intro, entries }: { intro: Page; entries: Page[] }) => (
 	<section>
-		<MarkdownContent>
+		<Content>
 			<h2>{intro.remark.frontmatter.title}</h2>
 			{renderHtmlAstToReact(intro.remark.htmlAst)}
-		</MarkdownContent>
+		</Content>
 		<Nav>
 			{entries.map((entry, id) => {
 				const dim = imageDimensions(entry.remark.frontmatter.logo as string)

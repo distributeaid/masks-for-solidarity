@@ -10,7 +10,7 @@ import VictoryIcon from './noun_victory_394398.svg'
 
 const StyledFooter = styled.footer`
 	margin: 0 auto;
-	max-width: ${breakpoints.medium};
+	max-width: ${breakpoints.wide};
 	padding: 4rem 1rem 2rem 1rem;
 	svg {
 		display: inline-block;

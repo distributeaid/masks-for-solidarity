@@ -6,7 +6,8 @@ import { Head } from '../components/Head'
 import { Footer } from '../components/Footer'
 import { Navbar } from '../components/Navbar'
 import { SiteMetaData, Page } from './types'
-import { Section, MarkdownContent } from '../components/Main'
+import { Section } from '../components/Section'
+import { Content } from '../components/Content'
 import { Navigation } from './navigation'
 
 const Wrapper = styled.div`
@@ -45,10 +46,10 @@ const PageTemplate = (data: {
 			<Navigation siteMetaData={data.data.site.siteMetadata} />
 			<main>
 				<Section>
-					<MarkdownContent>
+					<Content>
 						{data.pageContext.page.remark?.htmlAst !== undefined &&
 							renderHtmlAstToReact(data.pageContext.page.remark.htmlAst)}
-					</MarkdownContent>
+					</Content>
 				</Section>
 			</main>
 			<Footer siteMetaData={data.data.site.siteMetadata} />

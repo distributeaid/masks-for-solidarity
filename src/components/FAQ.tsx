@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Page } from '../templates/types'
 import * as rehypeReact from 'rehype-react'
-import { Section } from './Main'
-import { MarkdownContent } from '../components/Main'
+import { Section } from './Section'
+import { Content } from './Content'
 import { breakpoints } from '../settings'
 
 import PlusIcon from 'feather-icons/dist/icons/plus-circle.svg'
@@ -109,9 +109,9 @@ const renderAst = new rehypeReact({
 
 export const FAQ = ({ content }: { content: Page }) => (
 	<Section>
-		<MarkdownContent>
+		<Content>
 			<h1>{content.remark.frontmatter.title}</h1>
 			{renderAst(content.remark.htmlAst)}
-		</MarkdownContent>
+		</Content>
 	</Section>
 )
