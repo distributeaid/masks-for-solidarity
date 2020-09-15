@@ -1072,15 +1072,7 @@ const DesignSystemTemplate = ({
 		</Cols>
 		<Cols>
 			<Section>
-				<SectionHeader>Mobile Menu Closed</SectionHeader>
-				<SubSection>
-					<StyledMenu siteMetaData={siteMetadata} mobile>
-						<MenuItems />
-					</StyledMenu>
-				</SubSection>
-			</Section>
-			<Section>
-				<SectionHeader>Mobile Menu Open</SectionHeader>
+				<SectionHeader>Mobile Menu</SectionHeader>
 				<SubSection>
 					<StyledMenu siteMetaData={siteMetadata} mobile expanded>
 						<MenuItems />
