@@ -7,11 +7,11 @@ import { Header } from '../components/Header'
 import { Section } from '../components/Section'
 import { Content, CenteredContent } from '../components/Content'
 import { ContentWithImage } from '../components/ContentWithImage'
+import { ContentWithGridList } from '../components/ContentWithGridList'
 import { Offset } from '../components/Offset'
 import { NewsletterSubscribeForm } from '../components/NewsletterSubscribeForm'
 import { SiteMetaData, Page } from './types'
 import { Team } from '../components/Team'
-import { FAQ } from '../components/FAQ'
 import { Link } from '../components/Links'
 import { Footer } from '../components/Footer'
 import {
@@ -20,6 +20,8 @@ import {
 } from '../components/CampaingProgress'
 import { PlaceholderOffScreen } from '../components/PlaceholderOffScreen'
 import { Navigation } from './navigation'
+import { GalleryImage } from '../sanity'
+import { Accordion } from '../components/Accordion'
 
 const Wrapper = styled.div`
 	height: 100%;
@@ -64,7 +66,7 @@ const HomeTemplate = (data: {
 			siteMetadata: SiteMetaData
 		}
 		allSanityGallery: {
-			nodes: Record<string, any>[]
+			nodes: GalleryImage[]
 		}
 	}
 	pageContext: {
@@ -72,22 +74,46 @@ const HomeTemplate = (data: {
 		pages: Page[]
 	}
 }) => {
-	const findPageByRelativePath = (search: string) =>
-		data.pageContext.pages.find(({ relativePath }) => relativePath === search)
+	const findPageByRelativePath = (search: string): Page => {
+		const p = data.pageContext.pages.find(
+			({ relativePath }) => relativePath === search,
+		)
+		if (p === undefined) {
+			throw new Error(`Failed to locate page ${search}!`)
+		}
+		return p
+	}
 	const headerContent = findPageByRelativePath('home/header.md')
 	const storyIntro = findPageByRelativePath('home/our-story.md')
 	const storyHistory = findPageByRelativePath('home/our-story-history.md')
 	const donate = findPageByRelativePath('home/donate.md')
 	const aboutTheMasks = findPageByRelativePath('home/about-the-masks.md')
+	const theFacts = findPageByRelativePath('home/mask-facts.md')
+	const whenToUse = findPageByRelativePath('home/when-to-use-the-masks.md')
 	const supportUs = findPageByRelativePath('home/support-us.md')
 	const share = findPageByRelativePath('home/share.md')
 	const getMasks = findPageByRelativePath('home/get-masks.md')
-	const faq = findPageByRelativePath('home/faq.md')
+	const faqIntro = findPageByRelativePath('home/faq.md')
+	const faqEntries = [
+		'home/faq-01.md',
+		'home/faq-02.md',
+		'home/faq-03.md',
+		'home/faq-04.md',
+	].map(findPageByRelativePath)
 	const teamIntro = findPageByRelativePath('organizations/index.md')
 	const teamPages = data.pageContext.pages.filter(
 		({ id, relativeDirectory }) =>
 			`${relativeDirectory}/` === 'organizations/' && id !== teamIntro?.id,
 	)
+
+	const getImage = (photoSanityId: string | null): GalleryImage => {
+		const i = data.data.allSanityGallery.nodes?.find(
+			(n) => n._id === photoSanityId,
+		)
+		if (i === undefined) throw new Error(`Image ${photoSanityId} not found!`)
+		return i
+	}
+
 	return (
 		<>
 			<Head
@@ -101,70 +127,24 @@ const HomeTemplate = (data: {
 					content={headerContent}
 				/>
 				<main>
-					{storyIntro && (
-						<Offset>
-							<Section id="our-story">
-								<CenteredContent>
-									<h2>
-										<small>{storyIntro.remark.frontmatter.title}</small>
-									</h2>
-									{renderHtmlAstToReact(storyIntro.remark.htmlAst)}
-								</CenteredContent>
-								<ContentWithImage
-									image={data.data.allSanityGallery.nodes?.find(
-										(n) =>
-											n._id === storyHistory.remark.frontmatter.photoSanityId,
-									)}
-								>
-									{renderHtmlAstToReact(storyHistory.remark.htmlAst)}
-								</ContentWithImage>
-								<CenteredContent>
-									<h2>
-										<small>{donate.remark.frontmatter.title}</small>
-									</h2>
-									{renderHtmlAstToReact(donate.remark.htmlAst)}
-									<p>
-										<Link
-											button
-											href="https://donorbox.org/refugees-care"
-											target="_blank"
-											rel="nofollow noreferrer"
-										>
-											Donate now
-										</Link>
-										<Link button secondary href="#get-masks">
-											Request Masks
-										</Link>
-									</p>
-								</CenteredContent>
-
-								<PlaceholderOffScreen>
-									{(visible) =>
-										visible ? (
-											<CampaignProgress />
-										) : (
-											<CampaignProgressPlaceholder />
-										)
-									}
-								</PlaceholderOffScreen>
-							</Section>
-						</Offset>
-					)}
-					{aboutTheMasks && (
-						<Section id="about-the-masks">
-							<Content>
-								<h1>{aboutTheMasks.remark.frontmatter.title}</h1>
-								{renderHtmlAstToReact(aboutTheMasks.remark.htmlAst)}
-							</Content>
-						</Section>
-					)}
-					{supportUs && (
-						<Offset>
-							<Section id="support-us">
-								<Content>
-									<h1>{supportUs.remark.frontmatter.title}</h1>
-									{renderHtmlAstToReact(supportUs.remark.htmlAst)}
-								</Content>
+					<Offset>
+						<Section id="our-story">
+							<CenteredContent>
+								<h2>
+									<small>{storyIntro.remark.frontmatter.title}</small>
+								</h2>
+								{renderHtmlAstToReact(storyIntro.remark.htmlAst)}
+							</CenteredContent>
+							<ContentWithImage
+								image={getImage(storyHistory.remark.frontmatter.photoSanityId)}
+							>
+								{renderHtmlAstToReact(storyHistory.remark.htmlAst)}
+							</ContentWithImage>
+							<CenteredContent>
+								<h2>
+									<small>{donate.remark.frontmatter.title}</small>
+								</h2>
+								{renderHtmlAstToReact(donate.remark.htmlAst)}
 								<p>
 									<Link
 										button
@@ -174,56 +154,124 @@ const HomeTemplate = (data: {
 									>
 										Donate now
 									</Link>
+									<Link button secondary href="#get-masks">
+										Request Masks
+									</Link>
 								</p>
-							</Section>
-						</Offset>
-					)}
-					{share && (
-						<Section id="share">
-							<Content>
-								<h1>{share.remark.frontmatter.title}</h1>
-								{renderHtmlAstToReact(share.remark.htmlAst)}
-							</Content>
-							<NewsletterSubscribeForm />
-						</Section>
-					)}
-					{getMasks && (
-						<Offset>
-							<Section id="get-masks">
-								<Content>
-									<h1>{getMasks.remark.frontmatter.title}</h1>
-									{renderHtmlAstToReact(getMasks.remark.htmlAst)}
-								</Content>
-							</Section>
-						</Offset>
-					)}
-					{faq && <FAQ content={faq} />}
-					<Offset>
-						<Section id="team">
-							{teamIntro !== undefined && teamPages.length > 0 && (
-								<Team intro={teamIntro} entries={teamPages} />
-							)}
+							</CenteredContent>
+
+							<PlaceholderOffScreen>
+								{(visible) =>
+									visible ? (
+										<CampaignProgress />
+									) : (
+										<CampaignProgressPlaceholder />
+									)
+								}
+							</PlaceholderOffScreen>
 						</Section>
 					</Offset>
+					<Section id="about-the-masks">
+						<ContentWithImage
+							image={getImage(aboutTheMasks.remark.frontmatter.photoSanityId)}
+						>
+							<h2>
+								<small>{aboutTheMasks.remark.frontmatter.title}</small>
+							</h2>
+							{renderHtmlAstToReact(aboutTheMasks.remark.htmlAst)}
+						</ContentWithImage>
+						<ContentWithGridList>
+							{renderHtmlAstToReact(whenToUse.remark.htmlAst)}
+						</ContentWithGridList>
+					</Section>
+					<Offset>
+						<Section>
+							<ContentWithImage
+								image={getImage(theFacts.remark.frontmatter.photoSanityId)}
+							>
+								<h2>
+									<small>{theFacts.remark.frontmatter.title}</small>
+								</h2>
+								{renderHtmlAstToReact(theFacts.remark.htmlAst)}
+							</ContentWithImage>
+						</Section>
+					</Offset>
+					<Section id="support-us">
+						<CenteredContent>
+							<h2>
+								<small>{supportUs.remark.frontmatter.title}</small>
+							</h2>
+							{renderHtmlAstToReact(supportUs.remark.htmlAst)}
+							<p>
+								<Link
+									button
+									href="https://donorbox.org/refugees-care"
+									target="_blank"
+									rel="nofollow noreferrer"
+								>
+									Donate now
+								</Link>
+							</p>
+						</CenteredContent>
+					</Section>
+					<Section id="share">
+						<ContentWithImage
+							image={getImage(share.remark.frontmatter.photoSanityId)}
+						>
+							<h3>{share.remark.frontmatter.title}</h3>
+							{renderHtmlAstToReact(share.remark.htmlAst)}
+							<NewsletterSubscribeForm />
+						</ContentWithImage>
+					</Section>
+					<Section id="get-masks">
+						<ContentWithGridList>
+							<h2>
+								<small>{getMasks.remark.frontmatter.title}</small>
+							</h2>
+							{renderHtmlAstToReact(getMasks.remark.htmlAst)}
+						</ContentWithGridList>
+					</Section>
+					<Offset>
+						<Section id="faq">
+							<Content>
+								<h2>
+									<small>{faqIntro.remark.frontmatter.title}</small>
+								</h2>
+								{renderHtmlAstToReact(faqIntro.remark.htmlAst)}
+							</Content>
+							{faqEntries.map((faq, i) => (
+								<Accordion key={i} title={faq.remark.frontmatter.title}>
+									{renderHtmlAstToReact(faq.remark.htmlAst)}
+								</Accordion>
+							))}
+						</Section>
+					</Offset>
+					<Section id="team">
+						{teamIntro !== undefined && teamPages.length > 0 && (
+							<Team intro={teamIntro} entries={teamPages} />
+						)}
+					</Section>
 				</main>
 				<Footer siteMetaData={data.data.site.siteMetadata}>
 					<Section>
-						<p>
-							<strong>{headerContent?.remark.frontmatter.title}</strong>
-						</p>
-						<p>
-							<Link
-								button
-								href="https://donorbox.org/refugees-care"
-								target="_blank"
-								rel="nofollow noreferrer"
-							>
-								Donate now
-							</Link>
-							<Link button secondary href="#get-masks">
-								Request Masks
-							</Link>
-						</p>
+						<CenteredContent>
+							<p>
+								<strong>{headerContent?.remark.frontmatter.title}</strong>
+							</p>
+							<p>
+								<Link
+									button
+									href="https://donorbox.org/refugees-care"
+									target="_blank"
+									rel="nofollow noreferrer"
+								>
+									Donate now
+								</Link>
+								<Link button secondary href="#get-masks">
+									Request Masks
+								</Link>
+							</p>
+						</CenteredContent>
 					</Section>
 				</Footer>
 			</Wrapper>

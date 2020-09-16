@@ -7,6 +7,6 @@ export const Section = styled.section`
 	max-width: ${breakpoints.wide};
 	padding: 1rem;
 	@media (min-width: ${breakpoints.medium}) {
-		padding: 4rem 0;
+		padding: 4rem 1rem;
 	}
 `

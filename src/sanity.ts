@@ -1,6 +1,7 @@
 import { toQueryString } from './toQueryString'
 
 export type GalleryImage = {
+	_id: string
 	title: string
 	photo: {
 		hotspot?: { x: number; y: number }

@@ -8,11 +8,9 @@ const Container = styled.div`
 	display: flex;
 	flex-direction: column-reverse;
 	@media (min-width: ${breakpoints.medium}) {
-		margin: 0 1rem;
 		display: grid;
 		grid-template-columns: 47.5% 47.5%;
 		grid-template-rows: 1fr;
-		margin: 4rem 2rem;
 		grid-gap: 5%;
 	}
 	align-items: center;

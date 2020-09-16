@@ -13,6 +13,7 @@ export const H1Tiny = styled.h1`
 
 export const Content = styled.div`
 	color: ${colors.text};
+	width: 100%;
 	h1 {
 		font-family: ${fonts.serif.name};
 		font-weight: ${fonts.serif.weights.regular};

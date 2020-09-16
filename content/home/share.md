@@ -1,5 +1,6 @@
 ---
 title: Love what you see but tight on funds?
+photoSanityId: 69e0402e-d56f-4885-a007-2353f43ec40e
 ---
 
 > Use your voice to tell your friends about
