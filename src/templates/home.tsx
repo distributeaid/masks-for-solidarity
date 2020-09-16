@@ -1,18 +1,19 @@
 import React from 'react'
-import { graphql, withPrefix } from 'gatsby'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import { Head } from '../components/Head'
-import { Header, Headline } from '../components/Header'
-import { Section, MarkdownContent } from '../components/Main'
+import { Header } from '../components/Header'
+import { Section } from '../components/Section'
+import { Content, CenteredContent } from '../components/Content'
+import { ContentWithImage } from '../components/ContentWithImage'
 import { Offset } from '../components/Offset'
-import { Footer } from '../components/Footer'
-import { Menu } from '../components/Menu'
 import { NewsletterSubscribeForm } from '../components/NewsletterSubscribeForm'
 import { SiteMetaData, Page } from './types'
 import { Team } from '../components/Team'
 import { FAQ } from '../components/FAQ'
 import { Link } from '../components/Links'
+import { Footer } from '../components/Footer'
 import {
 	CampaignProgress,
 	CampaignProgressPlaceholder,
@@ -35,6 +36,7 @@ export const query = graphql`
 		}
 		allSanityGallery {
 			nodes {
+				_id
 				title
 				photo {
 					hotspot {
@@ -74,6 +76,8 @@ const HomeTemplate = (data: {
 		data.pageContext.pages.find(({ relativePath }) => relativePath === search)
 	const headerContent = findPageByRelativePath('home/header.md')
 	const storyIntro = findPageByRelativePath('home/our-story.md')
+	const storyHistory = findPageByRelativePath('home/our-story-history.md')
+	const donate = findPageByRelativePath('home/donate.md')
 	const aboutTheMasks = findPageByRelativePath('home/about-the-masks.md')
 	const supportUs = findPageByRelativePath('home/support-us.md')
 	const share = findPageByRelativePath('home/share.md')
@@ -100,23 +104,40 @@ const HomeTemplate = (data: {
 					{storyIntro && (
 						<Offset>
 							<Section id="our-story">
-								<MarkdownContent>
-									<h1>{storyIntro.remark.frontmatter.title}</h1>
+								<CenteredContent>
+									<h2>
+										<small>{storyIntro.remark.frontmatter.title}</small>
+									</h2>
 									{renderHtmlAstToReact(storyIntro.remark.htmlAst)}
-								</MarkdownContent>
-								<p>
-									<Link
-										button
-										href="https://donorbox.org/refugees-care"
-										target="_blank"
-										rel="nofollow noreferrer"
-									>
-										Donate now
-									</Link>
-									<Link button secondary href="#get-masks">
-										Request Masks
-									</Link>
-								</p>
+								</CenteredContent>
+								<ContentWithImage
+									image={data.data.allSanityGallery.nodes?.find(
+										(n) =>
+											n._id === storyHistory.remark.frontmatter.photoSanityId,
+									)}
+								>
+									{renderHtmlAstToReact(storyHistory.remark.htmlAst)}
+								</ContentWithImage>
+								<CenteredContent>
+									<h2>
+										<small>{donate.remark.frontmatter.title}</small>
+									</h2>
+									{renderHtmlAstToReact(donate.remark.htmlAst)}
+									<p>
+										<Link
+											button
+											href="https://donorbox.org/refugees-care"
+											target="_blank"
+											rel="nofollow noreferrer"
+										>
+											Donate now
+										</Link>
+										<Link button secondary href="#get-masks">
+											Request Masks
+										</Link>
+									</p>
+								</CenteredContent>
+
 								<PlaceholderOffScreen>
 									{(visible) =>
 										visible ? (
@@ -131,19 +152,19 @@ const HomeTemplate = (data: {
 					)}
 					{aboutTheMasks && (
 						<Section id="about-the-masks">
-							<MarkdownContent>
+							<Content>
 								<h1>{aboutTheMasks.remark.frontmatter.title}</h1>
 								{renderHtmlAstToReact(aboutTheMasks.remark.htmlAst)}
-							</MarkdownContent>
+							</Content>
 						</Section>
 					)}
 					{supportUs && (
 						<Offset>
 							<Section id="support-us">
-								<MarkdownContent>
+								<Content>
 									<h1>{supportUs.remark.frontmatter.title}</h1>
 									{renderHtmlAstToReact(supportUs.remark.htmlAst)}
-								</MarkdownContent>
+								</Content>
 								<p>
 									<Link
 										button
@@ -159,20 +180,20 @@ const HomeTemplate = (data: {
 					)}
 					{share && (
 						<Section id="share">
-							<MarkdownContent>
+							<Content>
 								<h1>{share.remark.frontmatter.title}</h1>
 								{renderHtmlAstToReact(share.remark.htmlAst)}
-							</MarkdownContent>
+							</Content>
 							<NewsletterSubscribeForm />
 						</Section>
 					)}
 					{getMasks && (
 						<Offset>
 							<Section id="get-masks">
-								<MarkdownContent>
+								<Content>
 									<h1>{getMasks.remark.frontmatter.title}</h1>
 									{renderHtmlAstToReact(getMasks.remark.htmlAst)}
-								</MarkdownContent>
+								</Content>
 							</Section>
 						</Offset>
 					)}
@@ -187,9 +208,9 @@ const HomeTemplate = (data: {
 				</main>
 				<Footer siteMetaData={data.data.site.siteMetadata}>
 					<Section>
-						<Headline>
+						<p>
 							<strong>{headerContent?.remark.frontmatter.title}</strong>
-						</Headline>
+						</p>
 						<p>
 							<Link
 								button

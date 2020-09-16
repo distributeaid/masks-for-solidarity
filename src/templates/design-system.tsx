@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import { Head } from '../components/Head'
 import { fonts, colors, fontSizes, breakpoints, buttonSizes } from '../settings'
-import { Content, Micro } from '../design/Content'
+import { Content, Micro } from '../components/Content'
 import { Accordion } from '../components/Accordion'
 import { Button } from '../components/Buttons'
 import { Input, Label } from '../components/Inputs'
@@ -1072,15 +1072,7 @@ const DesignSystemTemplate = ({
 		</Cols>
 		<Cols>
 			<Section>
-				<SectionHeader>Mobile Menu Closed</SectionHeader>
-				<SubSection>
-					<StyledMenu siteMetaData={siteMetadata} mobile>
-						<MenuItems />
-					</StyledMenu>
-				</SubSection>
-			</Section>
-			<Section>
-				<SectionHeader>Mobile Menu Open</SectionHeader>
+				<SectionHeader>Mobile Menu</SectionHeader>
 				<SubSection>
 					<StyledMenu siteMetaData={siteMetadata} mobile expanded>
 						<MenuItems />

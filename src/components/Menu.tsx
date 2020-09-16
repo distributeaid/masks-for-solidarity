@@ -36,6 +36,7 @@ const LogoText = styled.span`
 	}
 	font-weight: ${fonts.serif.weights.regular};
 	font-family: ${fonts.serif.name};
+	white-space: nowrap;
 `
 
 const Logo = styled.a`
@@ -73,7 +74,9 @@ const MobileNavigation = styled.nav`
 			margin: 0.5rem 0;
 			padding: 0 0 0.5rem 0;
 			&:hover,
-			&.hover,
+			&.hover {
+				color: ${rgba(colors.text, 0.7)};
+			}
 			&.current {
 				font-weight: ${fonts.serif.weights.bold};
 			}
@@ -93,16 +96,19 @@ const DesktopNavigation = styled.nav`
 		align-items: center;
 		height: ${menuHeight};
 		a:not(.button) {
+			display: flex;
+			align-items: center;
 			margin: 0 0.5rem;
 			height: calc(${menuHeight} - 8px);
-			line-height: calc(${menuHeight} - 8px);
 			color: ${colors.text};
 			text-decoration: none;
 			font-weight: ${fonts.serif.weights.regular};
 			border-bottom: 4px solid transparent;
 			border-top: 4px solid transparent;
 			&:hover,
-			&.hover,
+			&.hover {
+				color: ${rgba(colors.text, 0.7)};
+			}
 			&.current {
 				font-weight: ${fonts.serif.weights.bold};
 			}
@@ -133,6 +139,12 @@ const MenuButton = styled(LinkButton)`
 	padding: 1rem;
 	svg {
 		margin-left: 0.5rem;
+	}
+	&:hover {
+		color: ${rgba(colors.text, 0.7)};
+		svg {
+			color: inherit;
+		}
 	}
 `
 

@@ -35,6 +35,7 @@ export type Page = {
 			instagram: string | null
 			facebook: string | null
 			logo: string | null
+			photoSanityId: string | null
 		}
 	}
 }

@@ -5,9 +5,9 @@ import { shuffle } from '../shuffle'
 import { Page } from '../templates/types'
 import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import { Link } from './Links'
-import { breakpoints, fonts, fontSizes, colors } from '../settings'
+import { breakpoints } from '../settings'
 import styled from 'styled-components'
-import { MarkdownContent } from './Main'
+import { Content } from './Content'
 
 const windowGlobal = (typeof window !== 'undefined' && window) || undefined
 
@@ -34,7 +34,7 @@ const Wrapper = styled.div`
 	margin: 0 auto;
 `
 
-const Content = styled.div`
+const Container = styled.div`
 	margin: 0 1rem;
 	display: flex;
 	flex-direction: column;
@@ -50,24 +50,6 @@ const Content = styled.div`
 	}
 `
 
-export const Headline = styled.h1`
-	text-align: center;
-	font-family: ${fonts.sans.name};
-	color: ${colors.lightText};
-	text-transform: uppercase;
-	font-size: ${fontSizes.hero.h1};
-	line-height: 200%;
-	strong {
-		font-size: 36px;
-		text-transform: none;
-		font-family: ${fonts.serif.name};
-		font-weight: ${fonts.serif.weights.regular};
-		color: ${colors.text};
-	}
-`
-const StyledMarkdown = styled(MarkdownContent)`
-	text-align: center;
-`
 const GalleryContainer = styled.aside`
 	padding-top: calc((3 / 4) * 100%);
 	transition: background 1s;
@@ -82,8 +64,7 @@ const GalleryContainer = styled.aside`
 `
 
 const Section = styled.section`
-	text-align: center;
-	${StyledMarkdown} {
+	${Content} {
 		margin-bottom: 2rem;
 	}
 `
@@ -121,23 +102,23 @@ export const Header = ({
 	content: Page
 }) => {
 	const imageToUrl = toResponsiveUrl({
-		width: windowGlobal?.innerWidth ?? 1000,
+		width: (windowGlobal?.innerWidth ?? 1000) / 2,
 		height: (windowGlobal?.innerHeight ?? 500) / 2,
 	})
 	const galleryPhotos = rotate(shuffle(gallery.map(imageToUrl)))
 	return (
 		<Wrapper>
 			<Gallery galleryPhotos={galleryPhotos} />
-			<Content>
+			<Container>
 				<Section>
-					<Headline>
-						{content.remark.frontmatter.subtitle}
-						<br />
-						<strong>{content.remark.frontmatter.title}</strong>
-					</Headline>
-					<StyledMarkdown>
-						{renderHtmlAstToReact(content.remark.htmlAst)}
-					</StyledMarkdown>
+					<Content>
+						<h1>
+							<small>{content.remark.frontmatter.subtitle}</small>
+							<br />
+							{content.remark.frontmatter.title}
+						</h1>
+						<p>{renderHtmlAstToReact(content.remark.htmlAst)}</p>
+					</Content>
 					<Link
 						button
 						large
@@ -148,7 +129,7 @@ export const Header = ({
 						Donate now
 					</Link>
 				</Section>
-			</Content>
+			</Container>
 		</Wrapper>
 	)
 }

@@ -28,7 +28,6 @@ const Container = styled.div`
 		grid-column-start: 1;
 		grid-column-end: 3;
 	}
-	line-height: 150%;
 `
 
 const Info = styled.span`
