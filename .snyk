@@ -98,3 +98,31 @@ patch:
         patched: '2020-08-29T22:09:41.757Z'
     - snyk > snyk-docker-plugin > snyk-nodejs-lockfile-parser > graphlib > lodash:
         patched: '2020-09-08T22:09:43.579Z'
+    - snyk > graphlib > lodash:
+        patched: '2020-09-14T22:09:42.801Z'
+    - snyk > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-09-14T22:09:42.801Z'
+    - snyk > snyk-nodejs-lockfile-parser > graphlib > lodash:
+        patched: '2020-09-14T22:09:42.801Z'
+    - snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2020-09-14T22:09:42.801Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-09-14T22:09:42.801Z'
+    - snyk > snyk-cpp-plugin > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-09-14T22:09:42.801Z'
+    - snyk > snyk-go-plugin > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-09-14T22:09:42.801Z'
+    - snyk > snyk-gradle-plugin > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-09-14T22:09:42.801Z'
+    - snyk > snyk-mvn-plugin > @snyk/java-call-graph-builder > graphlib > lodash:
+        patched: '2020-09-14T22:09:42.801Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/cocoapods-lockfile-parser > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-09-14T22:09:42.801Z'
+    - snyk > snyk-php-plugin > @snyk/cli-interface > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-09-14T22:09:42.801Z'
+    - snyk > snyk-python-plugin > @snyk/cli-interface > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-09-14T22:09:42.801Z'
+    - snyk > snyk-gradle-plugin > @snyk/cli-interface > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-09-14T22:09:42.801Z'
+    - snyk > snyk-mvn-plugin > @snyk/cli-interface > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-09-14T22:09:42.801Z'
