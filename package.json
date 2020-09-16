@@ -63,7 +63,7 @@
     "hast-to-hyperscript": "9.0.0",
     "husky": "4.3.0",
     "jsdom": "16.4.0",
-    "lint-staged": "10.3.0",
+    "lint-staged": "10.4.0",
     "minimalcss": "0.10.0",
     "polished": "3.6.6",
     "prettier": "2.1.2",
