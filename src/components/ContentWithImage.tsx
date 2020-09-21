@@ -14,9 +14,11 @@ const Container = styled.div`
 		grid-gap: 5%;
 	}
 	align-items: center;
+	${Content} {
+		width: 100%;
+	}
 `
 const ImagePlaceholder = styled.div`
-	width: 100%;
 	img {
 		width: 100%;
 		height: auto;
