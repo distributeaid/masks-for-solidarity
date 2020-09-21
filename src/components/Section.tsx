@@ -4,9 +4,9 @@ import { breakpoints } from '../settings'
 
 export const Section = styled.section`
 	margin: 0 auto;
-	max-width: ${breakpoints.wide};
+	max-width: ${breakpoints.widePx};
 	padding: 1rem;
-	@media (min-width: ${breakpoints.medium}) {
+	@media (min-width: ${breakpoints.mediumPx}) {
 		padding: 4rem 1rem;
 	}
 `

@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { GalleryImage, responsiveUrl } from '../sanity'
-import { rotate } from '../rotate'
-import { shuffle } from '../shuffle'
 import { Page } from '../templates/types'
 import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import { Link } from './Links'
@@ -11,104 +9,103 @@ import { Content } from './Content'
 
 const windowGlobal = (typeof window !== 'undefined' && window) || undefined
 
-/**
- * Creates a URL for the given image that fits the target viewport size
- */
-const toResponsiveUrl = ({
-	width,
-	height,
-}: {
-	width: number
-	height: number
-}) => (image: GalleryImage): string =>
-	responsiveUrl({ image, w: width, h: height })
-
-const Wrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-	@media (min-width: ${breakpoints.medium}) {
-		height: 50%;
-		flex-direction: row-reverse;
-		width: 100%;
-	}
-	margin: 0 auto;
-`
-
-const Container = styled.div`
-	margin: 0 1rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	height: 50%;
-	@media (min-width: ${breakpoints.medium}) {
-		width: 50%;
-		height: 100%;
-	}
-	Section {
-		max-width: calc(${breakpoints.wide} / 2 - 2rem);
-		margin: 2rem auto;
-	}
-`
-
-const GalleryContainer = styled.aside`
-	padding-top: calc((3 / 4) * 100%);
-	transition: background 1s;
-	background-position: 50% 50%;
-	background-size: cover;
-	background-color: #333;
-	@media (min-width: ${breakpoints.medium}) {
-		height: 100%;
-		width: 50%;
-		padding-top: 0;
-	}
-`
-
 const Section = styled.section`
 	${Content} {
 		margin-bottom: 2rem;
 	}
 `
 
-/**
- * Renders a rotating Gallery from a generator that returns URLs to photos
- */
-const Gallery = ({
-	galleryPhotos,
-}: React.PropsWithChildren<{
-	galleryPhotos: Generator<string>
-}>) => {
-	const [currentPhoto, setCurrentPhoto] = useState(galleryPhotos.next().value)
-	useEffect(() => {
-		let isCancelled = false
-		const i = setInterval(() => {
-			if (!isCancelled) setCurrentPhoto(galleryPhotos.next().value)
-		}, 10000)
-		return () => {
-			isCancelled = true
-			clearInterval(i)
+const Container = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	${Section} {
+		margin: 1rem;
+		text-align: center;
+		@media (min-width: ${breakpoints.mediumPx}) {
+			text-align: inherit;
+			padding: 5rem 0;
+			margin: 2rem;
 		}
-	}, [galleryPhotos])
+		@media (min-width: ${breakpoints.widePx}) {
+			max-width: calc(${breakpoints.widePx} / 2 - 2rem);
+			margin: 2rem auto;
+		}
+	}
+`
 
-	return (
-		<GalleryContainer style={{ backgroundImage: `url(${currentPhoto})` }} />
-	)
-}
+const Image = styled.div`
+	background-position: 50% 50%;
+	background-size: cover;
+	background-color: #333;
+	width: 100%;
+	height: 100%;
+	@media (min-width: ${breakpoints.mediumPx}) {
+		width: 50%;
+	}
+`
+
+const Wrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	@media (min-width: ${breakpoints.mediumPx}) {
+		flex-direction: row-reverse;
+		width: 100%;
+	}
+	${Container} {
+		@media (min-width: ${breakpoints.mediumPx}) {
+			width: 50%;
+			height: auto;
+		}
+	}
+`
 
 export const Header = ({
-	gallery,
+	image,
 	content,
 }: {
-	gallery: GalleryImage[]
+	image: GalleryImage
 	content: Page
 }) => {
-	const imageToUrl = toResponsiveUrl({
-		width: (windowGlobal?.innerWidth ?? 1000) / 2,
-		height: (windowGlobal?.innerHeight ?? 500) / 2,
-	})
-	const galleryPhotos = rotate(shuffle(gallery.map(imageToUrl)))
+	const ref = useRef<HTMLDivElement>(null)
+	const [heroImage, setHeroImage] = useState<{
+		width: number
+		height: number
+		containerHeight: number
+		url: string
+	}>()
+
+	useEffect(() => {
+		let isCancelled = false
+		if (ref.current !== null) {
+			let w = windowGlobal?.innerWidth ?? 1000
+			const h = (windowGlobal?.innerHeight ?? 500) / 2
+			if (w > breakpoints.medium) {
+				w = w / 2
+			}
+			if (!isCancelled)
+				setHeroImage({
+					url: responsiveUrl({ image, w, h }),
+					width: w,
+					height: h,
+					containerHeight: w > breakpoints.medium ? h : h * 2,
+				})
+		}
+
+		return () => {
+			isCancelled = true
+		}
+	}, [ref])
+
 	return (
-		<Wrapper>
-			<Gallery galleryPhotos={galleryPhotos} />
+		<Wrapper
+			ref={ref}
+			style={{ height: heroImage ? heroImage.containerHeight : 'auto' }}
+		>
+			{heroImage && (
+				<Image style={{ backgroundImage: `url(${heroImage.url})` }} />
+			)}
 			<Container>
 				<Section>
 					<Content>
@@ -118,16 +115,16 @@ export const Header = ({
 							{content.remark.frontmatter.title}
 						</h1>
 						<p>{renderHtmlAstToReact(content.remark.htmlAst)}</p>
+						<Link
+							button
+							large
+							href="https://donorbox.org/refugees-care"
+							target="_blank"
+							rel="nofollow noreferrer"
+						>
+							Donate now
+						</Link>
 					</Content>
-					<Link
-						button
-						large
-						href="https://donorbox.org/refugees-care"
-						target="_blank"
-						rel="nofollow noreferrer"
-					>
-						Donate now
-					</Link>
 				</Section>
 			</Container>
 		</Wrapper>

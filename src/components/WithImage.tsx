@@ -1,22 +1,21 @@
 import styled from 'styled-components'
 import React from 'react'
-import { Content } from './Content'
 import { GalleryImage, responsiveUrl } from '../sanity'
 import { breakpoints } from '../settings'
 
 const Container = styled.div`
 	display: flex;
 	flex-direction: column-reverse;
-	@media (min-width: ${breakpoints.medium}) {
+	@media (min-width: ${breakpoints.mediumPx}) {
 		display: grid;
 		grid-template-columns: 47.5% 47.5%;
 		grid-template-rows: 1fr;
 		grid-gap: 5%;
 	}
 	align-items: center;
-	${Content} {
-		width: 100%;
-	}
+`
+const Content = styled.div`
+	width: 100%;
 `
 const ImagePlaceholder = styled.div`
 	img {
@@ -25,7 +24,7 @@ const ImagePlaceholder = styled.div`
 	}
 `
 
-export const ContentWithImage = ({
+export const WithImage = ({
 	children,
 	image,
 }: React.PropsWithChildren<{ image: GalleryImage }>) => (

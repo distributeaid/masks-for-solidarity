@@ -36,7 +36,7 @@ const Header = styled.header`
 		#09328b 60%
 	);
 	padding: 1rem;
-	@media (min-width: ${breakpoints.medium}) {
+	@media (min-width: ${breakpoints.mediumPx}) {
 		padding: 2rem;
 	}
 	color: #fff;
@@ -72,7 +72,7 @@ const SectionLabel = styled.p`
 const SubSection = styled.div`
 	border-top: 1px solid ${colors.border};
 	padding: 1rem 0;
-	@media (min-width: ${breakpoints.medium}) {
+	@media (min-width: ${breakpoints.mediumPx}) {
 		padding: 2rem 0;
 	}
 `
@@ -84,7 +84,7 @@ const SectionHeader = styled.h2`
 	color: #09328b;
 	text-transform: none;
 	margin: 1rem;
-	@media (min-width: ${breakpoints.medium}) {
+	@media (min-width: ${breakpoints.mediumPx}) {
 		margin: 2rem 2rem 1rem 2rem;
 	}
 `
@@ -123,7 +123,7 @@ const Buttons = styled.div`
 	&:last-child {
 		padding-bottom: 1rem;
 	}
-	@media (min-width: ${breakpoints.medium}) {
+	@media (min-width: ${breakpoints.mediumPx}) {
 		width: calc(100% - 4rem);
 	}
 	button {
@@ -135,7 +135,7 @@ const Buttons = styled.div`
 		margin-top: 0;
 		padding-top: 0;
 	}
-	@media (min-width: ${breakpoints.medium}) {
+	@media (min-width: ${breakpoints.mediumPx}) {
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);
 		grid-gap: 1rem;
@@ -156,7 +156,7 @@ const Icons = styled.ul`
 	@media (min-width: 400px) {
 		grid-template-columns: repeat(3, 1fr);
 	}
-	@media (min-width: ${breakpoints.wide}) {
+	@media (min-width: ${breakpoints.widePx}) {
 		grid-template-columns: repeat(4, 1fr);
 	}
 	grid-gap: 20px;
@@ -182,7 +182,7 @@ const Links = styled.div`
 			display: none;
 		}
 	}
-	@media (min-width: ${breakpoints.medium}) {
+	@media (min-width: ${breakpoints.mediumPx}) {
 		a.button {
 			&:not(:first-child) {
 				display: inline-block;
@@ -198,13 +198,13 @@ const Form = styled.form`
 	&:not(:first-child) {
 		display: none;
 	}
-	@media (min-width: ${breakpoints.wide}) {
+	@media (min-width: ${breakpoints.widePx}) {
 		&:not(:first-child) {
 			display: block;
 		}
 	}
 	margin: 1rem;
-	@media (min-width: ${breakpoints.medium}) {
+	@media (min-width: ${breakpoints.mediumPx}) {
 		margin: 1rem 2rem;
 	}
 `
@@ -215,7 +215,7 @@ const GitHubRibbon = styled.a`
 	position: absolute;
 	top: -8px;
 	right: -142px;
-	@media (min-width: ${breakpoints.medium}) {
+	@media (min-width: ${breakpoints.mediumPx}) {
 		top: 20px;
 		right: -115px;
 	}
@@ -230,13 +230,13 @@ const GitHubRibbon = styled.a`
 `
 
 const StyledAccordion = styled(Accordion)`
-	@media (min-width: ${breakpoints.medium}) {
+	@media (min-width: ${breakpoints.mediumPx}) {
 		margin: 1rem;
 	}
 `
 
 const StyledMenu = styled(Menu)`
-	@media (min-width: ${breakpoints.medium}) {
+	@media (min-width: ${breakpoints.mediumPx}) {
 		margin: 0 2rem;
 	}
 `
@@ -244,7 +244,7 @@ const StyledMenu = styled(Menu)`
 const Section = styled.section`
 	${Content}, ${SectionLabel}, ${Colors}, ${Links}, ${Buttons}, ${StyledAccordion} {
 		margin: 1rem;
-		@media (min-width: ${breakpoints.medium}) {
+		@media (min-width: ${breakpoints.mediumPx}) {
 			margin: 1rem 2rem;
 		}
 	}
@@ -253,18 +253,18 @@ const Section = styled.section`
 const Cols = styled.div`
 	display: flex;
 	flex-direction: column;
-	@media (min-width: ${breakpoints.medium}) {
+	@media (min-width: ${breakpoints.mediumPx}) {
 		flex-direction: row;
 	}
 	${Section} {
 		width: 100%;
-		@media (min-width: ${breakpoints.medium}) {
+		@media (min-width: ${breakpoints.mediumPx}) {
 			width: calc(50% - 1rem);
 		}
 	}
 
 	${Section} + ${Section} {
-		@media (min-width: ${breakpoints.medium}) {
+		@media (min-width: ${breakpoints.mediumPx}) {
 			margin-left: 2rem;
 		}
 	}
@@ -273,7 +273,7 @@ const Cols = styled.div`
 const OneCol = styled.div``
 const OneColDesktop = styled.div`
 	display: none;
-	@media (min-width: ${breakpoints.medium}) {
+	@media (min-width: ${breakpoints.mediumPx}) {
 		display: block;
 	}
 `

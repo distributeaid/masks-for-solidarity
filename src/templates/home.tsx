@@ -6,7 +6,7 @@ import { Head } from '../components/Head'
 import { Header } from '../components/Header'
 import { Section } from '../components/Section'
 import { Content, CenteredContent } from '../components/Content'
-import { ContentWithImage } from '../components/ContentWithImage'
+import { WithImage } from '../components/WithImage'
 import { ContentWithGridList } from '../components/ContentWithGridList'
 import { Offset } from '../components/Offset'
 import { NewsletterSubscribeForm } from '../components/NewsletterSubscribeForm'
@@ -125,6 +125,7 @@ const HomeTemplate = (data: {
 				<Header
 					gallery={data.data.allSanityGallery.nodes}
 					content={headerContent}
+					image={getImage(headerContent.remark.frontmatter.photoSanityId)}
 				/>
 				<main>
 					<Offset>
@@ -135,11 +136,13 @@ const HomeTemplate = (data: {
 								</h2>
 								{renderHtmlAstToReact(storyIntro.remark.htmlAst)}
 							</CenteredContent>
-							<ContentWithImage
+							<WithImage
 								image={getImage(storyHistory.remark.frontmatter.photoSanityId)}
 							>
-								{renderHtmlAstToReact(storyHistory.remark.htmlAst)}
-							</ContentWithImage>
+								<Content>
+									{renderHtmlAstToReact(storyHistory.remark.htmlAst)}
+								</Content>
+							</WithImage>
 							<CenteredContent>
 								<h2>
 									<small>{donate.remark.frontmatter.title}</small>
@@ -172,28 +175,32 @@ const HomeTemplate = (data: {
 						</Section>
 					</Offset>
 					<Section id="about-the-masks">
-						<ContentWithImage
+						<WithImage
 							image={getImage(aboutTheMasks.remark.frontmatter.photoSanityId)}
 						>
-							<h2>
-								<small>{aboutTheMasks.remark.frontmatter.title}</small>
-							</h2>
-							{renderHtmlAstToReact(aboutTheMasks.remark.htmlAst)}
-						</ContentWithImage>
+							<Content>
+								<h2>
+									<small>{aboutTheMasks.remark.frontmatter.title}</small>
+								</h2>
+								{renderHtmlAstToReact(aboutTheMasks.remark.htmlAst)}
+							</Content>
+						</WithImage>
 						<ContentWithGridList>
 							{renderHtmlAstToReact(whenToUse.remark.htmlAst)}
 						</ContentWithGridList>
 					</Section>
 					<Offset>
 						<Section>
-							<ContentWithImage
+							<WithImage
 								image={getImage(theFacts.remark.frontmatter.photoSanityId)}
 							>
-								<h2>
-									<small>{theFacts.remark.frontmatter.title}</small>
-								</h2>
-								{renderHtmlAstToReact(theFacts.remark.htmlAst)}
-							</ContentWithImage>
+								<Content>
+									<h2>
+										<small>{theFacts.remark.frontmatter.title}</small>
+									</h2>
+									{renderHtmlAstToReact(theFacts.remark.htmlAst)}
+								</Content>
+							</WithImage>
 						</Section>
 					</Offset>
 					<Section id="support-us">
@@ -215,13 +222,13 @@ const HomeTemplate = (data: {
 						</CenteredContent>
 					</Section>
 					<Section id="share">
-						<ContentWithImage
-							image={getImage(share.remark.frontmatter.photoSanityId)}
-						>
-							<h3>{share.remark.frontmatter.title}</h3>
-							{renderHtmlAstToReact(share.remark.htmlAst)}
-							<NewsletterSubscribeForm />
-						</ContentWithImage>
+						<WithImage image={getImage(share.remark.frontmatter.photoSanityId)}>
+							<Content>
+								<h3>{share.remark.frontmatter.title}</h3>
+								{renderHtmlAstToReact(share.remark.htmlAst)}
+								<NewsletterSubscribeForm />
+							</Content>
+						</WithImage>
 					</Section>
 					<Section id="get-masks">
 						<ContentWithGridList>

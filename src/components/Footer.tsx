@@ -10,7 +10,7 @@ import VictoryIcon from './noun_victory_394398.svg'
 
 const StyledFooter = styled.footer`
 	margin: 0 auto;
-	max-width: ${breakpoints.wide};
+	max-width: ${breakpoints.widePx};
 	padding: 4rem 1rem 2rem 1rem;
 	svg {
 		display: inline-block;
@@ -63,7 +63,7 @@ const TwoCols = styled.section`
 	div {
 		text-align: center;
 	}
-	@media (min-width: ${breakpoints.medium}) {
+	@media (min-width: ${breakpoints.mediumPx}) {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;

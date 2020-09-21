@@ -17,7 +17,7 @@ const NavBar = styled.div`
 const Wrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
-	max-width: ${breakpoints.wide};
+	max-width: ${breakpoints.widePx};
 	margin: 0 auto;
 `
 
@@ -42,7 +42,7 @@ const LogoText = styled.span`
 const Logo = styled.a`
 	text-decoration: none;
 	padding: 1rem;
-	@media (min-width: ${breakpoints.medium}) {
+	@media (min-width: ${breakpoints.mediumPx}) {
 		padding: 1rem 2rem;
 	}
 	display: flex;
@@ -152,7 +152,7 @@ const Container = styled.div`
 	${DesktopNavigation} {
 		display: none;
 	}
-	@media (min-width: ${breakpoints.medium}) {
+	@media (min-width: ${breakpoints.mediumPx}) {
 		&:not(.mobile) {
 			${DesktopNavigation} {
 				display: block;

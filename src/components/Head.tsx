@@ -72,6 +72,11 @@ export const Head = ({
 			></script>
 			<script
 				async
+				src="https://afarkas.github.io/lazysizes/plugins/unveilhooks/ls.unveilhooks.min.js"
+				crossOrigin="anonymous"
+			></script>
+			<script
+				async
 				src={withPrefix('outline.js')}
 				crossOrigin="anonymous"
 			></script>

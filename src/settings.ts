@@ -6,10 +6,14 @@ export const buttonSizes = {
 	small: '40px',
 } as const
 
+const medium = 800
+const wide = 1200
 export const breakpoints = {
-	medium: '800px',
-	wide: '1200px',
-}
+	medium,
+	wide,
+	mediumPx: `${medium}px`,
+	widePx: `${wide}px`,
+} as const
 
 const teal = '#007777'
 const lightSeaGreen = '#20B2AA'
