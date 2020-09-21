@@ -233,6 +233,9 @@ const StyledAccordion = styled(Accordion)`
 	@media (min-width: ${breakpoints.mediumPx}) {
 		margin: 1rem;
 	}
+	${Content} {
+		padding: 1rem;
+	}
 `
 
 const StyledMenu = styled(Menu)`
@@ -242,7 +245,7 @@ const StyledMenu = styled(Menu)`
 `
 
 const Section = styled.section`
-	${Content}, ${SectionLabel}, ${Colors}, ${Links}, ${Buttons}, ${StyledAccordion} {
+	${SubSection} > ${Content}, ${SectionLabel}, ${Colors}, ${Links}, ${Buttons}, ${StyledAccordion} {
 		margin: 1rem;
 		@media (min-width: ${breakpoints.mediumPx}) {
 			margin: 1rem 2rem;
@@ -953,9 +956,11 @@ const DesignSystemTemplate = ({
 				<SectionHeader>Accordion</SectionHeader>
 				<SubSection>
 					<StyledAccordion title={'Accordion Title'}>
-						<p>
-							<Ipsum />
-						</p>
+						<Content>
+							<p>
+								<Ipsum />
+							</p>
+						</Content>
 					</StyledAccordion>
 					<StyledAccordion
 						title={
@@ -963,9 +968,11 @@ const DesignSystemTemplate = ({
 						}
 						expanded={true}
 					>
-						<p>
-							<Ipsum />
-						</p>
+						<Content>
+							<p>
+								<Ipsum />
+							</p>
+						</Content>
 					</StyledAccordion>
 				</SubSection>
 			</Section>

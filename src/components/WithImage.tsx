@@ -8,14 +8,13 @@ const Container = styled.div`
 	flex-direction: column-reverse;
 	@media (min-width: ${breakpoints.mediumPx}) {
 		display: grid;
-		grid-template-columns: 47.5% 47.5%;
+		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 1fr;
-		grid-gap: 5%;
 	}
 	align-items: center;
 `
 const Content = styled.div`
-	width: 100%;
+	width: calc(100% - 2rem);
 `
 const ImagePlaceholder = styled.div`
 	img {

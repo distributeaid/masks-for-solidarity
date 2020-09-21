@@ -40,6 +40,9 @@ export const GlobalLinkStyle = createGlobalStyle`
 				border: 1px solid ${colors.primary};
 				color: ${colors.primary};
 			}
+			& + & {
+				margin-left: 0.5rem;
+			}
 		}
 
 		&:hover,

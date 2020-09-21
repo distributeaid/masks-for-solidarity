@@ -22,10 +22,23 @@ import { PlaceholderOffScreen } from '../components/PlaceholderOffScreen'
 import { Navigation } from './navigation'
 import { GalleryImage } from '../sanity'
 import { Accordion } from '../components/Accordion'
+import { breakpoints } from '../settings'
 
 const Wrapper = styled.div`
 	height: 100%;
 `
+const FAQSection = styled(Section)`
+	@media (min-width: ${breakpoints.mediumPx}) {
+		padding-bottom: 4rem;
+	}
+`
+const PaddedContent = styled(Content)`
+	padding: 1rem;
+	@media (min-width: ${breakpoints.mediumPx}) {
+		padding: 4rem 1rem;
+	}
+`
+
 export const query = graphql`
 	query HomeTemplateQuery {
 		site {
@@ -139,9 +152,9 @@ const HomeTemplate = (data: {
 							<WithImage
 								image={getImage(storyHistory.remark.frontmatter.photoSanityId)}
 							>
-								<Content>
+								<PaddedContent>
 									{renderHtmlAstToReact(storyHistory.remark.htmlAst)}
-								</Content>
+								</PaddedContent>
 							</WithImage>
 							<CenteredContent>
 								<h2>
@@ -161,29 +174,28 @@ const HomeTemplate = (data: {
 										Request Masks
 									</Link>
 								</p>
+								<PlaceholderOffScreen>
+									{(visible) =>
+										visible ? (
+											<CampaignProgress />
+										) : (
+											<CampaignProgressPlaceholder />
+										)
+									}
+								</PlaceholderOffScreen>
 							</CenteredContent>
-
-							<PlaceholderOffScreen>
-								{(visible) =>
-									visible ? (
-										<CampaignProgress />
-									) : (
-										<CampaignProgressPlaceholder />
-									)
-								}
-							</PlaceholderOffScreen>
 						</Section>
 					</Offset>
 					<Section id="about-the-masks">
 						<WithImage
 							image={getImage(aboutTheMasks.remark.frontmatter.photoSanityId)}
 						>
-							<Content>
+							<PaddedContent>
 								<h2>
 									<small>{aboutTheMasks.remark.frontmatter.title}</small>
 								</h2>
 								{renderHtmlAstToReact(aboutTheMasks.remark.htmlAst)}
-							</Content>
+							</PaddedContent>
 						</WithImage>
 						<ContentWithGridList>
 							{renderHtmlAstToReact(whenToUse.remark.htmlAst)}
@@ -194,12 +206,12 @@ const HomeTemplate = (data: {
 							<WithImage
 								image={getImage(theFacts.remark.frontmatter.photoSanityId)}
 							>
-								<Content>
+								<PaddedContent>
 									<h2>
 										<small>{theFacts.remark.frontmatter.title}</small>
 									</h2>
 									{renderHtmlAstToReact(theFacts.remark.htmlAst)}
-								</Content>
+								</PaddedContent>
 							</WithImage>
 						</Section>
 					</Offset>
@@ -223,11 +235,11 @@ const HomeTemplate = (data: {
 					</Section>
 					<Section id="share">
 						<WithImage image={getImage(share.remark.frontmatter.photoSanityId)}>
-							<Content>
+							<PaddedContent>
 								<h3>{share.remark.frontmatter.title}</h3>
 								{renderHtmlAstToReact(share.remark.htmlAst)}
 								<NewsletterSubscribeForm />
-							</Content>
+							</PaddedContent>
 						</WithImage>
 					</Section>
 					<Section id="get-masks">
@@ -239,19 +251,19 @@ const HomeTemplate = (data: {
 						</ContentWithGridList>
 					</Section>
 					<Offset>
-						<Section id="faq">
-							<Content>
+						<FAQSection id="faq">
+							<PaddedContent>
 								<h2>
 									<small>{faqIntro.remark.frontmatter.title}</small>
 								</h2>
 								{renderHtmlAstToReact(faqIntro.remark.htmlAst)}
-							</Content>
+							</PaddedContent>
 							{faqEntries.map((faq, i) => (
 								<Accordion key={i} title={faq.remark.frontmatter.title}>
-									{renderHtmlAstToReact(faq.remark.htmlAst)}
+									<Content>{renderHtmlAstToReact(faq.remark.htmlAst)}</Content>
 								</Accordion>
 							))}
-						</Section>
+						</FAQSection>
 					</Offset>
 					<Section id="team">
 						{teamIntro !== undefined && teamPages.length > 0 && (

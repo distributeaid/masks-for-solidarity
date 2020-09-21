@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { fonts, colors, fontSizes } from '../settings'
+import { fonts, colors, fontSizes, breakpoints } from '../settings'
 
 export const Small = styled.p``
 export const Micro = styled.p``

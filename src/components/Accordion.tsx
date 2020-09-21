@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { colors, fontSizes } from '../settings'
+import { breakpoints, colors, fontSizes } from '../settings'
 import { PlusIcon, MinusIcon } from './Icons'
 
 const Container = styled.section`
@@ -18,11 +18,17 @@ const Title = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 1rem 0;
+	padding: 1rem;
 `
 
 const OpenTitle = styled(Title)`
-	padding-bottom: 0;
+	padding: 1rem 1rem 0 1rem;
+`
+
+const Wrapper = styled.div`
+	@media (min-width: ${breakpoints.mediumPx}) {
+		padding-left: 50%;
+	}
 `
 
 const Button = styled.button`
@@ -44,7 +50,7 @@ export const Accordion = ({
 	return (
 		<Container className={className}>
 			{open && (
-				<>
+				<Wrapper>
 					<OpenTitle onClick={() => setOpen((o) => !o)}>
 						{title}
 						<Button title="Expand">
@@ -52,15 +58,17 @@ export const Accordion = ({
 						</Button>
 					</OpenTitle>
 					{children}
-				</>
+				</Wrapper>
 			)}
 			{!open && (
-				<Title onClick={() => setOpen((o) => !o)}>
-					{title}
-					<Button title="Collapse">
-						<PlusIcon />
-					</Button>
-				</Title>
+				<Wrapper>
+					<Title onClick={() => setOpen((o) => !o)}>
+						{title}
+						<Button title="Collapse">
+							<PlusIcon />
+						</Button>
+					</Title>
+				</Wrapper>
 			)}
 		</Container>
 	)

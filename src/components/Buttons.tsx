@@ -95,6 +95,9 @@ export const ButtonBase = styled.button`
 			border: 0;
 		}
 	}
+	& + & {
+		margin-left: 1rem;
+	}
 `
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
