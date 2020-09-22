@@ -7,6 +7,7 @@ import { SiteMetaData } from '../templates/page'
 import HeartIcon from 'feather-icons/dist/icons/heart.svg'
 import GitHubIcon from 'feather-icons/dist/icons/github.svg'
 import VictoryIcon from './noun_victory_394398.svg'
+import { Emoji } from './Emoji'
 
 const StyledFooter = styled.footer`
 	margin: 0 auto;
@@ -106,6 +107,26 @@ export const Footer = ({
 					{/* The ✌️ graphic used in the logo is from The Noun Project and requires attribution: https://thenounproject.com/term/victory/394398/ */}
 					<StyledVictoryIcon /> icon used in logo created by Sergey Demushkin
 					from the Noun Project.
+				</p>
+				<p>
+					<Emoji alt={'🙋'} small code={'1F64B-1F3FD'} />
+					<br />
+					All emojis designed by{' '}
+					<a
+						href="https://openmoji.org/"
+						rel="noopener noreferrer"
+						target="_blank"
+					>
+						OpenMoji
+					</a>{' '}
+					– the open-source emoji and icon project. License:{' '}
+					<a
+						href="https://creativecommons.org/licenses/by-sa/4.0/"
+						rel="noopener noreferrer"
+						target="_blank"
+					>
+						CC BY-SA 4.0
+					</a>
 				</p>
 				<p>
 					{/* We need to credit Netlify to be eligible for the open-source plan: https://www.netlify.com/legal/open-source-policy/ */}

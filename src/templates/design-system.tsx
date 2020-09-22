@@ -26,6 +26,7 @@ import {
 import { SiteMetaData } from './types'
 import { Offset } from '../components/Offset'
 import { Menu } from '../components/Menu'
+import { Emoji } from '../components/Emoji'
 
 const Header = styled.header`
 	background: #09328b;
@@ -150,6 +151,8 @@ const Buttons = styled.div`
 	}
 `
 
+const StyledEmoji = styled(Emoji)``
+
 const Icons = styled.ul`
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
@@ -162,7 +165,8 @@ const Icons = styled.ul`
 	grid-gap: 20px;
 	list-style: none;
 	padding: 0;
-	svg {
+	svg,
+	${StyledEmoji} {
 		background-color: ${colors.offsetBackground};
 		padding: calc((50px - 24px) / 2) calc((100px - 24px) / 2);
 	}
@@ -791,6 +795,41 @@ const DesignSystemTemplate = ({
 						</li>
 						<li>
 							<GitHubIcon /> <SectionLabel>Github</SectionLabel>
+						</li>
+					</Icons>
+				</SubSection>
+				<SubSection>
+					<SectionHeader>Emojis</SectionHeader>
+					<Icons>
+						<li>
+							<StyledEmoji alt={'🕊️'} code={'1F54A'} />
+						</li>
+						<li>
+							<StyledEmoji alt={'💪'} code={'1F4AA-1F3FD'} />
+						</li>
+						<li>
+							<StyledEmoji alt={'🧽'} code={'1F9FD'} />
+						</li>
+						<li>
+							<StyledEmoji alt={'♻️'} code={'267B'} />
+						</li>
+						<li>
+							<StyledEmoji alt={'⛅'} code={'1F325'} />
+						</li>
+						<li>
+							<StyledEmoji alt={'⛑'} code={'26D1'} />
+						</li>
+						<li>
+							<StyledEmoji alt={'🌍'} code={'1F30D'} />
+						</li>
+						<li>
+							<StyledEmoji alt={'😷'} code={'1F637'} />
+						</li>
+						<li>
+							<StyledEmoji alt={'⏱'} code={'23F1'} />
+						</li>
+						<li>
+							<StyledEmoji alt={'👩‍⚕️'} code={'1F469-1F3FD-200D-2695-FE0F'} />
 						</li>
 					</Icons>
 				</SubSection>

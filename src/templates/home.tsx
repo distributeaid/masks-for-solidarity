@@ -23,6 +23,7 @@ import { Navigation } from './navigation'
 import { GalleryImage } from '../sanity'
 import { Accordion } from '../components/Accordion'
 import { breakpoints } from '../settings'
+import { Emoji } from '../components/Emoji'
 
 const Wrapper = styled.div`
 	height: 100%;
@@ -36,6 +37,13 @@ const PaddedContent = styled(Content)`
 	padding: 1rem;
 	@media (min-width: ${breakpoints.mediumPx}) {
 		padding: 4rem 1rem;
+	}
+`
+
+const StyledEmoji = styled(Emoji)`
+	margin: 4rem 0 6rem 0;
+	@media (min-width: ${breakpoints.mediumPx}) {
+		zoom: 2;
 	}
 `
 
@@ -148,6 +156,9 @@ const HomeTemplate = (data: {
 									<small>{storyIntro.remark.frontmatter.title}</small>
 								</h2>
 								{renderHtmlAstToReact(storyIntro.remark.htmlAst)}
+							</CenteredContent>
+							<CenteredContent>
+								<StyledEmoji alt={'🕊️'} code={'1F54A'} />
 							</CenteredContent>
 							<WithImage
 								image={getImage(storyHistory.remark.frontmatter.photoSanityId)}
