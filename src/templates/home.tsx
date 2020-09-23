@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, withPrefix } from 'gatsby'
 import styled from 'styled-components'
 import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import { Head } from '../components/Head'
@@ -24,6 +24,8 @@ import { GalleryImage } from '../sanity'
 import { Accordion } from '../components/Accordion'
 import { breakpoints } from '../settings'
 import { Emoji } from '../components/Emoji'
+import { MaskPropertyIcons } from '../components/MaskPropertyIcons'
+import { MaskUsageIcons } from '../components/MaskUsageIcons'
 
 const Wrapper = styled.div`
 	height: 100%;
@@ -41,7 +43,7 @@ const PaddedContent = styled(Content)`
 `
 
 const StyledEmoji = styled(Emoji)`
-	margin: 4rem 0 6rem 0;
+	margin: 2rem 0 3rem 0;
 	@media (min-width: ${breakpoints.mediumPx}) {
 		zoom: 2;
 	}
@@ -201,16 +203,16 @@ const HomeTemplate = (data: {
 						<WithImage
 							image={getImage(aboutTheMasks.remark.frontmatter.photoSanityId)}
 						>
-							<PaddedContent>
+							<MaskPropertyIcons>
 								<h2>
 									<small>{aboutTheMasks.remark.frontmatter.title}</small>
 								</h2>
 								{renderHtmlAstToReact(aboutTheMasks.remark.htmlAst)}
-							</PaddedContent>
+							</MaskPropertyIcons>
 						</WithImage>
-						<ContentWithGridList>
+						<MaskUsageIcons>
 							{renderHtmlAstToReact(whenToUse.remark.htmlAst)}
-						</ContentWithGridList>
+						</MaskUsageIcons>
 					</Section>
 					<Offset>
 						<Section>
