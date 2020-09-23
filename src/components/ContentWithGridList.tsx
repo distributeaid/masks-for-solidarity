@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import React from 'react'
 import { Content } from './Content'
 import { breakpoints, colors } from '../settings'
 

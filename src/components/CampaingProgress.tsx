@@ -64,7 +64,7 @@ const currencyFormatter = isSSR
 			maximumFractionDigits: 0,
 	  })
 
-export const CampaignProgressPlaceholder = () => <Placeholder height={98} />
+export const CampaignProgressPlaceholder = () => <Placeholder height={74} />
 
 export const CampaignProgress = () => {
 	const [progress, setProgress] = useState<{

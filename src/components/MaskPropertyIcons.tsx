@@ -1,4 +1,3 @@
-import React from 'react'
 import { withPrefix } from 'gatsby'
 import styled from 'styled-components'
 import { breakpoints, buttonSizes } from '../settings'

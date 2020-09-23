@@ -1,8 +1,6 @@
 import styled from 'styled-components'
-import React from 'react'
-import { Content } from './Content'
 import { ContentWithGridList } from './ContentWithGridList'
-import { breakpoints, buttonSizes } from '../settings'
+import { buttonSizes } from '../settings'
 import { withPrefix } from 'gatsby'
 
 export const MaskUsageIcons = styled(ContentWithGridList)`

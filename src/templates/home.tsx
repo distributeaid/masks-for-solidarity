@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, withPrefix } from 'gatsby'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { renderHtmlAstToReact } from '../renderHtmlToReact'
 import { Head } from '../components/Head'
@@ -39,6 +39,13 @@ const PaddedContent = styled(Content)`
 	padding: 1rem;
 	@media (min-width: ${breakpoints.mediumPx}) {
 		padding: 4rem 1rem;
+	}
+`
+
+const PaddedSection = styled(Section)`
+	padding: 1rem 0;
+	@media (min-width: ${breakpoints.mediumPx}) {
+		padding: 4rem 0;
 	}
 `
 
@@ -115,7 +122,9 @@ const HomeTemplate = (data: {
 	const whenToUse = findPageByRelativePath('home/when-to-use-the-masks.md')
 	const supportUs = findPageByRelativePath('home/support-us.md')
 	const share = findPageByRelativePath('home/share.md')
-	const getMasks = findPageByRelativePath('home/get-masks.md')
+	const getMasksIntro = findPageByRelativePath('home/get-masks-intro.md')
+	const getMasksAtCost = findPageByRelativePath('home/get-masks-at-cost.md')
+	const getMasksRequest = findPageByRelativePath('home/get-masks-request.md')
 	const faqIntro = findPageByRelativePath('home/faq.md')
 	const faqEntries = [
 		'home/faq-01.md',
@@ -169,6 +178,8 @@ const HomeTemplate = (data: {
 									{renderHtmlAstToReact(storyHistory.remark.htmlAst)}
 								</PaddedContent>
 							</WithImage>
+						</Section>
+						<PaddedSection>
 							<CenteredContent>
 								<h2>
 									<small>{donate.remark.frontmatter.title}</small>
@@ -187,6 +198,8 @@ const HomeTemplate = (data: {
 										Request Masks
 									</Link>
 								</p>
+							</CenteredContent>
+							<CenteredContent>
 								<PlaceholderOffScreen>
 									{(visible) =>
 										visible ? (
@@ -197,7 +210,7 @@ const HomeTemplate = (data: {
 									}
 								</PlaceholderOffScreen>
 							</CenteredContent>
-						</Section>
+						</PaddedSection>
 					</Offset>
 					<Section id="about-the-masks">
 						<WithImage
@@ -246,7 +259,7 @@ const HomeTemplate = (data: {
 							</p>
 						</CenteredContent>
 					</Section>
-					<Section id="share">
+					<PaddedSection id="share">
 						<WithImage image={getImage(share.remark.frontmatter.photoSanityId)}>
 							<PaddedContent>
 								<h3>{share.remark.frontmatter.title}</h3>
@@ -254,13 +267,48 @@ const HomeTemplate = (data: {
 								<NewsletterSubscribeForm />
 							</PaddedContent>
 						</WithImage>
-					</Section>
+					</PaddedSection>
 					<Section id="get-masks">
-						<ContentWithGridList>
+						<CenteredContent>
 							<h2>
-								<small>{getMasks.remark.frontmatter.title}</small>
+								<small>{getMasksIntro.remark.frontmatter.title}</small>
 							</h2>
-							{renderHtmlAstToReact(getMasks.remark.htmlAst)}
+							{renderHtmlAstToReact(getMasksIntro.remark.htmlAst)}
+						</CenteredContent>
+						<ContentWithGridList>
+							<ul>
+								<li>
+									<p>
+										<strong>{getMasksAtCost.remark.frontmatter.title}</strong>
+									</p>
+									{renderHtmlAstToReact(getMasksAtCost.remark.htmlAst)}
+									<p>
+										<Link
+											button
+											href="https://forms.gle/kBrSmH4NCrKZV8yW7"
+											target="_blank"
+											rel="nofollow noreferrer"
+										>
+											Order now
+										</Link>
+									</p>
+								</li>
+								<li>
+									<p>
+										<strong>{getMasksRequest.remark.frontmatter.title}</strong>
+									</p>
+									{renderHtmlAstToReact(getMasksRequest.remark.htmlAst)}
+									<p>
+										<a
+											href={'https://forms.gle/BKjTXX7rqRwg6afZ8'}
+											target="_blank"
+											rel="nofollow noreferrer"
+										>
+											Fill out our needs request form
+										</a>
+									</p>
+								</li>
+							</ul>
 						</ContentWithGridList>
 					</Section>
 					<Offset>
@@ -279,30 +327,38 @@ const HomeTemplate = (data: {
 						</FAQSection>
 					</Offset>
 					<Section id="team">
-						{teamIntro !== undefined && teamPages.length > 0 && (
-							<Team intro={teamIntro} entries={teamPages} />
-						)}
+						<CenteredContent>
+							<h2>
+								<small>{teamIntro.remark.frontmatter.title}</small>
+							</h2>
+							{renderHtmlAstToReact(teamIntro.remark.htmlAst)}
+						</CenteredContent>
+						<Team entries={teamPages} />
 					</Section>
 				</main>
 				<Footer siteMetaData={data.data.site.siteMetadata}>
 					<Section>
 						<CenteredContent>
-							<p>
-								<strong>{headerContent?.remark.frontmatter.title}</strong>
-							</p>
-							<p>
-								<Link
-									button
-									href="https://donorbox.org/refugees-care"
-									target="_blank"
-									rel="nofollow noreferrer"
-								>
-									Donate now
-								</Link>
-								<Link button secondary href="#get-masks">
-									Request Masks
-								</Link>
-							</p>
+							<PaddedContent>
+								<p>
+									<strong>{headerContent?.remark.frontmatter.title}</strong>
+								</p>
+							</PaddedContent>
+							<PaddedContent>
+								<p>
+									<Link
+										button
+										href="https://donorbox.org/refugees-care"
+										target="_blank"
+										rel="nofollow noreferrer"
+									>
+										Donate now
+									</Link>
+									<Link button secondary href="#get-masks">
+										Request Masks
+									</Link>
+								</p>
+							</PaddedContent>
 						</CenteredContent>
 					</Section>
 				</Footer>

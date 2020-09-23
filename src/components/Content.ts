@@ -74,4 +74,8 @@ export const Content = styled.div`
 
 export const CenteredContent = styled(Content)`
 	text-align: center;
+	p {
+		max-width: calc(${breakpoints.widePx} / 2);
+		margin: 0 auto;
+	}
 `
