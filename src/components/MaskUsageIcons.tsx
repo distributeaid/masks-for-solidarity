@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { ContentWithGridList } from './ContentWithGridList'
 import { buttonSizes } from '../settings'
-import { withPrefix } from 'gatsby'
 
 export const MaskUsageIcons = styled(ContentWithGridList)`
 	ul {
@@ -20,30 +19,22 @@ export const MaskUsageIcons = styled(ContentWithGridList)`
 		li {
 			&:first-child {
 				&:before {
-					background-image: url('${withPrefix(
-						'/openmoji-svg-color/1F325.svg',
-					)}');
+					background-image: url('./openmoji-svg-color/1F325.svg');
 				}
 			}
 			&:nth-child(2) {
 				&:before {
-					background-image: url('${withPrefix(
-						'/openmoji-svg-color/26D1.svg',
-					)}');
+					background-image: url('./openmoji-svg-color/26D1.svg');
 				}
 			}
 			&:nth-child(3) {
 				&:before {
-					background-image: url('${withPrefix(
-						'/openmoji-svg-color/1F30D.svg',
-					)}');
+					background-image: url('./openmoji-svg-color/1F30D.svg');
 				}
 			}
 			&:nth-child(4) {
 				&:before {
-					background-image: url('${withPrefix(
-						'/openmoji-svg-color/1F637.svg',
-					)}');
+					background-image: url('./openmoji-svg-color/1F637.svg');
 				}
 			}
 		}
@@ -52,16 +43,12 @@ export const MaskUsageIcons = styled(ContentWithGridList)`
 		li {
 			&:nth-child(1) {
 				&:before {
-					background-image: url('${withPrefix(
-						'/openmoji-svg-color/23F1.svg',
-					)}');
+					background-image: url('./openmoji-svg-color/23F1.svg');
 				}
 			}
 			&:nth-child(2) {
 				&:before {
-					background-image: url('${withPrefix(
-						'/openmoji-svg-color/1F469-1F3FD-200D-2695-FE0F.svg',
-					)}');
+					background-image: url('./openmoji-svg-color/1F469-1F3FD-200D-2695-FE0F.svg');
 				}
 			}
 		}

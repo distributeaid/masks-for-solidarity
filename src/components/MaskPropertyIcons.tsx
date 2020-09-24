@@ -1,4 +1,3 @@
-import { withPrefix } from 'gatsby'
 import styled from 'styled-components'
 import { breakpoints, buttonSizes } from '../settings'
 import { Content } from '../components/Content'
@@ -39,23 +38,17 @@ export const MaskPropertyIcons = styled(Content)`
 			}
 			&:first-child {
 				&:before {
-					background-image: url('${withPrefix(
-						'/openmoji-svg-color/1F4AA-1F3FD.svg',
-					)}');
+					background-image: url('./openmoji-svg-color/1F4AA-1F3FD.svg');
 				}
 			}
 			&:nth-child(2) {
 				&:before {
-					background-image: url('${withPrefix(
-						'/openmoji-svg-color/1F9FD.svg',
-					)}');
+					background-image: url('./openmoji-svg-color/1F9FD.svg');
 				}
 			}
 			&:last-child {
 				&:before {
-					background-image: url('${withPrefix(
-						'/openmoji-svg-color/267B.svg',
-					)}');
+					background-image: url('./openmoji-svg-color/267B.svg');
 				}
 			}
 		}
