@@ -38,21 +38,54 @@ export const colors = {
 	success: mountaindew,
 } as const
 
+export const mobileFontSizes = {
+	h1: 30,
+	h2: 22,
+	h3: 14,
+	text: 14,
+	large: 18,
+	small: 14,
+	micro: 12,
+} as const
+
+export const desktopFontSizes = {
+	h1: 36,
+	h2: 24,
+	h3: 16,
+	text: 18,
+	large: 28,
+	small: 16,
+	micro: 14,
+} as const
+
 export const fontSizes = {
-	h1: '36px',
-	h2: '24px',
-	h3: '16px',
-	text: '18px',
-	small: '16px',
-	micro: '14px',
-	hero: {
-		h1: '46px',
-		h2: '32px',
-		h3: '24px',
-		text: '28px',
-		small: '24px',
-		micro: '24px',
-	},
+	h1: `${desktopFontSizes.h1}px`,
+	h2: `${desktopFontSizes.h2}px`,
+	h3: `${desktopFontSizes.h3}px`,
+	text: `${desktopFontSizes.text}px`,
+	large: `${desktopFontSizes.large}px`,
+	small: `${desktopFontSizes.small}px`,
+	micro: `${desktopFontSizes.micro}px`,
+} as const
+
+const r = (mobile: number, desktop: number, attribute: string): string =>
+	`${attribute}: ${mobile}px; @media (min-width: ${breakpoints.mediumPx}) { ${attribute}: ${desktop}px; }`
+
+export const responsiveFontSize = {
+	h1: (attribute = 'font-size') =>
+		r(mobileFontSizes.h1, desktopFontSizes.h1, attribute),
+	h2: (attribute = 'font-size') =>
+		r(mobileFontSizes.h2, desktopFontSizes.h2, attribute),
+	h3: (attribute = 'font-size') =>
+		r(mobileFontSizes.h3, desktopFontSizes.h3, attribute),
+	text: (attribute = 'font-size') =>
+		r(mobileFontSizes.text, desktopFontSizes.text, attribute),
+	large: (attribute = 'font-size') =>
+		r(mobileFontSizes.large, desktopFontSizes.large, attribute),
+	small: (attribute = 'font-size') =>
+		r(mobileFontSizes.small, desktopFontSizes.small, attribute),
+	micro: (attribute = 'font-size') =>
+		r(mobileFontSizes.micro, desktopFontSizes.micro, attribute),
 } as const
 
 export const fonts = {

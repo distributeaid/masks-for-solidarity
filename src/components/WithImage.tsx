@@ -14,7 +14,7 @@ const Container = styled.div`
 	align-items: center;
 `
 const Content = styled.div`
-	width: calc(100% - 2rem);
+	width: 100%;
 `
 const ImagePlaceholder = styled.div`
 	img {

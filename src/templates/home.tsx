@@ -36,7 +36,7 @@ const FAQSection = styled(Section)`
 	}
 `
 const PaddedContent = styled(Content)`
-	padding: 1rem;
+	padding: 2rem 1rem;
 	@media (min-width: ${breakpoints.mediumPx}) {
 		padding: 4rem 1rem;
 	}
@@ -185,6 +185,8 @@ const HomeTemplate = (data: {
 									<small>{donate.remark.frontmatter.title}</small>
 								</h2>
 								{renderHtmlAstToReact(donate.remark.htmlAst)}
+							</CenteredContent>
+							<PaddedContent>
 								<p>
 									<Link
 										button
@@ -198,7 +200,7 @@ const HomeTemplate = (data: {
 										Request Masks
 									</Link>
 								</p>
-							</CenteredContent>
+							</PaddedContent>
 							<CenteredContent>
 								<PlaceholderOffScreen>
 									{(visible) =>
@@ -247,16 +249,18 @@ const HomeTemplate = (data: {
 								<small>{supportUs.remark.frontmatter.title}</small>
 							</h2>
 							{renderHtmlAstToReact(supportUs.remark.htmlAst)}
-							<p>
-								<Link
-									button
-									href="https://donorbox.org/refugees-care"
-									target="_blank"
-									rel="nofollow noreferrer"
-								>
-									Donate now
-								</Link>
-							</p>
+							<PaddedContent>
+								<p>
+									<Link
+										button
+										href="https://donorbox.org/refugees-care"
+										target="_blank"
+										rel="nofollow noreferrer"
+									>
+										Donate now
+									</Link>
+								</p>
+							</PaddedContent>
 						</CenteredContent>
 					</Section>
 					<PaddedSection id="share">
@@ -337,30 +341,26 @@ const HomeTemplate = (data: {
 					</Section>
 				</main>
 				<Footer siteMetaData={data.data.site.siteMetadata}>
-					<Section>
-						<CenteredContent>
-							<PaddedContent>
-								<p>
-									<strong>{headerContent?.remark.frontmatter.title}</strong>
-								</p>
-							</PaddedContent>
-							<PaddedContent>
-								<p>
-									<Link
-										button
-										href="https://donorbox.org/refugees-care"
-										target="_blank"
-										rel="nofollow noreferrer"
-									>
-										Donate now
-									</Link>
-									<Link button secondary href="#get-masks">
-										Request Masks
-									</Link>
-								</p>
-							</PaddedContent>
-						</CenteredContent>
-					</Section>
+					<CenteredContent>
+						<PaddedContent>
+							<p>
+								<strong>{headerContent?.remark.frontmatter.title}</strong>
+							</p>
+						</PaddedContent>
+						<p>
+							<Link
+								button
+								href="https://donorbox.org/refugees-care"
+								target="_blank"
+								rel="nofollow noreferrer"
+							>
+								Donate now
+							</Link>
+							<Link button secondary href="#get-masks">
+								Request Masks
+							</Link>
+						</p>
+					</CenteredContent>
 				</Footer>
 			</Wrapper>
 		</>

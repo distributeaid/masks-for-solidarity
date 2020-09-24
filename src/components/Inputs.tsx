@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { colors, fonts, buttonSizes, fontSizes } from '../settings'
+import { colors, fonts, buttonSizes, responsiveFontSize } from '../settings'
 import { mix } from 'polished'
 import { classNames } from '../util/classNames'
 import { CheckCircleIcon, AlertTriangleIcon } from './Icons'
@@ -82,7 +82,7 @@ const LabelBase = styled.label`
 	align-items: center;
 	font-family: ${fonts.sans.name};
 	font-weight: ${fonts.sans.weights.regular};
-	font-size: ${fontSizes.micro};
+	${responsiveFontSize.micro()};
 	color: ${colors.lightText};
 	margin-left: calc(${buttonSizes.regular} / 2);
 	&.success {
@@ -92,8 +92,8 @@ const LabelBase = styled.label`
 		color: ${colors.error};
 	}
 	svg {
-		width: ${fontSizes.micro};
-		height: ${fontSizes.micro};
+		${responsiveFontSize.micro('width')};
+		${responsiveFontSize.micro('height')};
 		margin-right: 0.25rem;
 	}
 `

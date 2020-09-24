@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { fonts, colors, fontSizes, breakpoints } from '../settings'
+import { fonts, colors, responsiveFontSize, breakpoints } from '../settings'
 
 export const Small = styled.p``
 export const Micro = styled.p``
@@ -7,7 +7,7 @@ export const Micro = styled.p``
 export const H1Tiny = styled.h1`
 	font-family: ${fonts.sans.name};
 	font-weight: ${fonts.sans.weights.medium};
-	font-size: ${fontSizes.h3};
+	${responsiveFontSize.h3()};
 	text-transform: uppercase;
 `
 
@@ -16,11 +16,11 @@ export const Content = styled.div`
 	h1 {
 		font-family: ${fonts.serif.name};
 		font-weight: ${fonts.serif.weights.regular};
-		font-size: ${fontSizes.h1};
+		${responsiveFontSize.h1()};
 		small {
 			font-family: ${fonts.sans.name};
 			font-weight: ${fonts.sans.weights.medium};
-			font-size: ${fontSizes.h3};
+			${responsiveFontSize.h3()};
 			text-transform: uppercase;
 			color: ${colors.lightText};
 		}
@@ -28,11 +28,11 @@ export const Content = styled.div`
 	h2 {
 		font-family: ${fonts.serif.name};
 		font-weight: ${fonts.serif.weights.regular};
-		font-size: ${fontSizes.h2};
+		${responsiveFontSize.h2()};
 		small {
 			font-family: ${fonts.sans.name};
 			font-weight: ${fonts.sans.weights.medium};
-			font-size: ${fontSizes.h3};
+			${responsiveFontSize.h3()};
 			text-transform: uppercase;
 			color: ${colors.lightText};
 		}
@@ -40,15 +40,15 @@ export const Content = styled.div`
 	h3 {
 		font-family: ${fonts.sans.name};
 		font-weight: ${fonts.sans.weights.medium};
-		font-size: ${fontSizes.h3};
+		${responsiveFontSize.h3()};
 		text-transform: uppercase;
 		color: ${colors.lightText};
 	}
 	p {
 		font-family: ${fonts.serif.name};
 		font-weight: ${fonts.serif.weights.regular};
-		font-size: ${fontSizes.text};
-		line-height: 150%;
+		${responsiveFontSize.text()};
+		line-height: 140%;
 		margin-bottom: 1rem;
 		margin-top: 0;
 	}
@@ -56,18 +56,18 @@ export const Content = styled.div`
 	${Small} {
 		font-family: ${fonts.serif.name};
 		font-weight: ${fonts.serif.weights.light};
-		font-size: ${fontSizes.small};
+		${responsiveFontSize.small()};
 	}
 	${Micro} {
 		font-family: ${fonts.sans.name};
 		font-weight: ${fonts.sans.weights.regular};
-		font-size: ${fontSizes.micro};
+		${responsiveFontSize.micro()};
 	}
 	blockquote {
 		margin: 0;
 		padding: 0;
 		p {
-			font-size: ${fontSizes.hero.text};
+			${responsiveFontSize.large()};
 		}
 	}
 `

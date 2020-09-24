@@ -2,7 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import { Head } from '../components/Head'
-import { fonts, colors, fontSizes, breakpoints, buttonSizes } from '../settings'
+import {
+	fonts,
+	colors,
+	mobileFontSizes,
+	desktopFontSizes,
+	breakpoints,
+	buttonSizes,
+} from '../settings'
 import { Content, Micro } from '../components/Content'
 import { Accordion } from '../components/Accordion'
 import { Button } from '../components/Buttons'
@@ -117,7 +124,7 @@ const Colors = styled.ul`
 `
 
 const Buttons = styled.div`
-	width: calc(100% - 2rem);
+	width: 100%;
 	&:first-child {
 		padding-top: 1rem;
 	}
@@ -364,7 +371,7 @@ const DesignSystemTemplate = ({
 					</Content>
 					<SectionLabel>
 						Header 1 &mdash; {fonts.serif.name} {fonts.serif.weights.regular}{' '}
-						{fontSizes.h1}/{fontSizes.hero.h1}
+						{mobileFontSizes.h1}px / {desktopFontSizes.h1}px
 					</SectionLabel>
 				</SubSection>
 				<SubSection>
@@ -373,7 +380,7 @@ const DesignSystemTemplate = ({
 					</Content>
 					<SectionLabel>
 						Header 2 &mdash; {fonts.serif.name} {fonts.serif.weights.regular}{' '}
-						{fontSizes.h2}/{fontSizes.hero.h2}
+						{mobileFontSizes.h2}px / {desktopFontSizes.h2}px
 					</SectionLabel>
 				</SubSection>
 				<SubSection>
@@ -382,7 +389,7 @@ const DesignSystemTemplate = ({
 					</Content>
 					<SectionLabel>
 						Header 3 &mdash; {fonts.sans.name} {fonts.sans.weights.medium}{' '}
-						(Uppercase) {fontSizes.h3}/{fontSizes.hero.h3}
+						(Uppercase) {mobileFontSizes.h3}px / {desktopFontSizes.h3}px
 					</SectionLabel>
 				</SubSection>
 				<SubSection>
@@ -394,7 +401,7 @@ const DesignSystemTemplate = ({
 					</Content>
 					<SectionLabel>
 						Body &mdash; {fonts.serif.name} {fonts.serif.weights.regular}{' '}
-						{fontSizes.text}/{fontSizes.hero.text}
+						{mobileFontSizes.text}px / {desktopFontSizes.text}px
 					</SectionLabel>
 				</SubSection>
 				<Offset>
@@ -411,7 +418,7 @@ const DesignSystemTemplate = ({
 						</Content>
 						<SectionLabel>
 							S Body &mdash; {fonts.serif.name} {fonts.serif.weights.light}{' '}
-							{fontSizes.small}/{fontSizes.hero.small}
+							{mobileFontSizes.small}px / {desktopFontSizes.small}px
 						</SectionLabel>
 					</SubSection>
 				</Offset>
@@ -424,7 +431,7 @@ const DesignSystemTemplate = ({
 					</Content>
 					<SectionLabel>
 						Micro &mdash; {fonts.sans.name} {fonts.sans.weights.regular}{' '}
-						{fontSizes.micro}/{fontSizes.hero.micro}
+						{mobileFontSizes.micro}px / {desktopFontSizes.micro}px
 					</SectionLabel>
 				</SubSection>
 			</Section>

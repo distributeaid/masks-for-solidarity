@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { colors, fontSizes, fonts, breakpoints, menuHeight } from '../settings'
+import {
+	colors,
+	responsiveFontSize,
+	fonts,
+	breakpoints,
+	menuHeight,
+} from '../settings'
 import { MenuIcon, XIcon } from './Icons'
 import { rgba } from 'polished'
 import { SiteMetaData } from '../templates/types'
@@ -22,7 +28,7 @@ const Wrapper = styled.div`
 `
 
 const LogoText = styled.span`
-	font-size: ${fontSizes.text};
+	${responsiveFontSize.text()};
 	span {
 		&:after {
 			content: ' ';
@@ -67,7 +73,7 @@ const MobileNavigation = styled.nav`
 		text-align: center;
 		align-items: center;
 		a:not(.button) {
-			font-size: ${fontSizes.h2};
+			${responsiveFontSize.h2()};
 			color: ${colors.text};
 			text-decoration: none;
 			font-weight: ${fonts.serif.weights.regular};

@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { breakpoints, colors, fontSizes } from '../settings'
+import { breakpoints, colors, responsiveFontSize } from '../settings'
 import { PlusIcon, MinusIcon } from './Icons'
 
 const Container = styled.section`
 	border: 0;
 	border-top: 1px solid ${colors.border};
 	border-bottom: 1px solid ${colors.border};
-	font-size: ${fontSizes.text};
+	${responsiveFontSize.text()};
 	& + & {
 		border-top: none;
 	}

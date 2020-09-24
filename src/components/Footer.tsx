@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { withPrefix } from 'gatsby'
-import { breakpoints, colors, fonts, fontSizes } from '../settings'
+import { breakpoints, colors, fonts, responsiveFontSize } from '../settings'
 import { SiteMetaData } from '../templates/page'
 
 import HeartIcon from 'feather-icons/dist/icons/heart.svg'
@@ -70,7 +70,7 @@ const TwoCols = styled.section`
 	${Nav}, aside {
 		font-family: ${fonts.sans.name};
 		font-weight: ${fonts.sans.weights.regular};
-		font-size: ${fontSizes.micro};
+		${responsiveFontSize.micro()};
 	}
 	aside a,
 	${Nav} a {
