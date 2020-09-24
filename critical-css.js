@@ -9,6 +9,16 @@ const path = require('path')
 const fs = require('fs')
 const JSDOM = require('jsdom').JSDOM
 const crypto = require('crypto')
+const static = require('node-static')
+
+const servePublic = new static.Server(path.join(process.cwd(), 'public'))
+const server = require('http')
+	.createServer((request, response) => {
+		request
+			.addListener('end', () => servePublic.serve(request, response))
+			.resume()
+	})
+	.listen(8080)
 
 const id = () =>
 	crypto
@@ -20,7 +30,7 @@ console.error('Extracting critical styles:')
 
 minimalcss
 	.minimize({
-		urls: [path.join('file://', process.cwd(), 'public', 'index.html')],
+		urls: ['http://localhost:8080/index.html'],
 		skippable: (request) => {
 			return !!request.url().match('fonts.googleapis.com')
 		},
@@ -34,6 +44,7 @@ minimalcss
 		},
 	})
 	.then(async ({ finalCss }) => {
+		server.close()
 		const indexFile = path.join(process.cwd(), 'public', `index.html`)
 		const index = fs.readFileSync(indexFile, 'utf-8')
 		const originalSize = fs.statSync(indexFile).size
