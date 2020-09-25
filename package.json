@@ -32,7 +32,7 @@
   "homepage": "https://github.com/distributeaid/refugees.care#readme",
   "dependencies": {
     "feather-icons": "4.28.0",
-    "snyk": "1.400.0"
+    "snyk": "1.401.0"
   },
   "snyk": true,
   "engines": {
