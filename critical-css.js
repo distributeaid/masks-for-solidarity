@@ -10,15 +10,17 @@ const fs = require('fs')
 const JSDOM = require('jsdom').JSDOM
 const crypto = require('crypto')
 const static = require('node-static')
+const http = require('http')
 
 const servePublic = new static.Server(path.join(process.cwd(), 'public'))
-const server = require('http')
+const port = 8666
+const server = http
 	.createServer((request, response) => {
 		request
 			.addListener('end', () => servePublic.serve(request, response))
 			.resume()
 	})
-	.listen(8080)
+	.listen(port)
 
 const id = () =>
 	crypto
@@ -30,7 +32,7 @@ console.error('Extracting critical styles:')
 
 minimalcss
 	.minimize({
-		urls: ['http://localhost:8080/index.html'],
+		url: `http://localhost:${port}/`,
 		skippable: (request) => {
 			return !!request.url().match('fonts.googleapis.com')
 		},
@@ -42,6 +44,7 @@ minimalcss
 		cssoOptions: {
 			comments: false,
 		},
+		disableJavaScript: true,
 	})
 	.then(async ({ finalCss }) => {
 		server.close()

@@ -60,11 +60,10 @@ export const Head = ({
 					`https://fonts.googleapis.com/css2?${googleFontsArgs}&display=swap`,
 				)}
 			</script>
-			<script type="text/javascript">
-				{loadAsync(
-					'https://necolas.github.io/normalize.css/8.0.1/normalize.css',
-				)}
-			</script>
+			<link
+				rel="stylesheet"
+				href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+			/>
 			<script
 				async
 				src="https://afarkas.github.io/lazysizes/lazysizes.min.js"
