@@ -126,3 +126,15 @@ patch:
         patched: '2020-09-14T22:09:42.801Z'
     - snyk > snyk-mvn-plugin > @snyk/cli-interface > @snyk/dep-graph > graphlib > lodash:
         patched: '2020-09-14T22:09:42.801Z'
+    - styled-components > @babel/traverse > lodash:
+        patched: '2020-09-26T22:09:42.179Z'
+    - styled-components > babel-plugin-styled-components > lodash:
+        patched: '2020-09-26T22:09:42.179Z'
+    - styled-components > @babel/traverse > @babel/generator > lodash:
+        patched: '2020-09-26T22:09:42.179Z'
+    - styled-components > babel-plugin-styled-components > @babel/helper-module-imports > @babel/types > lodash:
+        patched: '2020-09-26T22:09:42.179Z'
+    - styled-components > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2020-09-26T22:09:42.179Z'
+    - styled-components > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2020-09-26T22:09:42.179Z'
