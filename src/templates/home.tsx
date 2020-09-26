@@ -187,19 +187,21 @@ const HomeTemplate = (data: {
 								{renderHtmlAstToReact(donate.remark.htmlAst)}
 							</CenteredContent>
 							<PaddedContent>
-								<p>
-									<Link
-										button
-										href="https://donorbox.org/refugees-care"
-										target="_blank"
-										rel="nofollow noreferrer"
-									>
-										Donate now
-									</Link>
-									<Link button secondary href="#get-masks">
-										Request Masks
-									</Link>
-								</p>
+								<CenteredContent>
+									<p>
+										<Link
+											button
+											href="https://donorbox.org/refugees-care"
+											target="_blank"
+											rel="nofollow noreferrer"
+										>
+											Donate now
+										</Link>
+										<Link button secondary href="#get-masks">
+											Request Masks
+										</Link>
+									</p>
+								</CenteredContent>
 							</PaddedContent>
 							<CenteredContent>
 								<PlaceholderOffScreen>
