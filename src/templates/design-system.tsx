@@ -124,7 +124,6 @@ const Colors = styled.ul`
 `
 
 const Buttons = styled.div`
-	width: 100%;
 	&:first-child {
 		padding-top: 1rem;
 	}
