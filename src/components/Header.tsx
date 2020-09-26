@@ -38,10 +38,11 @@ const Image = styled.div`
 	background-position: 50% 50%;
 	background-size: cover;
 	background-color: #333;
-	width: 100%;
-	height: 100%;
+	width: 100vw;
+	height: 40vh;
 	@media (min-width: ${breakpoints.mediumPx}) {
-		width: 50%;
+		width: 50vw;
+		height: 100%;
 	}
 `
 
@@ -104,8 +105,13 @@ export const Header = ({
 			style={{ height: heroImage ? heroImage.containerHeight : 'auto' }}
 		>
 			{heroImage && (
-				<Image style={{ backgroundImage: `url(${heroImage.url})` }} />
+				<Image
+					style={{
+						backgroundImage: `url(${heroImage.url})`,
+					}}
+				/>
 			)}
+			{!heroImage && <Image />}
 			<Container>
 				<Section>
 					<Content>
