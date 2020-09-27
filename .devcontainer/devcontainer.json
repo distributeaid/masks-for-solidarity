@@ -12,10 +12,7 @@
     "graphql.vscode-graphql",
     "dbaeumer.vscode-eslint"
   ],
-  "forwardPorts": [8080],
-  "postCreateCommand": "npm ci",
-  "remoteUser": "node",
-  "runServices": [
-    "npx gatsby develop"
-  ]
+  "forwardPorts": [8000],
+  "postCreateCommand": ["npm ci", "npx gatsby develop"],
+  "remoteUser": "node"
 }
