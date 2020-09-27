@@ -9,9 +9,13 @@
   "extensions": [
     "esbenp.prettier-vscode",
     "jpoissonnier.vscode-styled-components",
-    "graphql.vscode-graphql"
+    "graphql.vscode-graphql",
+    "dbaeumer.vscode-eslint"
   ],
   "forwardPorts": [8080],
   "postCreateCommand": "npm ci",
-  "remoteUser": "node"
+  "remoteUser": "node",
+  "runServices": [
+    "npx gatsby develop"
+  ]
 }
