@@ -35,7 +35,7 @@
     "hast-to-hyperscript": "9.0.0",
     "polished": "4.0.1",
     "styled-components": "5.2.0",
-    "snyk": "1.404.0"
+    "snyk": "1.406.0"
   },
   "snyk": true,
   "engines": {
