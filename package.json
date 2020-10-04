@@ -33,7 +33,7 @@
   "dependencies": {
     "feather-icons": "4.28.0",
     "hast-to-hyperscript": "9.0.0",
-    "polished": "3.6.7",
+    "polished": "4.0.1",
     "styled-components": "5.2.0",
     "snyk": "1.404.0"
   },
