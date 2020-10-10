@@ -56,6 +56,10 @@ const StyledEmoji = styled(Emoji)`
 	}
 `
 
+const Status = styled.aside`
+	background-color: #fffaba;
+`
+
 export const query = graphql`
 	query HomeTemplateQuery {
 		site {
@@ -137,6 +141,7 @@ const HomeTemplate = (data: {
 		({ id, relativeDirectory }) =>
 			`${relativeDirectory}/` === 'organizations/' && id !== teamIntro?.id,
 	)
+	const status = findPageByRelativePath('home/status.md')
 
 	const getImage = (photoSanityId: string | null): GalleryImage => {
 		const i = data.data.allSanityGallery.nodes?.find(
@@ -154,6 +159,16 @@ const HomeTemplate = (data: {
 			/>
 			<Wrapper>
 				<Navigation siteMetaData={data.data.site.siteMetadata} />
+				<Status>
+					<Section>
+						<PaddedContent>
+							<h2>
+								<small>{status.remark.frontmatter.title}</small>
+							</h2>
+							{renderHtmlAstToReact(status.remark.htmlAst)}
+						</PaddedContent>
+					</Section>
+				</Status>
 				<Header
 					gallery={data.data.allSanityGallery.nodes}
 					content={headerContent}
